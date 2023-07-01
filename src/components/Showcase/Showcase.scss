@@ -1,0 +1,49 @@
+@import "../../css-config//mixins.scss";
+
+.showcase{
+    width: 100%;
+    margin-top: 20px;
+    .showcase_container{
+        max-width: 1300px;
+        margin: 0 auto;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: 10px;
+        padding: 20px;
+        .showcase_container_image{
+            width: calc(25% - 10px);
+            cursor: pointer;
+            overflow: hidden;
+            position: relative;
+            @include md{
+                width: calc(50% - 10px);
+                margin: auto;
+            }
+            .showcase_productName{
+                width: 50px;
+                position: absolute;
+                z-index: 99;
+                top: 0;
+                bottom: 0;
+                left: 0;
+                margin: auto;
+                 text-transform: uppercase;
+                 color: white;
+                 &:hover{
+                        scale: 1.1;
+                        transition: 0.8s;
+                 }
+            }
+            img{
+                 width: 100%;
+                 object-fit: cover;
+                 &:hover{
+                    scale: 1.4;
+                    transition: 0.8s;
+                 }
+            }
+        }
+    }
+}
+
