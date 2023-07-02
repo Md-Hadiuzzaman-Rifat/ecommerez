@@ -1,76 +1,66 @@
 @import "../../css-config/mixins.scss";
 
-.header{
+.header {
   width: 100%;
-  position: relative;
-.header_content{
-  background: #212121;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items:center;
-  max-width: 1300px;
-  margin: 0 auto;
-  padding: 0 40px;
-  height: 80px;
-  @include md{
-    height: 50px;
-    padding: 0 20px;
-  }
-
-  .header_link {
+  position: fixed;
+  top: 0;
+  z-index: 100;
+  
+  .header_content {
+    background: #212121;
     display: flex;
-    a {
-      text-decoration: none;
-      color: white;
-      padding: 0 25px;
-      font-weight: 600;
-
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1300px;
+    margin: 0 auto;
+    padding: 0 40px;
+    height: 80px;
+    @include md {
+      height: 50px;
+      padding: 0 20px;
     }
-  }
-  .header_name {
-    a {
-      color: white;
-      text-decoration: none;
-      font-weight: 600;
 
+    .header_link {
+
+      display: flex;
+      a {
+        text-decoration: none;
+        color: white;
+        padding: 0 25px;
+        font-weight: 600;
+      } 
+      @include md{
+        display: none;
+      }
     }
-  }
-  .header_shopping {
-    a {
-      color: white;
-      padding: 0 10px;
-      font-weight: 700;
-      font-size: 1.35rem;
-      position: relative;
-      &:last-child::after{
-        content:"";
-        width: 12px;
-        height:12px;
-        border-radius: 50%;
-        background-color: red;
-        position: absolute;
-        top: -2px;
-        right: 5px;
+    .header_name {
+      a {
+        color: white;
+        text-decoration: none;
+        font-weight: 600;
+      }
+    }
+    .header_shopping {
+      a {
+        color: white;
+        padding: 0 10px;
+        font-weight: 700;
+        font-size: 1.35rem;
+        position: relative;
+        &:last-child::after {
+          content: "";
+          width: 12px;
+          height: 12px;
+          border-radius: 50%;
+          background-color: red;
+          position: absolute;
+          top: -2px;
+          right: 5px;
+        }
       }
     }
   }
-  &.sticky_header {
-    background-color: #212121;
-    color: white;
-    position: sticky;
-    top: 0;
-    transform: translateY(-60px);
-    animation: StickyHeader 0.3s ease forwards;
-  }
-}
 }
 
-@keyframes StickyHeader {
-  0% {
-      transform: translateY(-60px);
-  }
-  100% {
-      transform: translateY(0);
-  }
-}
+
