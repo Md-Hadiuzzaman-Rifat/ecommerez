@@ -1,11 +1,22 @@
-import React from "react";
+import React, { useState } from "react";
 import "./Header.scss";
 import { Link } from "react-router-dom";
 import { BiSearch } from "react-icons/bi";
 import { AiOutlineShoppingCart } from "react-icons/ai";
 import { AiOutlineHeart } from "react-icons/ai";
+import SearchField from "../SearchField/SearchField";
+import Cart from "../Cart/Cart";
 
 const Header = () => {
+  const [search,setSearch]=useState(false)
+  const [cart,setCart]=useState(false)
+
+  const handleSearch=()=>{
+    setSearch((search)=>!search)
+  }
+  const handleCart=()=>{
+    setCart((cart)=>!cart)
+  }
 
   return (
     <div className="header">
@@ -27,17 +38,23 @@ const Header = () => {
           </h1>
         </div>
         <div className="header_shopping">
-          <Link to="#">
+          <div onClick={handleSearch}>
             <BiSearch></BiSearch>
-          </Link>
-          <Link to="#">
+          </div>
+          <div>
             <AiOutlineHeart></AiOutlineHeart>
-          </Link>
-          <Link to="#">
+          </div>
+          <div onClick={handleCart}>
             <AiOutlineShoppingCart></AiOutlineShoppingCart>
-          </Link>
+          </div>
         </div>
       </div>
+      {
+        search && <SearchField handleSearch={handleSearch}/>
+      }
+      {
+        cart && <Cart handleCart={handleCart}></Cart>
+      }
     </div>
   );
 };

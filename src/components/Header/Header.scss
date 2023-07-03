@@ -42,7 +42,10 @@
       }
     }
     .header_shopping {
-      a {
+      display: flex;
+      flex-direction: row;
+      div {
+        cursor:pointer;
         color: white;
         padding: 0 10px;
         font-weight: 700;
