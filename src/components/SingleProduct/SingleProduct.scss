@@ -1,0 +1,27 @@
+@import "../../css-config/mixins.scss";
+
+
+
+.product_view{
+    width: calc(20% - 40px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+    border-radius: 15px;
+    @include md{
+      width: calc(50% - 60px);
+    }
+    .product_img{
+      overflow: hidden;
+      img{
+        margin: 1rem 0;
+        width: 100%;
+        &:hover{
+          transform: scale(1.3);
+          transition: 0.5s;
+        }
+      }
+    }
+  }

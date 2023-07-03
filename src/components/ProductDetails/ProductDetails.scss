@@ -1,0 +1,47 @@
+@import "../../css-config/mixins.scss";
+
+.productDetails {
+
+  width: 100%;
+  margin: 80px 0;
+  padding: 0 40px;
+  @include md {
+    margin-top: 50px;
+    padding: 0 20px;
+  }
+  .productDetails_container {
+    max-width: 1300px;
+    margin: 0 auto;
+    .product_display{
+      margin: 100px 0;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      @include md{
+        flex-direction: column;
+      }
+      .display_image{
+        flex:1;
+        img{
+          width: 100%;
+          box-shadow: rgba(136, 165, 191, 0.48) 6px 2px 16px 0px, rgba(255, 255, 255, 0.8) -6px -2px 16px 0px;
+                }
+      }
+      .display_content{
+        flex: 1;
+        padding: 2rem;
+      }
+    }
+    .product_heading{
+        h2::after {
+            content: "";
+            display: block;
+            width: 50px;
+            height: 5px;
+            background-color: blueviolet;
+            border-radius: 5px;
+            margin-bottom: 50px;
+          }
+    }
+  }
+}
