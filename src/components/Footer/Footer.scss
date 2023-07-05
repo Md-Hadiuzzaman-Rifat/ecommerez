@@ -1,3 +1,47 @@
+@import "../../css-config/mixins.scss";
+
 .footer{
     width: 100%;
+    margin: 50px 0;
+    .footer_content{
+        max-width: 1300px;
+        margin: 0 auto;
+        padding: 0 40px;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        gap: 2rem;
+        @include md{
+            padding: 0 20px;
+            flex-direction: column;
+        }
+        div{
+            flex: 1;
+            span{
+                margin: 0 10px;
+            }
+        }
+        .footer_content_top{
+            display: flex;
+            color: gray;
+            line-height: 2rem;
+            flex-direction: row;
+            flex-wrap: wrap;
+            gap: 2rem;
+            @include md{
+                flex-direction: column;
+                
+            }
+        }
+        .footer_content_bottom{
+            color: gray;
+
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            gap: 2rem;
+        }
+    }
+
 } 

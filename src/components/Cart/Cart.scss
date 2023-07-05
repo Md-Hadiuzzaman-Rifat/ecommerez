@@ -1,0 +1,69 @@
+@import "../../css-config/mixins.scss";
+.cart {
+  width: 100%;
+  .container {
+    position: relative;
+    max-width: 1380px;
+    margin: 0 auto;
+    .cartContainer {
+      width: 100%;
+      height: 100vh;
+      background-color: rgba(0, 0, 0, 0.37);
+      .cartContainerSlider {
+        position: fixed;
+        top: 0;
+        right: 0;
+        background-color: white;
+        height: 100vh;
+        width: 25%;
+        animation-name: slideFromRight;
+        animation-duration: 0.7s;
+        animation-timing-function: ease;
+        @include md{
+            width: 100%;
+            height: 100vh;
+        }
+        .cart_header {
+          border-bottom: 3px solid rgba(128, 128, 128, 0.377);
+          display: flex;
+          flex-direction: row;
+          justify-content: space-between;
+          align-items: center;
+          flex-wrap: wrap;
+          .cart_close {
+            div {
+              cursor: pointer;
+              display: flex;
+              flex-direction: row;
+              gap: 0.5rem;
+              align-items: center;
+              flex-wrap: wrap;
+            }
+          }
+        }
+        .cart_body{
+          .cart_empty{
+            width: 100%;
+            height: 100vh;
+            display: flex;
+            flex-direction:column;
+            align-items: center;
+            justify-content: center;
+            div{
+              font-size: 10rem;
+              color: rgba(0, 0, 0, 0.267);
+            }
+          }
+        }
+      }
+    }
+  }
+}
+@keyframes slideFromRight {
+    from {
+      transform: translateX(100%);
+    }
+    to{
+      transform: translateX(0%);
+    }
+}
