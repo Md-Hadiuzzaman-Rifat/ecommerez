@@ -9,7 +9,7 @@ import Cart from "../Cart/Cart";
 
 const Header = () => {
   const [search,setSearch]=useState(false)
-  const [cart,setCart]=useState(true)
+  const [cart,setCart]=useState(false)
 
   const handleSearch=()=>{
     setSearch((search)=>!search)

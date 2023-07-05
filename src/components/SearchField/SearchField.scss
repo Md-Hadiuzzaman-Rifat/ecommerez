@@ -1,5 +1,5 @@
 @import "../../css-config/mixins.scss";
-
+ 
 .searchFiled{
     position: fixed;
     width: 100%;
@@ -12,7 +12,7 @@
     .searchFieldContainer{
         max-width: 1300px;
         padding: 0 40px;
-
+        margin: 0 auto;
         @include md{
             padding: 0 20px;
         }

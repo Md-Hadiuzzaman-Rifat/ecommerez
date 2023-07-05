@@ -1,7 +1,7 @@
 import React from 'react';
 import "./SearchField.scss";
 import { RxCross1 } from "react-icons/rx";
-
+import FilteredProducts from '../FilterProduct/FilteredProducts';
 const SearchField = ({handleSearch}) => {
     return (
         <div className="searchFiled">
@@ -11,8 +11,9 @@ const SearchField = ({handleSearch}) => {
                     <span onClick={()=>handleSearch()}><RxCross1/></span>
                 </div>
             </div>
+            <FilteredProducts></FilteredProducts>
         </div>
     );
 };
 
-export default SearchField;
+export default SearchField; 

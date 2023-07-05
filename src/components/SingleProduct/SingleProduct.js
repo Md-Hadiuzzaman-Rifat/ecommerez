@@ -1,5 +1,6 @@
 import React from 'react';
 import "./SingleProduct.scss"
+import FilteredProducts from '../FilterProduct/FilteredProducts';
 const SingleProduct = () => {
     return (
         <div className="product_view">
@@ -13,6 +14,7 @@ const SingleProduct = () => {
           <h3>$500</h3>
           <p>Pixel 7 pro</p>
         </div>
+        <FilteredProducts></FilteredProducts>
       </div>
     );
 };
