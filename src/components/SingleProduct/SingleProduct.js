@@ -14,7 +14,7 @@ const SingleProduct = () => {
           <h3>$500</h3>
           <p>Pixel 7 pro</p>
         </div>
-        <FilteredProducts></FilteredProducts>
+        {/* <FilteredProducts></FilteredProducts> */}
       </div>
     );
 };

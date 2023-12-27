@@ -36,11 +36,13 @@
         }
         .footer_content_bottom{
             color: gray;
-
             display: flex;
             flex-direction: row;
             flex-wrap: wrap;
             gap: 2rem;
+            p{
+                cursor: pointer;
+            }
         }
     }
 

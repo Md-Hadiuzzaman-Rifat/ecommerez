@@ -53,12 +53,12 @@
         position: relative;
         &:last-child::after {
           content: "";
-          width: 14px;
-          height: 14px;
+          width: 12px;
+          height: 12px;
           border-radius: 50%;
-          background-color: blueviolet;
+          background-color: rgb(43, 86, 226);
           position: absolute;
-          top: -5px;
+          top: -3px;
           right: 5px;
         }
       }

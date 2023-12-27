@@ -22,19 +22,19 @@ const Footer = () => {
             <span>
               <BiSolidNavigation />
             </span>
-            <span>Lorem ipsum dolor sit amet.</span>
+            <span>Mirpur-12, Dhaka</span>
           </p>
           <p>
             <span>
               <GiSmartphone />
             </span>
-            <span>Lorem ipsum dolor sit amet.</span>
+            <span>+880-1910803372</span>
           </p>
           <p>
             <span>
               <MdEmail />
             </span>
-            <span>Lorem ipsum dolor sit amet.</span>
+            <span>hadirift100@gmail.com</span>
           </p>
          
         </div>
@@ -42,12 +42,12 @@ const Footer = () => {
         <div className="footer_content_bottom">
         <div>
           <h3>Categories</h3>
-          <p>Lorem.</p>
-          <p>Lorem.</p>
-          <p>Lorem.</p>
-          <p>Lorem.</p>
-          <p>Lorem.</p>
-          <p>Lorem.</p>
+          <p> <span>&gt;</span> Smart Phone</p>
+          <p><span>&gt;</span> Headset</p>
+          <p><span>&gt;</span> Airbuds</p>
+          <p><span>&gt;</span> Charger</p>
+          <p><span>&gt;</span> Accessories</p>
+          <p><span>&gt;</span> Laptop</p>
         </div>
         <div>
           <h3>Pages</h3>
