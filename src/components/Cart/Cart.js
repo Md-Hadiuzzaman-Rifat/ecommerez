@@ -12,7 +12,7 @@ const Cart = ({ handleCart }) => {
           <div className="cartContainerSlider">
             <div className="cart_header">
               <h3>SHOPPING CART</h3>
-              <div className="cart_close">
+              <div className="cart_close"> 
                 <div onClick={handleCart}>
                   <RxCross1 />
                   <p>close</p>
