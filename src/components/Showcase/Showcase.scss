@@ -16,6 +16,9 @@
             cursor: pointer;
             overflow: hidden;
             position: relative;
+            img{
+                height: 150px;
+            }
             @include md{
                 width: calc(50% - 10px);
                 margin: auto;
