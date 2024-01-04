@@ -6,11 +6,12 @@ const arr = [1, 1, 1, 1, 1, 1];
 
 const DiscountSell = () => {
   return (
-    <div className="DiscountSell">
+    <div className="discountSell">
       <div className="container">
-        <div>
+        <h2>Discount Product</h2>
+        <div className="discount_product">
           {arr.map((item) => (
-            <SingleProduct key={item.keys}></SingleProduct>
+            <SingleProduct className="discount_product_item" key={item.keys}></SingleProduct>
           ))}
         </div>
       </div>

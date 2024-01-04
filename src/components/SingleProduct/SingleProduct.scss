@@ -1,17 +1,15 @@
 @import "../../css-config/mixins.scss";
 
-
-
 .product_view{
-    width: calc(20% - 40px);
+    width: calc(20% - 20px);
     display: flex;
-    justify-content: center;
     align-items: center;
     flex-wrap: wrap;
     box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
     border-radius: 15px;
+
     @include md{
-      width: calc(50% - 60px);
+      width: calc(50% - 20px);
     }
     .product_img{
       overflow: hidden;

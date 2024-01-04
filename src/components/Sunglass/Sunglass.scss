@@ -1,0 +1,17 @@
+.sunglass{
+    width: 100%;
+    .container{
+        max-width: 1300px;
+        margin: 0 auto;
+        .sunglass_cover{
+            background-image: url('https://rainbowoptx.com/cdn/shop/files/homepage_banner_fall_2023_desktop_1800x1000.jpg?v=1697759995');
+            height: 70vh;
+            width: 100%;
+            background-size: cover;
+            background-position: top;
+            clip-path: polygon(0 10%, 100% 10%, 83% 100%, 0 100%);
+            
+
+        }
+    }
+}

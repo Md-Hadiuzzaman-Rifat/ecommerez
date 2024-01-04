@@ -1,9 +1,14 @@
 import React from 'react';
+import "./Women.scss"
 
 const Women = () => {
     return (
         <div>
-            <h2>This is women.</h2>
+            <div className="women">
+                <div className="container">
+                    
+                </div>
+            </div>
         </div>
     );
 };

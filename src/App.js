@@ -12,9 +12,9 @@ import Admin from "./AdminPannel/pages/Admin/Admin";
 import AdminLogin from "./AdminPannel/pages/AdminLogin/AdminLogin";
 import Product from "./AdminPannel/pages/Product/Product";
 import Mans from "./components/Mans/Mans";
-import Weman from "./components/Weman/Weman";
+import Woman from "./components/Women/Women";
 import Sunglass from "./components/Sunglass/Sunglass";
-import Women from "./components/Women/Women";
+
 
 function App() {
   return (
@@ -37,7 +37,7 @@ function App() {
             <Route path="/productDetails" element={<ProductDetails />}></Route>
             <Route path="/mans" element={<Mans/>}></Route>
             <Route path="/sunglass" element={<Sunglass/>}></Route>
-            <Route path="/women" element={<Women/>}></Route>
+            <Route path="/women" element={<Woman/>}></Route>
           </Routes>
         </AuthProvider>
       </BrowserRouter>
