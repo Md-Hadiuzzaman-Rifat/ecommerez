@@ -11,6 +11,10 @@ import { AuthProvider } from "./context/AuthContext";
 import Admin from "./AdminPannel/pages/Admin/Admin";
 import AdminLogin from "./AdminPannel/pages/AdminLogin/AdminLogin";
 import Product from "./AdminPannel/pages/Product/Product";
+import Mans from "./components/Mans/Mans";
+import Weman from "./components/Weman/Weman";
+import Sunglass from "./components/Sunglass/Sunglass";
+import Women from "./components/Women/Women";
 
 function App() {
   return (
@@ -31,6 +35,9 @@ function App() {
             <Route path="/home" element={<Home />}></Route>
             <Route path="/singleProduct" element={<SingleProduct />}></Route>
             <Route path="/productDetails" element={<ProductDetails />}></Route>
+            <Route path="/mans" element={<Mans/>}></Route>
+            <Route path="/sunglass" element={<Sunglass/>}></Route>
+            <Route path="/women" element={<Women/>}></Route>
           </Routes>
         </AuthProvider>
       </BrowserRouter>

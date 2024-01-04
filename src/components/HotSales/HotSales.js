@@ -5,7 +5,7 @@ const HotSales = () => {
     return (
         <div class="product-card">
         <div class="product-image">
-            <img src="product-image.jpg" alt="Product Image" />
+            <img src="https://www.shopz.com.bd/wp-content/uploads/2021/03/Xiaomi-Mi-Polarized-Navigator-Sunglasses.jpg" alt="Product Image" />
         </div>
         <div class="product-info">
             <h3>Product Name</h3>

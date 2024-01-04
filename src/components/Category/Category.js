@@ -1,16 +1,16 @@
 import React from "react";
-import "./Category.scss"
-const arr = [1, 1, 1, 1, 1, 1, 1, 1, 1, 1];
+import "./Category.scss";
+const arr = [1, 1, 1, 1, 1, 1];
 const product = {
-  img: "https://webobjects2.cdw.com/is/image/CDW/7202956?$product-main$",
+  img: "https://s3.ap-south-1.amazonaws.com/new.mm.catalog/category/578ffae3-b725-4715-bbef-57437ae51fd8.webp",
   price: " $500",
-  name: "Pixel 7 pro",
+  name: "Zeiss",
 };
 
 const Category = () => {
   return (
-    <div className="container">
-      <div className="category">
+    <div className="category">
+      <div className="container">
         <div className="category_heading">
           <h2>Product List: </h2>
         </div>

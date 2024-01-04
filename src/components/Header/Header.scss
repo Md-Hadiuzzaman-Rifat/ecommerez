@@ -3,22 +3,28 @@
 .header {
   width: 100%;
   z-index: 100;
-  
-  .header_content {
+  position: relative;
 
-    background: #212121;
+  .header_content{
+    display: block;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    max-width: 1300px;
-    margin: 0 auto;
-    padding: 0 40px;
     height: 80px;
     @include md {
       height: 50px;
       padding: 0 20px;
     }
+  }
+  
+  .header_container {
+    width: 100%;
+    background: #212121;
+    max-width: 1300px;
+    margin: 0 auto;
+    padding: 0 40px;
+
 
     .header_link {
 

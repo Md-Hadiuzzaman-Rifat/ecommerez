@@ -20,6 +20,7 @@ const Header = () => {
 
   return (
     <div className="header">
+      <div className="header_container">
       <div className="header_content">
         <div className="header_link">
           <div>
@@ -49,12 +50,14 @@ const Header = () => {
           </div>
         </div>
       </div>
+      </div>
       {
         search && <SearchField handleSearch={handleSearch}/>
       }
       {
         cart && <Cart handleCart={handleCart}></Cart>
       }
+      
     </div>
   );
 };
