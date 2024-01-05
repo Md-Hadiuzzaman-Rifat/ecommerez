@@ -1,10 +1,14 @@
-.mans{
-    width: 100%;
+.mans {
+  width: 100%;
+
+  .mans_banner {
     height: 50vh;
-    background-image: url('https://as2.ftcdn.net/v2/jpg/05/82/61/01/1000_F_582610132_9i6bIKDub566aZCILICTc6hY37Y5MWPG.jpg');
+    background-image: url("https://as2.ftcdn.net/v2/jpg/05/82/61/01/1000_F_582610132_9i6bIKDub566aZCILICTc6hY37Y5MWPG.jpg");
     background-position: center;
     background-size: cover;
-    .container{
-        
-    }
+  }
+  .mans_container{
+    max-width: 1300px;
+    margin: 0 auto;
+  }
 }

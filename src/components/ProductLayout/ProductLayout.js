@@ -1,7 +1,7 @@
 import React from "react";
 import "./ProductLayout.scss";
 import Product from "../Product/Product";
-const arr = [1, 1, 1, 1, 1, 1];
+let arr=[1,1,1,1,1,1,1,1,1,1,1,1,1,1,1]
 
 const ProductLayout = () => {
   return (
