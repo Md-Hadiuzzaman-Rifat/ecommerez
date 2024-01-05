@@ -1,17 +1,16 @@
 import React from "react";
-import "./Category.scss";
+import "./ProductLayout.scss";
 import Product from "../Product/Product";
 const arr = [1, 1, 1, 1, 1, 1];
 
-
-const Category = () => {
+const ProductLayout = () => {
   return (
-    <div className="category">
+    <div className="productLayout">
       <div className="container">
-        <div className="category_heading">
+        <div className="productLayout_heading">
           <h2>Product List: </h2>
         </div>
-        <div className="category_product">
+        <div className="productLayout_product">
           {arr.map(() => (
             <Product/>
           ))}
@@ -21,4 +20,4 @@ const Category = () => {
   );
 };
 
-export default Category;
+export default ProductLayout;
