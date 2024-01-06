@@ -12,8 +12,8 @@ const Category = () => {
           <h2>Product List: </h2>
         </div>
         <div className="category_product">
-          {arr.map(() => (
-            <Product/>
+          {arr.map(item => (
+            <Product key={item.keys}/>
           ))}
         </div>
       </div>

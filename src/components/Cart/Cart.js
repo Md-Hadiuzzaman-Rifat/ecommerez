@@ -4,6 +4,7 @@ import "./Cart.scss";
 import { MdOutlineShoppingCart } from "react-icons/md";
 import Button from "../Button/Button";
 import CartProduct from "../CartProduct/CartProduct";
+
 const Cart = ({ handleCart }) => {
   return (
     <div className="cart"> 

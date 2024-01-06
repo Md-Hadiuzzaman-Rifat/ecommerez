@@ -11,8 +11,8 @@ const ProductLayout = () => {
           <h2>Product List: </h2>
         </div>
         <div className="productLayout_product">
-          {arr.map(() => (
-            <Product/>
+          {arr.map(item => (
+            <Product key={item.keys}/>
           ))}
         </div>
       </div>

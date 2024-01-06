@@ -39,7 +39,6 @@ function App() {
             <Route path="/sunglass" element={<Sunglass/>}></Route>
             <Route path="/women" element={<Woman/>}></Route>
             <Route path="/accessories" element={<Accessories/>}></Route>
-            <Route path="/accessories" element={<Accessories/>}></Route>
             <Route path="/products" element={<ProductLayout/>}></Route>
           </Routes>
         </AuthProvider>
