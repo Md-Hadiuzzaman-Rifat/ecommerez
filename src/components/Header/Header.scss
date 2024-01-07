@@ -18,6 +18,7 @@
     @include md {
       height: 50px;
       padding: 0 20px;
+      padding-left: 0;
     }
   }
    
@@ -29,6 +30,9 @@
     max-width: 1300px;
     margin: 0 auto;
     padding: 0 40px;
+    @include sm{
+      padding: 0 10px;
+    }
    
     .header_link {
 
@@ -39,7 +43,7 @@
         padding: 0 25px;
         font-weight: 600;
       } 
-      @include md{
+      @include sm{
         display: none;
       }
     }
@@ -49,10 +53,17 @@
         text-decoration: none;
         font-weight: 600;
       }
+      
     }
     .header_shopping {
       display: flex;
       flex-direction: row;
+      span{
+        color: white;
+        font-weight: bold;
+        margin: 0 5px;
+        cursor: pointer;
+      }
       div {
         cursor:pointer;
         color: white;
@@ -69,6 +80,15 @@
           position: absolute;
           top: -3px;
           right: 5px;
+        }
+      }
+      .bar{
+        cursor: auto;
+        margin-left: 5px;
+      }
+      .register{
+        @include sm{
+          display: none;
         }
       }
     }
