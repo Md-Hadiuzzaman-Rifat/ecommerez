@@ -15,33 +15,40 @@ import Woman from "./components/Women/Women";
 import Sunglass from "./components/Sunglass/Sunglass";
 import Accessories from "./components/accessories/Accessories";
 import ProductLayout from "./components/ProductLayout/ProductLayout";
+import { store } from "./app/store";
+import { Provider } from "react-redux";
 
 function App() {
   return (
     <div className="App">
       <BrowserRouter>
-        <AuthProvider>
-          <Header></Header>
-          <Routes>
-            <Route path="/" element={<Home />}></Route>
-            <Route path="/admin" element={<Admin />}></Route>
-            <Route path="/adminLogin" element={<AdminLogin/>}></Route>
-            <Route path="/product" element={<Product/>} ></Route>
-            {/* <Route path="/product" element={<Product/>} ></Route> */}
-            {/* // user page  */}
-            <Route path="/login" element={<Login />}></Route>
-            <Route path="/register" element={<Register />}></Route>
-            
-            <Route path="/home" element={<Home />}></Route>
-            <Route path="/singleProduct" element={<SingleProduct />}></Route>
-            <Route path="/productDetails" element={<ProductDetails />}></Route>
-            <Route path="/mans" element={<Mans/>}></Route>
-            <Route path="/sunglass" element={<Sunglass/>}></Route>
-            <Route path="/women" element={<Woman/>}></Route>
-            <Route path="/accessories" element={<Accessories/>}></Route>
-            <Route path="/products" element={<ProductLayout/>}></Route>
-          </Routes>
-        </AuthProvider>
+        <Provider store={store}>
+          <AuthProvider>
+            <Header></Header>
+            <Routes>
+              <Route path="/" element={<Home />}></Route>
+              <Route path="/admin" element={<Admin />}></Route>
+              <Route path="/adminLogin" element={<AdminLogin />}></Route>
+              <Route path="/product" element={<Product />}></Route>
+              {/* <Route path="/product" element={<Product/>} ></Route> */}
+              {/* // user page  */}
+              <Route path="/login" element={<Login />}></Route>
+              <Route path="/register" element={<Register />}></Route>
+
+              <Route path="/home" element={<Home />}></Route>
+              <Route path="/singleProduct" element={<SingleProduct />}></Route>
+              <Route
+                path="/productDetails"
+                element={<ProductDetails />}
+              ></Route>
+              <Route path="/mans" element={<Mans />}></Route>
+              <Route path="/sunglass" element={<Sunglass />}></Route>
+              <Route path="/women" element={<Woman />}></Route>
+              <Route path="/accessories" element={<Accessories />}></Route>
+              <Route path="/products" element={<ProductLayout />}></Route>
+            </Routes>
+          </AuthProvider>
+        </Provider>
       </BrowserRouter>
     </div>
   );
