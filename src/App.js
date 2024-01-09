@@ -15,6 +15,7 @@ import Woman from "./components/Women/Women";
 import Sunglass from "./components/Sunglass/Sunglass";
 import Accessories from "./components/accessories/Accessories";
 import ProductLayout from "./components/ProductLayout/ProductLayout";
+import CheckoutPage from "./components/CheckoutPage/CheckoutPage";
 
 function App() {
   return (
@@ -39,6 +40,7 @@ function App() {
             <Route path="/sunglass" element={<Sunglass/>}></Route>
             <Route path="/women" element={<Woman/>}></Route>
             <Route path="/accessories" element={<Accessories/>}></Route>
+            <Route path="/checkout" element={<CheckoutPage/>}></Route>
             <Route path="/products" element={<ProductLayout/>}></Route>
           </Routes>
         </AuthProvider>
