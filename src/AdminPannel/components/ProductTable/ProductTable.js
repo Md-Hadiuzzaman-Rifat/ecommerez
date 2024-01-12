@@ -1,10 +1,11 @@
 import React from "react";
 import { ImBin } from "react-icons/im";
 import { FiEdit } from "react-icons/fi";
+import "./ProductTable.scss"
 
 const ProductTable = () => {
   return (
-    <div>
+    <div className="productTable">
       <table>
         <thead>
           <tr>

@@ -1,8 +1,6 @@
 $border-color: #ddd;
 .productForm{
     $primary-color: #220aff;
-
-
     .container {
         max-width: 600px;
         margin: 30px auto;
@@ -27,9 +25,10 @@ $border-color: #ddd;
     
     label {
         display: block;
-        margin-top: 10px;
+        margin-top: 15px;
+        margin-bottom: 5px;
     }
-    
+ 
     input[type="text"],
     textarea,
     input[type="number"] {
@@ -37,6 +36,8 @@ $border-color: #ddd;
         padding: 8px;
         border: 1px solid #ddd;
         box-sizing: border-box;
+        border-radius: 5px;
+        font-size: 1.15rem;
     }
     
     input[type="file"] {

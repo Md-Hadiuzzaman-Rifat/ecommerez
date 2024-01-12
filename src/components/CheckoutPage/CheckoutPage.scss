@@ -1,14 +1,29 @@
+@import "../../css-config/mixins.scss";
+
 .checkoutPage{
-    .container {
-        max-width: 600px;
-        margin: 30px auto;
-        padding: 20px;
-        background-color: #f9f9f9;
-        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-       }
-       
-       h1 {
-        font-size: 28px;
-        margin-bottom: 20px;
-       }
+    width: 100%;
+    .container{
+        max-width: 1300px;
+        margin: 0 auto;
+        display: flex;
+        flex-direction: row;
+        gap: 1rem;
+        justify-content: space-around;
+        .checkoutCart {
+            max-width: 600px;
+            
+            padding: 20px;
+            background-color: #f9f9f9;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+           }
+           
+           h1 {
+            font-size: 28px;
+            margin-bottom: 20px;
+           }
+           @include lg{
+            flex-direction: column-reverse;
+            align-items: center;
+           }
+    }
 }

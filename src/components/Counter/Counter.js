@@ -3,7 +3,6 @@ import "./Counter.scss"
 
 const Counter = () => {
     return (
-        <div>
             <div className="counter">
                 <div className="counterContainer">
                     <span>+</span>
@@ -11,7 +10,6 @@ const Counter = () => {
                     <span>-</span>
                 </div>
             </div>
-        </div>
     );
 };
 

@@ -1,0 +1,27 @@
+@import "../../../css-config/mixins";
+$border-color: #ddd;
+.productTable{
+    margin: 30px 20px;
+    table {
+        border-collapse: collapse;
+        width: 100%;
+       }
+       th, td {
+        border: 1px solid $border-color;
+        padding: 8px;
+        text-align: left;
+        .table-img{
+            width: 70px;
+            @include sm{
+                width: 50px;
+            }
+        }
+       }
+       
+       th {
+        background-color: #f2f2f2;
+       }
+       @include sm{
+            margin: 20px 0;
+       }
+}
