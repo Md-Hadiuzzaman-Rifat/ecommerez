@@ -1,0 +1,12 @@
+@import "../../css-config/mixins";
+.tags{
+    margin-top: 100px;
+    margin-bottom: 10px;
+
+    display: flex;
+    gap: 3px;
+    flex-direction: row;
+    @include md{
+        margin-top: 60px;
+    }
+}

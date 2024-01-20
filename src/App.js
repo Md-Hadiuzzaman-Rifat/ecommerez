@@ -16,6 +16,8 @@ import Sunglass from "./components/Sunglass/Sunglass";
 import Accessories from "./components/accessories/Accessories";
 import ProductLayout from "./components/ProductLayout/ProductLayout";
 import CheckoutPage from "./components/CheckoutPage/CheckoutPage";
+import Exp from "./components/Exp/Exp";
+import EditProduct from "./components/EditProduct/EditProduct";
 
 function App() {
   return (
@@ -41,6 +43,8 @@ function App() {
             <Route path="/accessories" element={<Accessories/>}></Route>
             <Route path="/checkout" element={<CheckoutPage/>}></Route>
             <Route path="/products" element={<ProductLayout/>}></Route>
+            <Route path="/exp" element={<Exp/>}></Route>
+            <Route path="/edit" element={<EditProduct/>}></Route>
           </Routes>
         </AuthProvider>
       </BrowserRouter>

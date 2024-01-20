@@ -1,22 +1,24 @@
 import React from 'react';
 import "./Product.scss"
+import { Link } from 'react-router-dom';
 
-const Product = () => {
-    const product = {
-        img: "https://s3.ap-south-1.amazonaws.com/new.mm.catalog/category/578ffae3-b725-4715-bbef-57437ae51fd8.webp",
-        price: " $500",
-        name: "Zeiss",
-      };
-      
+const Product = ({product}) => {
+  let {name}=product
+  if (name?.length > 25) {
+    name = name.substring(0, 34) + "...";
+  }
+
     return (
             <div className="category_product_content">
+              <Link to="/productDetails">
               <div className="product_img">
-                <img src={product.img} alt="product" />
+                <img src={product.image} alt="product" />
               </div>
               <div className="product_description">
                 <h3>{product.price}</h3>
-                <p>{product.name}</p>
+                <p>{name}</p>
               </div>
+              </Link>
             </div>
     );
 };

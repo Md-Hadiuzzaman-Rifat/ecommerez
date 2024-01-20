@@ -5,7 +5,7 @@ $border-color: #ddd;
     table {
         border-collapse: collapse;
         width: 100%;
-       }
+       
        th, td {
         border: 1px solid $border-color;
         padding: 8px;
@@ -16,6 +16,10 @@ $border-color: #ddd;
                 width: 50px;
             }
         }
+        span{
+            margin: 0;
+           cursor: pointer; 
+        }
        }
        
        th {
@@ -24,4 +28,5 @@ $border-color: #ddd;
        @include sm{
             margin: 20px 0;
        }
+    }
 }

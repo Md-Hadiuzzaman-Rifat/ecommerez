@@ -1,0 +1,35 @@
+.alert{
+  width: 80%;
+  height: 40%;
+  background-color: #c7e1ff;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  
+  .alert-container{
+    font-weight: bold;
+    color: #0014cc;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    padding: 10px;
+    .alert-btn{
+      button{
+        border: none;
+        margin-right: 20px;
+        padding: 0.5rem 2rem;
+        border-radius: 5px;
+        color:white;
+        font-weight: bold;
+        cursor: pointer;
+        background-color: orange;
+      }
+      .alert-success{
+        background-color: green;
+      }
+    }
+  }
+}

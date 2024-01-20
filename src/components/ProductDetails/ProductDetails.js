@@ -5,12 +5,15 @@ import "./ProductDetails.scss";
 import Button from "../Button/Button";
 import { HiShoppingCart } from "react-icons/hi";
 import { BsTwitter, BsFacebook, BsInstagram, BsPinterest } from "react-icons/bs";
+import Tags from "../Tags/Tags";
 
 const ProductDetails = () => {
   return (
     <div className="productDetails">
       <div className="productDetails_container">
+      <Tags></Tags>
         <div className="product_display">
+        
           <div className="display_image">
             <img
               src="https://webobjects2.cdw.com/is/image/CDW/7202956?$product-main$"

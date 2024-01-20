@@ -16,6 +16,8 @@ $border-color: #ddd;
         font-weight: 600;
         cursor: pointer;
         border-radius: 5px;
+        margin-top:20px ;
+        display: block;
     }
     
     h1 {
@@ -27,6 +29,20 @@ $border-color: #ddd;
         display: block;
         margin-top: 15px;
         margin-bottom: 5px;
+        span{
+            color: red
+        };
+    }
+    select{
+        padding: 8px 3rem;
+        font-weight: bold;
+        border: none;
+        background-color: #e2e2e2;
+        border-radius: 0;
+
+    }
+    .gender{
+        margin-top: 20px;
     }
  
     input[type="text"],
@@ -42,6 +58,11 @@ $border-color: #ddd;
     
     input[type="file"] {
         margin-top: 10px;
+    }
+    .gender-checkbox{
+        display: flex;
+        flex-direction: row;
+        gap: 3rem;
     }
 
 }

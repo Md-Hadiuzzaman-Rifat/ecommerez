@@ -1,9 +1,12 @@
 import React from "react";
-import { ImBin } from "react-icons/im";
-import { FiEdit } from "react-icons/fi";
-import "./ProductTable.scss"
+
+import "./ProductTable.scss";
+import { useGetProductsQuery } from "../../../features/product/productApi";
+import TableBody from "../TableBody/TableBody";
 
 const ProductTable = () => {
+  const {data}=useGetProductsQuery()
+  console.log(data);
   return (
     <div className="productTable">
       <table>
@@ -17,27 +20,9 @@ const ProductTable = () => {
             <th>Action</th>
           </tr>
         </thead>
+        {/* // table body  */}
         <tbody>
-          <tr>
-            <td>Leica</td>
-            <td>Lense</td>
-            <td>2000</td>
-            <td>20%</td>
-            <td>
-              <img
-                className="table-img"
-                src="https://mykitamedia.com/media/image/2020/11/02_mykita_leica_optical_ml07_landscape.jpg"
-                alt=""
-              />
-              <img
-                className="table-img"
-                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSrOJSc2-5DkX1JScbalvUwegBOVqG3oBXU5q-_BKIlIA&s"
-                alt=""
-              />
-              
-            </td>
-            <td><ImBin/> <FiEdit /></td>
-          </tr>
+          <TableBody></TableBody>
         </tbody>
       </table>
     </div>
