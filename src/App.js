@@ -36,7 +36,7 @@ function App() {
             <Route path="/register" element={<Register />}></Route>
             <Route path="/home" element={<Home />}></Route>
             <Route path="/singleProduct" element={<SingleProduct />}></Route>
-            <Route path="/productDetails" element={<ProductDetails />}></Route>
+            <Route path="/productDetails/:productId" element={<ProductDetails />}></Route>
             <Route path="/mans" element={<Mans/>}></Route>
             <Route path="/sunglass" element={<Sunglass/>}></Route>
             <Route path="/women" element={<Woman/>}></Route>
@@ -44,7 +44,7 @@ function App() {
             <Route path="/checkout" element={<CheckoutPage/>}></Route>
             <Route path="/products" element={<ProductLayout/>}></Route>
             <Route path="/exp" element={<Exp/>}></Route>
-            <Route path="/edit" element={<EditProduct/>}></Route>
+            <Route path={`/edit/:productId`} element={<EditProduct/>}></Route>
           </Routes>
         </AuthProvider>
       </BrowserRouter>

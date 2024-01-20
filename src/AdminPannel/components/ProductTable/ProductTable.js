@@ -5,26 +5,31 @@ import { useGetProductsQuery } from "../../../features/product/productApi";
 import TableBody from "../TableBody/TableBody";
 
 const ProductTable = () => {
-  const {data}=useGetProductsQuery()
-  console.log(data);
+  const { data, isLoading } = useGetProductsQuery();
+
   return (
     <div className="productTable">
-      <table>
-        <thead>
-          <tr>
-            <th>Name</th>
-            <th>Category</th>
-            <th>Price</th>
-            <th>Discount</th>
-            <th>Image</th>
-            <th>Action</th>
-          </tr>
-        </thead>
-        {/* // table body  */}
-        <tbody>
-          <TableBody></TableBody>
-        </tbody>
-      </table>
+      {isLoading && "Loading..."}
+      {!isLoading && (
+        <table>
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Category</th>
+              <th>Price</th>
+              <th>Discount</th>
+              <th>Image</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          {/* // table body  */}
+          <tbody>
+            {
+              data.map(row=><TableBody data={row} key={row._id}/>)
+            }
+          </tbody>
+        </table>
+      )}
     </div>
   );
 };

@@ -1,91 +1,67 @@
 import React from "react";
 import { useState } from "react";
-import "./ProductForm.scss";
+// import "./ProductForm.scss";
 import { useAddProductMutation } from "../../../features/product/productApi";
 
-const ProductForm = () => {
-  const [name, setName] = useState("");
-  const [gender, setGender] = useState("male");
-  const [description, setDescription] = useState("");
-  const [price, setPrice] = useState("");
-  const [discount, setDiscount] = useState("");
-  const [tags, setTags] = useState("");
-  const [image, setImage] = useState("");
-  const [category, setCategory] = useState("sunglass");
+const EditForm = ({editData}) => {
+  const {name:editName, gender:editGender, category:editCategory, description:editDescription, discount:editDiscount, image:editImage, price:editPrice, tags:editTags}=editData || {}
+
+
+  const [name, setName] = useState(editName);
+  const [gender, setGender] = useState(editGender);
+  const [description, setDescription] = useState(editDescription);
+  const [price, setPrice] = useState(editPrice);
+  const [discount, setDiscount] = useState(editDiscount);
+  const [tags, setTags] = useState(editTags);
+  const [image, setImage] = useState(editImage);
+  const [category, setCategory] = useState(editCategory);
 
   const [addProduct, { data, isError, isLoading, isSuccess }] =
     useAddProductMutation();
 
-  const clearInput = () => {
-    setName("");
-    setGender("male");
-    setDescription("");
-    setPrice("");
-    setDiscount("");
-    setTags("");
-    setImage("");
-    setCategory("sunglass");
-  };
-
-  // upload product post method
-  // const handleSubmit = async (e) => {
-  //   e.preventDefault();
-  //   try {
-  //     const response = await fetch(`http://localhost:2020/uploadProduct`, {
-  //       method: "POST",
-  //       headers: {
-  //         "Content-Type": "application/json",
-  //       },
-  //       body: JSON.stringify({
-  //         name,
-  //         category,
-  //         description,
-  //         tags,
-  //         price,
-  //         discount,
-  //         gender,
-  //         image,
-  //       }),
-  //     });
-  //     if(response?.status == 200){
-  //       clearInput()
-  //       alert("Product Added successfully.")
-  //     }
-  //   } catch (err) {
-  //     alert("Failed to upload")
-  //   }
+  // const clearInput = () => {
+  //   setName("");
+  //   setGender("male");
+  //   setDescription("");
+  //   setPrice("");
+  //   setDiscount("");
+  //   setTags("");
+  //   setImage("");
+  //   setCategory("sunglass");
   // };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    const response = addProduct({
-      name,
-      category,
-      description,
-      tags,
-      price,
-      discount,
-      gender,
-      image,
-    });
-    console.log(response);
-    response
-      .then(()=>{
-        alert("Product added successfully.")
-      })
-      .catch(()=>{
-        alert("Failed to upload product.")
-      })
-  };
+
+  // const handleSubmit = (e) => {
+  //   e.preventDefault();
+  //   const response = addProduct({
+  //     name,
+  //     category,
+  //     description,
+  //     tags,
+  //     price,
+  //     discount,
+  //     gender,
+  //     image,
+  //   });
+  //   console.log(response);
+  //   response
+  //     .then(()=>{
+  //       alert("Product added successfully.")
+  //     })
+  //     .catch(()=>{
+  //       alert("Failed to upload product.")
+  //     })
+  // };
 
   return (
     <div className="productForm">
-      <form onSubmit={handleSubmit}>
+      <form >
         <label htmlFor="product-name">Product Name:</label>
         <input
           type="text"
           id="product-name"
           name="product-name"
+          value={editName}
           onChange={(e) => setName(e.target.value)}
           required
         />
@@ -94,6 +70,7 @@ const ProductForm = () => {
           name="category"
           required
           id=""
+          value={editCategory}
           onChange={(e) => setCategory(e.target.value)}
         >
           <option value="sunglass">Sunglass</option>
@@ -103,6 +80,7 @@ const ProductForm = () => {
         </select>
         <label htmlFor="product-description">Product Description:</label>
         <textarea
+        value={editDescription}
           onChange={(e) => setDescription(e.target.value)}
           id="product-description"
           name="product-description"
@@ -113,6 +91,7 @@ const ProductForm = () => {
         </label>
         <input
           onChange={(e) => setTags(e.target.value)}
+          value={editTags}
           type="text"
           id="tags"
           name="tags"
@@ -120,6 +99,7 @@ const ProductForm = () => {
         />
         <label htmlFor="product-price">Product Price:</label>
         <input
+        value={editPrice}
           onChange={(e) => setPrice(e.target.value)}
           type="number"
           id="product-price"
@@ -132,6 +112,7 @@ const ProductForm = () => {
         </label>
         <input
           onChange={(e) => setDiscount(e.target.value)}
+          value={editDiscount}
           type="number"
           id="discount"
           name="discount"
@@ -140,6 +121,7 @@ const ProductForm = () => {
         />
         <label htmlFor="product-image">Product Image:</label>
         <input
+        value={editImage}
           onChange={(e) => setImage(e.target.value)}
           type="text"
           id="product-image"
@@ -156,25 +138,11 @@ const ProductForm = () => {
           required
         /> */}
         {/*---------- gender checkbox -----------*/}
-        {/* <div className="gender-checkbox">
-            <p>Gender: </p>
-          <label htmlFor="gender">
-            <input type="checkbox" id="topping" name="topping" value="Paneer" />
-            Male
-          </label>
-          <label htmlFor="gender">
-            <input type="checkbox" id="topping" name="topping" value="Paneer" />
-            Female
-          </label>
-          <label htmlFor="gender">
-            <input type="checkbox" id="topping" name="topping" value="Paneer" />
-            Unisex
-          </label>
-        </div> */}
         <select
           className="gender"
           name="gender"
           id=""
+          value={editGender}
           onChange={(e) => setGender(e.target.value)}
         >
           <option value="male">Male</option>
@@ -189,4 +157,4 @@ const ProductForm = () => {
   );
 };
 
-export default ProductForm;
+export default EditForm;

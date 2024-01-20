@@ -1,18 +1,26 @@
 import React from "react";
 import { ImBin } from "react-icons/im";
 import { FiEdit } from "react-icons/fi";
+import { string } from "i/lib/util";
+import "./TableBody.scss"
+import { Link } from "react-router-dom";
 
-const TableBody = () => {
+const TableBody = ({data}) => {
+  let {name, category, discount,_id, image, price}= data || {}
+
+  if(name?.length>50){
+    name= name.substring(0, 80)+"..."
+  }
   return (
     <tr className="tableBody">
-      <td>Leica</td>
-      <td>Lense</td>
-      <td>2000</td>
+      <td>{name}</td>
+      <td>{category}</td>
+      <td>{price}</td>
       <td>20%</td>
       <td>
         <img
           className="table-img"
-          src="https://mykitamedia.com/media/image/2020/11/02_mykita_leica_optical_ml07_landscape.jpg"
+          src={image}
           alt=""
         />
         <img
@@ -26,7 +34,7 @@ const TableBody = () => {
           <ImBin />{" "}
         </span>
         <span className="productEdit">
-          <FiEdit />
+          <Link to={`/edit/${_id}`}><FiEdit /></Link>
         </span>
       </td>
     </tr>

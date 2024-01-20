@@ -5,7 +5,6 @@ import { useSelector, useDispatch } from "react-redux";
 import { useGetProductsQuery } from "../../features/product/productApi";
 import { useState } from "react";
 
-let arr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16];
 
 const ProductLayout = () => {
 
