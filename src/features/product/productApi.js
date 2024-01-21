@@ -15,15 +15,17 @@ export const productApi= apiSlice.injectEndpoints({
             query:(id)=>`/getProduct/${id}`
         }),
         editProduct:builder.mutation({
-            query: ({id, data})=>({
-                url:`/editProduct/${id}`,
-                method:" PATCH",
-                body:data
+            query: ({productId,productObj})=>(
+                console.log(productId, productObj)
+                ,{
+                url:`/editProduct/${productId}`,
+                method:"PUT",
+                body:productObj
             })
         }),
         deleteProduct:builder.mutation({
             query:(id)=>({
-                url:`/deleteProduct/${id}`,
+                url:`/getProducts/${id}`,
                 method:"DELETE"
             })
         })

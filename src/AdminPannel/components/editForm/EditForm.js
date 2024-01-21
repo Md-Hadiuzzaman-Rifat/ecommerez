@@ -1,12 +1,15 @@
 import React from "react";
 import { useState } from "react";
 // import "./ProductForm.scss";
-import { useAddProductMutation } from "../../../features/product/productApi";
+import { useEditProductMutation } from "../../../features/product/productApi";
+import { useParams } from "react-router-dom";
+
 
 const EditForm = ({editData}) => {
   const {name:editName, gender:editGender, category:editCategory, description:editDescription, discount:editDiscount, image:editImage, price:editPrice, tags:editTags}=editData || {}
 
 
+  const {productId}= useParams()
   const [name, setName] = useState(editName);
   const [gender, setGender] = useState(editGender);
   const [description, setDescription] = useState(editDescription);
@@ -16,8 +19,7 @@ const EditForm = ({editData}) => {
   const [image, setImage] = useState(editImage);
   const [category, setCategory] = useState(editCategory);
 
-  const [addProduct, { data, isError, isLoading, isSuccess }] =
-    useAddProductMutation();
+  const [editProduct, {isSuccess}]=useEditProductMutation()
 
   // const clearInput = () => {
   //   setName("");
@@ -30,32 +32,33 @@ const EditForm = ({editData}) => {
   //   setCategory("sunglass");
   // };
 
+  const productObj={
+    name,
+    category,
+    description,
+    tags,
+    price,
+    discount,
+    gender,
+    image,
+  }
 
-  // const handleSubmit = (e) => {
-  //   e.preventDefault();
-  //   const response = addProduct({
-  //     name,
-  //     category,
-  //     description,
-  //     tags,
-  //     price,
-  //     discount,
-  //     gender,
-  //     image,
-  //   });
-  //   console.log(response);
-  //   response
-  //     .then(()=>{
-  //       alert("Product added successfully.")
-  //     })
-  //     .catch(()=>{
-  //       alert("Failed to upload product.")
-  //     })
-  // };
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const response = editProduct({productId,productObj});
+    console.log(response);
+    response
+      .then(()=>{
+        alert("Product added successfully.")
+      })
+      .catch(()=>{
+        alert("Failed to upload product.")
+      })
+  };
 
   return (
     <div className="productForm">
-      <form >
+      <form onSubmit={handleSubmit}>
         <label htmlFor="product-name">Product Name:</label>
         <input
           type="text"
@@ -70,7 +73,7 @@ const EditForm = ({editData}) => {
           name="category"
           required
           id=""
-          value={editCategory}
+        
           onChange={(e) => setCategory(e.target.value)}
         >
           <option value="sunglass">Sunglass</option>
@@ -142,7 +145,6 @@ const EditForm = ({editData}) => {
           className="gender"
           name="gender"
           id=""
-          value={editGender}
           onChange={(e) => setGender(e.target.value)}
         >
           <option value="male">Male</option>
