@@ -2,6 +2,7 @@ import React from "react";
 import "./CartProduct.scss";
 import Counter from "../Counter/Counter";
 import Button from "../Button/Button";
+import { Link } from "react-router-dom";
 const CartProduct = () => {
   return (
     <div className="cart_slider">
@@ -24,7 +25,7 @@ const CartProduct = () => {
         <h3>SUBTOTAL: </h3> <h3>500$</h3>
       </div>
       <div className="cart_btn">
-        <Button>Checkout</Button>
+        <Link to="/checkout"><Button>Checkout</Button></Link>
       </div>
     </div>
   );

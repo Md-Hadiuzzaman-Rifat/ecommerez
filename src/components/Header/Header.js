@@ -6,11 +6,17 @@ import { AiOutlineShoppingCart } from "react-icons/ai";
 import { AiOutlineHeart } from "react-icons/ai";
 import SearchField from "../SearchField/SearchField";
 import Cart from "../Cart/Cart";
+import { useAuth } from "../../context/AuthContext";
 
 const Header = () => {
+  const { currentUser,logout } = useAuth();
   const [search, setSearch] = useState(false);
   const [cart, setCart] = useState(false);
 
+  const handleLogout=()=>{
+    logout()
+  }
+  
   const handleSearch = () => {
     setSearch((search) => !search);
   };
@@ -22,28 +28,23 @@ const Header = () => {
     <div className="header">
       <div className="header_container">
         <div className="header_content">
-          {/* <div className="header_link">
-          <div>
-            <Link to="home">Home</Link>
-          </div>
-          <div>
-            <Link to="about">About</Link>
-          </div>
-          <div>
-            <Link to="categories">Categories</Link>
-          </div>
-        </div> */}
           <div className="header_name">
             <h1>
               <Link to="home">Eye Care</Link>
             </h1>
           </div>
           <div className="header_shopping">
-            <Link to="/login">
+           
+            {
+              currentUser?.email ? <span onClick={handleLogout}>Logout</span> : <Link to="/login">
               <span>Login</span>
             </Link>
-            <Link to="/register"><span className="register">Register</span></Link>
-            
+            }
+            {
+              currentUser?.email ? <span className="register">{currentUser.displayName}</span> : <Link to="/register">
+              <span className="register">Register</span>
+            </Link>
+            }
             <span className="bar">|</span>
             <div onClick={handleSearch}>
               <BiSearch></BiSearch>

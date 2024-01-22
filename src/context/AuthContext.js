@@ -8,6 +8,8 @@ import {
   } from "firebase/auth";
   import React, { useContext, useEffect, useState } from "react";
   import firebaseInitialize from "../firebase/firebase.initialize"
+import { useAddUserMutation } from "../features/users/userApi";
+  
   
   firebaseInitialize()
   const AuthContext = React.createContext();
@@ -24,9 +26,9 @@ import {
       const auth = getAuth();
       const unsubscribe = onAuthStateChanged(auth, (user) => {
         setCurrentUser(user);
+        saveUser(user)
         setLoading(false);
       });
-  
       return unsubscribe;
     }, []);
   
@@ -50,6 +52,16 @@ import {
     function login(email, password) {
       const auth = getAuth();
       return signInWithEmailAndPassword(auth, email, password);
+    }
+
+    const saveUser=(user)=>{
+      fetch("http://localhost:2020/addUser",{
+        method:"POST",
+        headers:{
+          "content-type":"application/json"
+        },
+        body:JSON.stringify({email:user.email, name:user.displayName, uid:user.uid, role:undefined})
+      })
     }
   
     // logout function

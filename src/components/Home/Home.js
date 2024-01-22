@@ -7,8 +7,11 @@ import Newsletter from '../Newsletter/Newsletter';
 import HotSales from '../HotSales/HotSales';
 import DiscountSell from '../Discount/DiscountSell';
 import ProductLayout from "../ProductLayout/ProductLayout"
+import {useAuth} from "../../context/AuthContext"
 
 const Home = () => {
+    const {currentUser}=useAuth()
+    console.log(currentUser);
     return (
         <div>
             <Banner></Banner>

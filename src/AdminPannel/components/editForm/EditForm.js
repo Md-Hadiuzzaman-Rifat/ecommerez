@@ -21,16 +21,6 @@ const EditForm = ({editData}) => {
 
   const [editProduct, {isSuccess}]=useEditProductMutation()
 
-  // const clearInput = () => {
-  //   setName("");
-  //   setGender("male");
-  //   setDescription("");
-  //   setPrice("");
-  //   setDiscount("");
-  //   setTags("");
-  //   setImage("");
-  //   setCategory("sunglass");
-  // };
 
   const productObj={
     name,

@@ -1,4 +1,5 @@
 import { apiSlice } from "../api/apiSlice";
+
 export const productApi= apiSlice.injectEndpoints({
     endpoints:(builder)=>({
         addProduct:builder.mutation({
@@ -19,7 +20,7 @@ export const productApi= apiSlice.injectEndpoints({
                 console.log(productId, productObj)
                 ,{
                 url:`/editProduct/${productId}`,
-                method:"PUT",
+                method:"PATCH",
                 body:productObj
             })
         }),

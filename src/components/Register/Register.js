@@ -13,6 +13,7 @@ const Register = () => {
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
 
+
   const { signup } = useAuth();
 
   const handleSubmit = async (e) => {
@@ -26,6 +27,7 @@ const Register = () => {
       setError("");
       setLoading(true);
       await signup(email, password, name);
+      setLoading(false)
       navigate("/home");
     } catch (err) {
       setError("Failed to Register");

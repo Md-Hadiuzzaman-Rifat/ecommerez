@@ -36,7 +36,7 @@ const CheckoutForm = () => {
           <label htmlFor="country">Country</label>
           <input type="text" id="country" name="country" required />
         </div>
-        <button type="submit">Place Order</button>
+        <button type="submit">Confirm Order</button>
       </form>
     </div>
   );
