@@ -20,9 +20,11 @@ const ProductLayout = () => {
           "Loading..."
         ) : (
           <div className="productLayout_product">
-            {data.map((item) => (
-              <Product key={item._id} product={item} />
-            ))}
+            {
+              data.length>0 ? data.map((item) => (
+                <Product key={item._id} product={item} />
+              )): "No Product Found"
+            }
           </div>
         )}
       </div>

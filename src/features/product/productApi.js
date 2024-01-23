@@ -15,10 +15,18 @@ export const productApi= apiSlice.injectEndpoints({
         getSingleProduct:builder.query({
             query:(id)=>`/getProduct/${id}`
         }),
+
+        getSelectedProduct:builder.mutation({
+            query:(data)=>({
+                url:`/getSelectedProduct`,
+                method:"POST",
+                body:data
+            })
+
+        }),
+
         editProduct:builder.mutation({
-            query: ({productId,productObj})=>(
-                console.log(productId, productObj)
-                ,{
+            query: ({productId,productObj})=>({
                 url:`/editProduct/${productId}`,
                 method:"PATCH",
                 body:productObj
@@ -33,4 +41,4 @@ export const productApi= apiSlice.injectEndpoints({
     })
 })
 
-export const {useAddProductMutation, useGetSingleProductQuery, useGetProductsQuery, useEditProductMutation, useDeleteProductMutation}=productApi
+export const {useAddProductMutation, useGetSingleProductQuery, useGetProductsQuery, useEditProductMutation, useDeleteProductMutation, useGetSelectedProductMutation}=productApi

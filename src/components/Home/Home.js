@@ -11,7 +11,7 @@ import {useAuth} from "../../context/AuthContext"
 
 const Home = () => {
     const {currentUser}=useAuth()
-    console.log(currentUser);
+    // console.log(currentUser);
     return (
         <div>
             <Banner></Banner>

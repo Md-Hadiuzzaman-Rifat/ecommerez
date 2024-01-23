@@ -1,11 +1,26 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { RxCross1 } from "react-icons/rx";
 import "./Cart.scss";
 import { MdOutlineShoppingCart } from "react-icons/md";
 import Button from "../Button/Button";
 import CartProduct from "../CartProduct/CartProduct";
+import {getStoredCart} from "../../utilities/localStorage"
+import { useGetSelectedProductMutation } from "../../features/product/productApi";
 
 const Cart = ({ handleCart }) => {
+  const findProducts=getStoredCart() || {}
+  const keys= Object.keys(findProducts)
+  const [orderList, setOrderList]= useState([])
+
+  
+    // get multiple product
+  const [getSelectedProduct, {isLoading, isError}]=useGetSelectedProductMutation()
+  
+
+  useEffect(()=>{
+    getSelectedProduct(keys)
+  },[keys, getSelectedProduct])
+
   return (
     <div className="cart"> 
       <div className="container">

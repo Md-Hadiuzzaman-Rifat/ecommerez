@@ -8,12 +8,18 @@ import { BsTwitter, BsFacebook, BsInstagram, BsPinterest } from "react-icons/bs"
 import Tags from "../Tags/Tags";
 import { useGetSingleProductQuery } from "../../features/product/productApi";
 import { useParams } from "react-router-dom";
+import {addToDb} from "../../utilities/localStorage"
+
 
 const ProductDetails = () => {
   const {productId}= useParams()
   const {data, isLoading}=useGetSingleProductQuery(productId)
-  const {name, image, description, price}= data || {}
-  
+  const {name, image, description, price, _id}= data || {}
+
+  const handleAction=(_id)=>{
+    addToDb(_id)
+  }
+
   return (
     <div className="productDetails">
       {
@@ -36,8 +42,8 @@ const ProductDetails = () => {
                 {description}
               </p>
               <div className="displayContent_action">
-                <Counter></Counter>
-                <Button>
+                <Counter id={_id}></Counter>
+                <Button onClick={()=>handleAction(_id)}>
                   <HiShoppingCart /> Add To Cart
                 </Button>
               </div>
