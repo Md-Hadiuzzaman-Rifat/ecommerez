@@ -7,11 +7,19 @@ import { AiOutlineHeart } from "react-icons/ai";
 import SearchField from "../SearchField/SearchField";
 import Cart from "../Cart/Cart";
 import { useAuth } from "../../context/AuthContext";
+import { useGetSelectedProductMutation } from "../../features/product/productApi";
+import { getStoredCart } from "../../utilities/localStorage";
 
 const Header = () => {
   const { currentUser,logout } = useAuth();
   const [search, setSearch] = useState(false);
   const [cart, setCart] = useState(false);
+
+  // only for cart section
+  // const [getSelectedProduct, {isLoading, isError}]=useGetSelectedProductMutation()
+  // const findProducts=getStoredCart() || {}
+  // const keys= Object.keys(findProducts)
+  // const [productList, setProductList]= useState([])
 
   const handleLogout=()=>{
     logout()
@@ -20,9 +28,12 @@ const Header = () => {
   const handleSearch = () => {
     setSearch((search) => !search);
   };
+
   const handleCart = () => {
     setCart((cart) => !cart);
+    // setProductList(getSelectedProduct(keys))
   };
+  // console.log(productList);
 
   return (
     <div className="header">

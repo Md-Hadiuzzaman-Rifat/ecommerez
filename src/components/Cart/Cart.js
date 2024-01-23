@@ -10,17 +10,15 @@ import { useGetSelectedProductMutation } from "../../features/product/productApi
 const Cart = ({ handleCart }) => {
   const findProducts=getStoredCart() || {}
   const keys= Object.keys(findProducts)
-  const [orderList, setOrderList]= useState([])
-
   
     // get multiple product
-  const [getSelectedProduct, {isLoading, isError}]=useGetSelectedProductMutation()
+  const [getSelectedProduct, {data, isLoading, isError, isSuccess}]=useGetSelectedProductMutation()
   
-
   useEffect(()=>{
     getSelectedProduct(keys)
-  },[keys, getSelectedProduct])
-
+  },[getSelectedProduct])
+ 
+  
   return (
     <div className="cart"> 
       <div className="container">
@@ -36,13 +34,16 @@ const Cart = ({ handleCart }) => {
               </div>
             </div>
             <div className="cart_body">
-              {/* <div className="cart_empty">
+              {
+                isLoading && "Loading"
+              }
+              {data?.length===0 && <div className="cart_empty">
                <MdOutlineShoppingCart/>
                 <h3>Empty Cart</h3>
                 <Button>Return Shop</Button>
-              </div> */}
+              </div>}
               <div className="cart_product">
-                <CartProduct></CartProduct>
+                {isSuccess && data?.length>0 && <CartProduct data={data}></CartProduct>}
               </div>
             </div>
           </div>
