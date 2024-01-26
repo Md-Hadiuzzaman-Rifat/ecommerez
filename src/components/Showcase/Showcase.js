@@ -8,6 +8,7 @@ const Showcase = () => {
       <div className="showcase">
         <div className="showcase_container">
           <div className="showcase_container_image">
+            <Link to="/women">
             <div className="showcase_productName">
               <h1>Women</h1>
             </div>
@@ -15,6 +16,7 @@ const Showcase = () => {
               src="https://us.123rf.com/450wm/deagreez/deagreez1806/deagreez180600853/103449238-portrait-with-copy-space-empty-place-of-nice-cute-trendy-charming-pretty-thoughtful-concentrated.jpg?ver=6"
               alt="Showcase Product"
             />
+            </Link>
           </div>
           <div className="showcase_container_image">
             <Link to="/mans">

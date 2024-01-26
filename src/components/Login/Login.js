@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Footer from "../Footer/Footer";
 import "./Login.scss";
 import { useState } from "react";
@@ -11,6 +11,10 @@ const Login = () => {
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
+
+  useEffect(() => {
+    window.scrollTo(0, 0)
+  }, [])
 
   const { login } = useAuth();
 

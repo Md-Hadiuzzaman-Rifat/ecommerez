@@ -1,7 +1,7 @@
-@import "../../../css-config/mixins";
+@import "../../../css-config//mixins.scss";
 $border-color: #ddd;
-.productTable{
-    margin: 30px 0;
+.orderTable{
+    margin: 30px 20px;
     table {
         border-collapse: collapse;
         width: 100%;
@@ -20,9 +20,8 @@ $border-color: #ddd;
            cursor: pointer; 
         }
        }
-       
        th {
-        background-color: #f2f2f2;
+        background-color: rgba(137, 43, 226, 0.192);
        }
        @include sm{
             margin: 20px 0;

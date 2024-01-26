@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./Register.scss";
 import Footer from "../Footer/Footer";
 import { useAuth } from "../../context/AuthContext";
@@ -13,6 +13,9 @@ const Register = () => {
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
 
+  useEffect(() => {
+    window.scrollTo(0, 0)
+  }, [])
 
   const { signup } = useAuth();
 

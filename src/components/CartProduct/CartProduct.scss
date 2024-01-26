@@ -1,19 +1,35 @@
+@import "../../css-config/mixins";
 .cart_slider{
     padding: 1rem;
-    .cart_subtotal{
-        border-bottom: 1px solid rgba(128, 128, 128, 0.123);
-        display: flex;
-        justify-content: space-between;
-        h3{
-            &:nth-child(2){
-                color: blueviolet;
-            }
-        }
+    // .cart_subtotal{
+    //     border-bottom: 1px solid rgba(128, 128, 128, 0.123);
+    //     display: flex;
+    //     justify-content: space-between;
+    //     h3{
+    //         &:nth-child(2){
+//             color: blueviolet;
+    //         }
+    //     }
 
-    }
+    // }
     .cart_btn{
-        margin: 1rem ;
-        display: flex;
-        justify-content: center
+
+        a{
+        width: 25%;
+        background-color: blueviolet;
+        position: fixed;
+        bottom:2px;
+        text-decoration: none;
+        color: white;
+        font-size: 1.25rem;
+        border-radius: 5px;
+        font-weight: bold;
+        text-align: center;
+        padding: 8px;
+        box-shadow: 0 -5px 5px -5px #333;
+        @include md{
+            width: 100%
+        }
+        }
     }
 }

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import RelatedProduct from "../RelatedProduct/RelatedProduct";
 import Counter from "../Counter/Counter";
 import "./ProductDetails.scss";
@@ -15,6 +15,10 @@ const ProductDetails = () => {
   const {productId}= useParams()
   const {data, isLoading}=useGetSingleProductQuery(productId)
   const {name, image, description, price, _id}= data || {}
+
+  useEffect(() => {
+    window.scrollTo(0, 0)
+  }, [])
 
   const handleAction=(_id)=>{
     addToDb(_id)

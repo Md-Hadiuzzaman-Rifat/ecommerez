@@ -18,7 +18,9 @@ import ProductLayout from "./components/ProductLayout/ProductLayout";
 import CheckoutPage from "./components/CheckoutPage/CheckoutPage";
 import Exp from "./components/Exp/Exp";
 import EditProduct from "./components/EditProduct/EditProduct";
-
+import Dashboard from "./AdminPannel/pages/Dashboard/Dashboard";
+import Invoice from "./AdminPannel/pages/Invoice/Invoice";
+// import Delete from "./components/Delete/Delete"
 
 function App() {
   return (
@@ -28,12 +30,15 @@ function App() {
           <Header></Header>
           <Routes>
             <Route path="/" element={<Home />}></Route>
+            <Route path="/invoice" element={<Invoice></Invoice>}></Route>
             <Route path="/admin" element={<Admin />}></Route>
             <Route path="/adminLogin" element={<AdminLogin/>}></Route>
             <Route path="/product" element={<Product/>} ></Route>
+            <Route path="/dashboard" element={<Dashboard/>} ></Route>
             {/* <Route path="/product" element={<Product/>} ></Route> */}
             {/* // user page  */}
             <Route path="/login" element={<Login />}></Route>
+            {/* <Route path="/delete" element={<Delete />}></Route> */}
             <Route path="/register" element={<Register />}></Route>
             <Route path="/home" element={<Home />}></Route>
             <Route path="/singleProduct" element={<SingleProduct />}></Route>
