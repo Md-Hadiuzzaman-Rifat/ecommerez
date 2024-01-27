@@ -1,8 +1,9 @@
-import React from 'react';
+import React from "react";
+import InvoiceItem from "./InvoiceItem";
 
 const InvoiceDetails = () => {
-    return (
-        <section>
+  return (
+    <div className="InvoiceDetails">
       <table>
         <thead>
           <tr>
@@ -13,18 +14,14 @@ const InvoiceDetails = () => {
           </tr>
         </thead>
         <tbody>
-     
-            <tr>
-              <td>Name</td>
-              <td>Item Quantity</td>
-              <td>rate</td>
-              <td>Tax</td>
-            </tr>
-  
+          <InvoiceItem></InvoiceItem>
+          <InvoiceItem></InvoiceItem>
+          <InvoiceItem></InvoiceItem>
         </tbody>
       </table>
-    </section>
-    );
+      <hr />
+    </div>
+  );
 };
 
 export default InvoiceDetails;

@@ -1,0 +1,52 @@
+$bg-black: rgba(0, 0, 0, 0.767);;
+@mixin content-flex {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 10px;
+  }
+
+.Invoice{
+    // height: 700px;
+    width: 500px;
+    margin: 0 auto;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    // Invoice Header Section
+    .invoiceHeader{
+        .invoice-top{
+            @include content-flex
+        }
+        .invoice-text{
+            background-color: $bg-black;
+            color: white;
+        }
+        .invoice-billing{
+            @include content-flex
+        }
+    }
+    // Invoice Details Section
+    .InvoiceDetails{
+        tr{
+            display: flex;
+            justify-content: space-evenly
+        }
+    }
+
+    // Invoice Footer Section
+    .invoiceTotal{
+        .invoice-content{
+            @include content-flex();
+        .total-cost{
+            display: flex;
+            gap: 40px;
+        }
+        }
+        .invoice-payable{
+            display: inline-block;
+            h2{
+                background-color: $bg-black;
+                color: white;
+            }
+        }
+    }
+}
