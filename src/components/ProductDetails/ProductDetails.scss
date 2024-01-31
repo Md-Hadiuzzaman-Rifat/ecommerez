@@ -16,13 +16,14 @@
       margin-bottom: 50px;
       display: flex;
       flex-direction: row;
-      align-items: center;
+      align-items: start;
       @include md {
         flex-direction: column;
       }
       .display_image {
         flex: 1;
         img {
+          margin-top: 50px;
           width: 100%;
           box-shadow: rgba(136, 165, 191, 0.288) 6px 2px 16px 0px,
             rgba(255, 255, 255, 0.288) -6px -2px 16px 0px;

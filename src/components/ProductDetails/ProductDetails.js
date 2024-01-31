@@ -42,15 +42,16 @@ const ProductDetails = () => {
             <div className="display_content">
               <h2>{name}</h2>
               <h3>Price: {price} Tk</h3>
-              <p>
-                {description}
-              </p>
+              
               <div className="displayContent_action">
                 <Counter id={_id}></Counter>
                 <Button onClick={()=>handleAction(_id)}>
                   <HiShoppingCart /> Add To Cart
                 </Button>
               </div>
+              <p>
+                {description}
+              </p>
               <div className="product_category_and_share">
                 <div>
                   <h4>Category: </h4>

@@ -36,12 +36,12 @@
           align-items: center;
           flex-wrap: wrap;
           // newly added
-          position: fixed;
-          background-color: white;
-          width: 25%;
-          @include md{
-            width: 100%;
-        }
+          // position: fixed;
+          // background-color: white;
+          // width: 25%;
+          // @include md{
+          //   width: 100%;
+        // }
         // newly added end
           .cart_close {
             div {
@@ -53,7 +53,7 @@
               flex-wrap: wrap;
             }
           }
-        }
+        } 
         .cart_body{
           overflow-y: auto;
           .cart_empty{

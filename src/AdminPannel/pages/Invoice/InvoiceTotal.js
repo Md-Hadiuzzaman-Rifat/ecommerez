@@ -26,6 +26,6 @@ const InvoiceTotal = () => {
       </div>
     </div>
   );
-};
+}; 
 
 export default InvoiceTotal;

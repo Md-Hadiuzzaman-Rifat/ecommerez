@@ -15,7 +15,6 @@ export const productApi= apiSlice.injectEndpoints({
         getSingleProduct:builder.query({
             query:(id)=>`/getProduct/${id}`
         }),
-
         getSelectedProduct:builder.mutation({
             query:(data)=>({
                 url:`/getSelectedProduct`,

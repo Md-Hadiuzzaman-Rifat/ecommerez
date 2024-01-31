@@ -32,7 +32,7 @@ const InvoiceHeader = () => {
           <p>01910803372</p>
         </div>
       </div>
-      <hr />
+      {/* <hr /> */}
     </div>
   );
 };

@@ -44,14 +44,13 @@ const Counter = ({id}) => {
     const handleIncrement=()=>{
         addToDb(id)
     }
+
     const handleDecrement=()=>{
         reduceFromDb(id)
     }
-
     function count(id){
-        return findOne(id)
+        return findOne(id) || 0
     }
-   
     return (
         
             <div className="counter">

@@ -19,7 +19,7 @@ const InvoiceDetails = () => {
           <InvoiceItem></InvoiceItem>
         </tbody>
       </table>
-      <hr />
+      {/* <hr /> */}
     </div>
   );
 };

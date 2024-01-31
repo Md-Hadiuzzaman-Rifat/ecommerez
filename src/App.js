@@ -20,6 +20,7 @@ import Exp from "./components/Exp/Exp";
 import EditProduct from "./components/EditProduct/EditProduct";
 import Dashboard from "./AdminPannel/pages/Dashboard/Dashboard";
 import Invoice from "./AdminPannel/pages/Invoice/Invoice";
+import Control from "./AdminPannel/pages/Control/Control"
 // import Delete from "./components/Delete/Delete"
 
 function App() {
@@ -31,6 +32,7 @@ function App() {
           <Routes>
             <Route path="/" element={<Home />}></Route>
             <Route path="/invoice" element={<Invoice></Invoice>}></Route>
+            <Route path="/control" element={<Control />}></Route>
             <Route path="/admin" element={<Admin />}></Route>
             <Route path="/adminLogin" element={<AdminLogin/>}></Route>
             <Route path="/product" element={<Product/>} ></Route>
