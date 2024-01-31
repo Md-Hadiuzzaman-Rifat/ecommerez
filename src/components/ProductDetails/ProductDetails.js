@@ -10,7 +10,6 @@ import { useGetSingleProductQuery } from "../../features/product/productApi";
 import { useParams } from "react-router-dom";
 import {addToDb} from "../../utilities/localStorage"
 
-
 const ProductDetails = () => {
   const {productId}= useParams()
   const {data, isLoading}=useGetSingleProductQuery(productId)

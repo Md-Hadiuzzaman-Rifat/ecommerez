@@ -3,7 +3,7 @@ import Counter from '../Counter/Counter';
 import "./CartContainer.scss"
 
 const CartContainer = ({data}) => {
-    let {name, image, price}= data
+    let {name, image, price, _id}= data
 
     if(name.length>12){
         name= name.substring(0,12)
@@ -20,7 +20,7 @@ const CartContainer = ({data}) => {
         <div className="cart_product_details">
           <h4>{name}</h4>
           <div>
-            <Counter></Counter>
+            <Counter id={_id}></Counter>
           </div>
           <h5>{price}</h5>
         </div>

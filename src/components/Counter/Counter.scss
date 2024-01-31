@@ -3,11 +3,20 @@
     .counterContainer {
         display: flex;
         flex-direction: row;
+        button{
+            font-weight: bold;
+            border: none;
+            padding: 0 10px;
+            font-size: 1.25rem;
+            cursor: pointer;
+            margin: 0 5px;
+        }
         span{
+            margin-top: 2px;
             font-size: 2rem;
             width: 2.5rem;
             height: 2rem;
-            border: 1px solid rgba(0, 0, 0, 0.212);
+            // border: 1px solid rgba(0, 0, 0, 0.212);
             display: flex;
             justify-content: center;
             align-items: center;
@@ -22,7 +31,7 @@
                 font-size: 1.25rem;
                 width: 1.75rem;
                 height: 1.25rem;
-                border: 1px solid rgba(0, 0, 0, 0.212);
+                // border: 1px solid rgba(0, 0, 0, 0.212);
                 display: flex;
                 justify-content: center;
                 align-items: center;

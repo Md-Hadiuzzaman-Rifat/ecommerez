@@ -6,6 +6,7 @@ import Button from "../Button/Button";
 import CartProduct from "../CartProduct/CartProduct";
 import {getStoredCart} from "../../utilities/localStorage"
 import { useGetSelectedProductMutation } from "../../features/product/productApi";
+import { Link } from "react-router-dom";
 
 const Cart = ({ handleCart }) => {
   const findProducts=getStoredCart() || {}
@@ -40,7 +41,11 @@ const Cart = ({ handleCart }) => {
               {data?.length===0 && <div className="cart_empty">
                <MdOutlineShoppingCart/>
                 <h3>Empty Cart</h3>
+                <Link to="/">
+
                 <Button>Return Shop</Button>
+                </Link>
+                
               </div>}
               <div className="cart_product">
                 {isSuccess && data?.length>0 && <CartProduct data={data}></CartProduct>}

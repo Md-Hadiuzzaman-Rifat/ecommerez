@@ -21,9 +21,7 @@ export const productApi= apiSlice.injectEndpoints({
                 method:"POST",
                 body:data
             })
-
         }),
-
         editProduct:builder.mutation({
             query: ({productId,productObj})=>({
                 url:`/editProduct/${productId}`,

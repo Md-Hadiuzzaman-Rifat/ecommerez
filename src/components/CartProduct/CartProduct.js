@@ -4,8 +4,8 @@ import Counter from "../Counter/Counter";
 import Button from "../Button/Button";
 import { Link } from "react-router-dom";
 import CartContainer from "../CartContainer/CartContainer";
+
 const CartProduct = ({data}) => {
-  
   return (
     <div className="cart_slider">
       {

@@ -1,63 +1,36 @@
-// import React from 'react';
-// import "./Counter.scss"
-// import { useDispatch, useSelector } from 'react-redux';
-// import { increment, decrement } from '../../features/counter/counterReducer';
-
-// const Counter = () => {
-//     let {value}= useSelector(state=>state.counter)
-//     const dispatch= useDispatch()
-
-//     const handleIncrement=()=>{
-//             dispatch(increment())
-//     }
-
-//     const handleDecrement=(value)=>{
-//         if(value<=0){
-//             return
-//         }else{
-//             dispatch(decrement())
-//         }
-//     }
-
-
-//     return (
-//             <div className="counter">
-//                 <div className="counterContainer">
-//                     <span onClick={handleIncrement}>+</span>
-//                     <span>{value}</span>
-//                     <span onClick={()=>handleDecrement(value)}>-</span>
-//                 </div>
-//             </div>
-//     );
-// };
-
-// export default Counter;
-
-
 
 import React from 'react';
 import "./Counter.scss"
 import {addToDb, reduceFromDb, findOne} from "../../utilities/localStorage"
+import {  useDispatch, useSelector } from 'react-redux';
+import { addToOrder, reduceOrder } from '../../features/orderProduct/orderProductSlice';
 
 const Counter = ({id}) => {
+    const dispatch= useDispatch()
+    const selector= useSelector(state=>state.order)
 
     const handleIncrement=()=>{
+        dispatch(addToOrder({id:id,count:result+=1}))
         addToDb(id)
     }
 
     const handleDecrement=()=>{
+        dispatch(reduceOrder({id:id,count:result-=1}))
         reduceFromDb(id)
     }
     function count(id){
         return findOne(id) || 0
     }
+    let result=count(id)
+
     return (
-        
             <div className="counter">
                 <div className="counterContainer">
-                    <span onClick={()=>handleIncrement()}>+</span>
-                    <span>{count(id)}</span>
-                    <span onClick={()=>handleDecrement()}>-</span>
+                    {/* <span onClick={()=>handleIncrement()}>+</span> */}
+                    <button onClick={()=>handleIncrement()}>+</button>
+                    <span>{result}</span>
+                    {/* <span disabled={result<=0} onClick={()=>handleDecrement()}>-</span> */}
+                    <button disabled={result<=0} onClick={()=>handleDecrement()}>-</button>
                 </div>
             </div>
     );
