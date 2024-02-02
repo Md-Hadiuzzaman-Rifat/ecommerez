@@ -1,10 +1,14 @@
 import React, { useEffect } from 'react';
 import "./Women.scss"
 import ProductLayout from '../ProductLayout/ProductLayout';
+import { useDispatch } from 'react-redux';
+import { handleClose } from '../../features/cartHandler/cartHandler';
 
 const Women = () => {
-    
+
+    const dispatch= useDispatch()
     useEffect(() => {
+        dispatch(handleClose())
         window.scrollTo(0, 0)
       }, [])
 

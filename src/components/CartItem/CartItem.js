@@ -1,18 +1,38 @@
 import React from "react";
 import Counter from "../Counter/Counter";
+import { removeFromDb } from "../../utilities/localStorage";
+import { removeOrder } from "../../features/orderProduct/orderProductSlice";
+import { useDispatch } from "react-redux";
 
-const CartItem = () => {
+const CartItem = ({data}) => {
+
+  const dispatch= useDispatch()
+
+  const nameFunction=()=>{
+    if(data?.name?.length>12){
+      return data.name.substring(0, 10)+"..."
+    }else{
+      return data?.name
+    }
+  }
+
+  const handleRemove=(id)=>{
+    console.log(id);
+    dispatch(removeOrder(id))
+    removeFromDb(id)
+  }
+
   return (
     <div className="cartItem">
       <div className="container">
         <img
-          src="https://www.ubuy.com.bd/productimg/?image=aHR0cHM6Ly9pNS53YWxtYXJ0aW1hZ2VzLmNvbS9zZW8vV29tZW4tTWVuLUNsYXNzaWMtRXllZ2xhc3Nlcy1GcmFtZXMtRXlld2Vhci1QbGFpbi1HbGFzcy1TcGVjdGFjbGUtRnJhbWUtU2lsaWNvbmUtT3B0aWNhbC1CcmFuZC1FeWUtR2xhc3Nlcy1GcmFtZV9jYTY0MTExZi1iNTFjLTRmZTgtYjZkMy01NDYzZmE1ZjExZDQuYzJjMWU1MzU1ZDcxM2EyYTIyNTc0M2IzN2JiOTBiMWYuanBlZw.jpg"
+          src={data?.image}
           alt=""
         />
-        <h3>Zeizz</h3>
-        <p>$200</p>
-        <Counter></Counter>
-        <button>Remove</button>
+        <h3>{nameFunction()}</h3>
+        <p>{data?.price}</p>
+        <Counter id={data?._id}></Counter>
+        {/* <button onClick={()=>handleRemove(data?._id)} className="removeBtn">Remove</button> */}
       </div>
     </div>
   );

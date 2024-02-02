@@ -9,13 +9,17 @@ import Tags from "../Tags/Tags";
 import { useGetSingleProductQuery } from "../../features/product/productApi";
 import { useParams } from "react-router-dom";
 import {addToDb} from "../../utilities/localStorage"
+import { useDispatch } from "react-redux";
+import { handleClose } from "../../features/cartHandler/cartHandler";
 
 const ProductDetails = () => {
   const {productId}= useParams()
   const {data, isLoading}=useGetSingleProductQuery(productId)
   const {name, image, description, price, _id}= data || {}
+  const dispatch= useDispatch()
 
   useEffect(() => {
+    dispatch(handleClose())
     window.scrollTo(0, 0)
   }, [])
 

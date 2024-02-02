@@ -1,7 +1,8 @@
 import React from "react";
 import "./CheckoutForm.scss";
 import { useState } from "react";
-const CheckoutForm = () => {
+
+const CheckoutForm = ({data}) => {
   const [firstName, setFirstName]=useState("")
   const [lastName, setLastName]=useState("")
   const [email, setEmail]=useState("")
@@ -13,8 +14,20 @@ const CheckoutForm = () => {
 
   const handleSubmit=(e)=>{
     e.preventDefault()
-    console.log(firstName, lastName, email, phone, address, city, zip, country);
+    let product={
+      firstName,
+      lastName,
+      email,
+      phone,
+      address,
+      city,
+      zip,
+      country
+    }
+    console.log(data);
   }
+
+
   return (
     <div className="checkoutForm">
       <form className="container" onSubmit={handleSubmit}>

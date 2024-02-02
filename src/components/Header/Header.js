@@ -9,22 +9,16 @@ import Cart from "../Cart/Cart";
 import { useAuth } from "../../context/AuthContext";
 import { useGetSelectedProductMutation } from "../../features/product/productApi";
 import { getStoredCart } from "../../utilities/localStorage";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { handleToggle } from "../../features/cartHandler/cartHandler";
 
 const Header = () => {
-
+  const dispatch= useDispatch()
   const {condition}= useSelector(state=>state.cartHandler)
-  console.log(condition);
 
   const { currentUser,logout } = useAuth();
   const [search, setSearch] = useState(false);
-  const [cart, setCart] = useState(false);
 
-  // only for cart section
-  // const [getSelectedProduct, {isLoading, isError}]=useGetSelectedProductMutation()
-  // const findProducts=getStoredCart() || {}
-  // const keys= Object.keys(findProducts)
-  // const [productList, setProductList]= useState([])
 
   const handleLogout=()=>{
     logout()
@@ -35,10 +29,9 @@ const Header = () => {
   };
 
   const handleCart = () => {
-    setCart((cart) => !cart);
-    // setProductList(getSelectedProduct(keys))
+    dispatch(handleToggle())
+
   };
-  // console.log(productList);
 
   return (
     <div className="header">
@@ -75,7 +68,7 @@ const Header = () => {
         </div>
       </div>
       {search && <SearchField handleSearch={handleSearch} />}
-      {cart && <Cart handleCart={handleCart}></Cart>}
+      {condition && <Cart handleCart={handleCart}></Cart>}
     </div>
   );
 };

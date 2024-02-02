@@ -1,13 +1,17 @@
 import React, { useEffect } from 'react';
 import "./Mans.scss"
 import ProductLayout from '../ProductLayout/ProductLayout';
+import { handleClose } from '../../features/cartHandler/cartHandler';
+import { useDispatch } from 'react-redux';
 
 
 const Mans = () => {
+    const dispatch= useDispatch()
     useEffect(() => {
+        dispatch(handleClose())
         window.scrollTo(0, 0)
       }, [])
-    let arr=[1,1,1,1,1,1,1,1,1,1,1,1,1,1,1]
+
     
     return (
         <div className='mans'>

@@ -26,10 +26,8 @@ const Counter = ({id}) => {
     return (
             <div className="counter">
                 <div className="counterContainer">
-                    {/* <span onClick={()=>handleIncrement()}>+</span> */}
                     <button onClick={()=>handleIncrement()}>+</button>
                     <span>{result}</span>
-                    {/* <span disabled={result<=0} onClick={()=>handleDecrement()}>-</span> */}
                     <button disabled={result<=0} onClick={()=>handleDecrement()}>-</button>
                 </div>
             </div>

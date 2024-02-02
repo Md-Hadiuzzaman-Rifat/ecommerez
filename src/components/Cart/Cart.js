@@ -7,11 +7,19 @@ import CartProduct from "../CartProduct/CartProduct";
 import {getStoredCart} from "../../utilities/localStorage"
 import { useGetSelectedProductMutation } from "../../features/product/productApi";
 import { Link } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { handleToggle } from "../../features/cartHandler/cartHandler";
 
-const Cart = ({ handleCart }) => {
+const Cart = () => {
   const findProducts=getStoredCart() || {}
   const keys= Object.keys(findProducts)
   
+  const dispatch= useDispatch()
+  
+  const handleCart=()=>{
+    dispatch(handleToggle())
+  }
+
     // get multiple product
   const [getSelectedProduct, {data, isLoading, isError, isSuccess}]=useGetSelectedProductMutation()
   
