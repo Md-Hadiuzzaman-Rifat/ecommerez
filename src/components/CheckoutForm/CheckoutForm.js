@@ -1,6 +1,10 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "./CheckoutForm.scss";
 import { useState } from "react";
+import { useOrderMutation } from "../../features/confirmOrder/confirmOrder";
+import { clearTheCart } from "../../utilities/localStorage";
+import { useDispatch } from "react-redux";
+import { resetOrder } from "../../features/orderProduct/orderProductSlice";
 
 const CheckoutForm = ({data}) => {
   const [firstName, setFirstName]=useState("")
@@ -12,8 +16,23 @@ const CheckoutForm = ({data}) => {
   const [zip, setZip]=useState("")
   const [country, setCountry]=useState("")
 
+  const dispatch= useDispatch()
+
+  function reset(){
+    setFirstName("");
+    setLastName("");
+    setEmail("");
+    setPhone("");
+    setAddress("");
+    setCity("");
+    setZip("");
+    setCountry("");
+  }
+
+  const [order, {isSuccess, isError, isLoading}]=useOrderMutation()
+
   const handleSubmit=(e)=>{
-    e.preventDefault()
+    e.preventDefault() 
     let product={
       firstName,
       lastName,
@@ -22,11 +41,19 @@ const CheckoutForm = ({data}) => {
       address,
       city,
       zip,
-      country
+      country,
+      order:data
     }
-    console.log(data);
+    order(product)
   }
 
+  useEffect(()=>{
+    if(isSuccess){
+      reset()
+      clearTheCart()
+      dispatch(resetOrder())
+    }
+  },[isSuccess])
 
   return (
     <div className="checkoutForm">

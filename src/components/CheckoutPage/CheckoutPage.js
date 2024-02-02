@@ -29,10 +29,12 @@ const CheckoutPage = () => {
   return (
     <div className="checkoutPage">
       <div className="container">
-        <div className="checkoutCart">
+        {
+          !isLoading && <div className="checkoutCart">
           <h1>Checkout</h1>
-          {isLoading? "Loading...":<CheckoutForm data={data}></CheckoutForm>}
+          <CheckoutForm data={data}></CheckoutForm>
         </div>
+        }
         {isLoading && "Loading..."}
         {!isLoading && (
               <div>
