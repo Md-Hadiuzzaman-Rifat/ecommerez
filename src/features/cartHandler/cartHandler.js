@@ -1,7 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit'
 
 const initialState = {
-  handleCart:false
+  condition:false
 }
 
 export const cartHandler = createSlice({
@@ -9,13 +9,13 @@ export const cartHandler = createSlice({
   initialState,
   reducers: {
     handleOpen: (state) => {
-        state.handleCart= true
+        state.condition= true
     },
     handleClose: (state) => {
-        state.handleCart= false
+        state.condition= false
     },
     handleToggle: (state) => {
-        state.handleCart= !state.handleCart
+        state.condition= !state.condition
     },
   },
 })

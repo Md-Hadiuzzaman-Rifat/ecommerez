@@ -9,8 +9,13 @@ import Cart from "../Cart/Cart";
 import { useAuth } from "../../context/AuthContext";
 import { useGetSelectedProductMutation } from "../../features/product/productApi";
 import { getStoredCart } from "../../utilities/localStorage";
+import { useSelector } from "react-redux";
 
 const Header = () => {
+
+  const {condition}= useSelector(state=>state.cartHandler)
+  console.log(condition);
+
   const { currentUser,logout } = useAuth();
   const [search, setSearch] = useState(false);
   const [cart, setCart] = useState(false);
