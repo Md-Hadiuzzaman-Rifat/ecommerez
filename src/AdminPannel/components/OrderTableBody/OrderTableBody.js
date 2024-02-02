@@ -6,12 +6,13 @@ import { FaEdit } from "react-icons/fa";
 import "./OrderTableBody.scss"
 
 
-const OrderTableBody = () => {
+const OrderTableBody = ({item}) => {
+  const {_id, timestamp}= item
   return (
       <tr className="orderTableBody">
-        <td>5323EFC54</td>
+        <td>{_id}</td>
         <td>cash</td>
-        <td>January 27, 2023</td>
+        <td>{timestamp}</td>
         <td>
           status
         </td>

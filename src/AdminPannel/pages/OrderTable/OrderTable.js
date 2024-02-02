@@ -1,8 +1,19 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import "./OrderTable.scss"
 import OrderTableBody from '../../components/OrderTableBody/OrderTableBody';
+import { useState } from 'react';
 
 const OrderTable = () => {
+  const [orderList, setOrderList]= useState([])
+
+
+useEffect(()=>{
+  fetch("http://localhost:2020/orderedProduct")
+  .then(res=>res.json())
+  .then(data=>setOrderList(data))
+},[])
+
+
     return (
         <div className='orderTable'>
             <table>
@@ -16,10 +27,12 @@ const OrderTable = () => {
               <th>Action</th>
             </tr>
           </thead>
-          {/* // table body  */}
-          <OrderTableBody></OrderTableBody>
+          
           <tbody>
-            
+            {/* // table body  */}
+          {
+            orderList?.length >0 && orderList.map(item=><OrderTableBody key={item._id} item={item}></OrderTableBody>)
+          }
           </tbody>
         </table>
         </div>

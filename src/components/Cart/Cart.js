@@ -6,7 +6,7 @@ import Button from "../Button/Button";
 import CartProduct from "../CartProduct/CartProduct";
 import {getStoredCart} from "../../utilities/localStorage"
 import { useGetSelectedProductMutation } from "../../features/product/productApi";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { handleToggle } from "../../features/cartHandler/cartHandler";
 
@@ -15,9 +15,15 @@ const Cart = () => {
   const keys= Object.keys(findProducts)
   
   const dispatch= useDispatch()
+  const navigate= useNavigate()
   
   const handleCart=()=>{
     dispatch(handleToggle())
+  }
+
+  const returnShop=()=>{
+    dispatch(handleToggle())
+    navigate("/")
   }
 
     // get multiple product
@@ -49,10 +55,10 @@ const Cart = () => {
               {data?.length===0 && <div className="cart_empty">
                <MdOutlineShoppingCart/>
                 <h3>Empty Cart</h3>
-                <Link to="/">
-
+                <div onClick={returnShop}> 
                 <Button>Return Shop</Button>
-                </Link>
+                </div>
+                
                 
               </div>}
               <div className="cart_product">

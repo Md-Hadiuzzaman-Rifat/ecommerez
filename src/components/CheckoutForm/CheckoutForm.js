@@ -42,6 +42,7 @@ const CheckoutForm = ({data}) => {
       city,
       zip,
       country,
+      timestamp: new Date().toLocaleString(),
       order:data
     }
     order(product)

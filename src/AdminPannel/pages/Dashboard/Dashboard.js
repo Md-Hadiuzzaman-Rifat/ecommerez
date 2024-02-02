@@ -4,15 +4,19 @@ import Layout from "../../components/Layout/Layout";
 import Sidebar from "../../components/Sidebar/Sidebar";
 import MainContent from "../../components/MainContent/MainContent";
 import "./Dashboard.scss"
-
+import Control from "../Control/Control"
+import { Outlet } from "react-router-dom";
 const Dashboard = () => {
   return (
     <div className="adminDashboard">
       <div className="dashboardContainer">
-      <Header />
       <Layout>
+        <div className="flex-left">
         <Sidebar />
-        <MainContent />
+        </div>
+        <div className="flex-right">
+          <Outlet></Outlet>
+        </div>
       </Layout>
       </div>
     </div>

@@ -3,5 +3,14 @@
     .dashboardContainer{
         max-width: 1380px;
         margin: 0 auto;
+        .flex-right{
+            flex: 10;
+            margin: 10px;
+        }
+        .flex-left{
+            background: blueviolet;
+            flex: 2;
+            min-height: 90vh;
+        }
     }
-}
+} 

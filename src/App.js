@@ -20,9 +20,9 @@ import Exp from "./components/Exp/Exp";
 import EditProduct from "./components/EditProduct/EditProduct";
 import Dashboard from "./AdminPannel/pages/Dashboard/Dashboard";
 import Invoice from "./AdminPannel/pages/Invoice/Invoice";
-import Control from "./AdminPannel/pages/Control/Control"
+import Control from "./AdminPannel/pages/Control/Control";
 import OrderSuccess from "./components/OrderSuccess/OrderSuccess";
-// import Delete from "./components/Delete/Delete"
+import MainContent from "./AdminPannel/components/MainContent/MainContent";
 
 function App() {
   return (
@@ -34,27 +34,41 @@ function App() {
             <Route path="/" element={<Home />}></Route>
             <Route path="/invoice" element={<Invoice></Invoice>}></Route>
             <Route path="/control" element={<Control />}></Route>
-            <Route path="/admin" element={<Admin />}></Route>
-            <Route path="/adminLogin" element={<AdminLogin/>}></Route>
-            <Route path="/product" element={<Product/>} ></Route>
-            <Route path="/dashboard" element={<Dashboard/>} ></Route>
+            {/* Admin subRoute start*/}
+            <Route path="admin/" element={<Admin />}>
+              <Route path="dashboard/" element={<Dashboard></Dashboard>}>
+                <Route path="control" element={<Control></Control>} />
+                <Route path="orders" element={<MainContent></MainContent>} />
+                <Route path="product" element={<Product></Product>} />
+              </Route>
+            </Route>
+
+            {/* Admin subRoute end */}
+            <Route path="/adminLogin" element={<AdminLogin />}></Route>
+            <Route path="/product" element={<Product />}></Route>
+            <Route path="/dashboard" element={<Dashboard />}></Route>
             {/* <Route path="/product" element={<Product/>} ></Route> */}
             {/* // user page  */}
+
+
+            {/* // for user router  */}
             <Route path="/login" element={<Login />}></Route>
-            {/* <Route path="/delete" element={<Delete />}></Route> */}
             <Route path="/register" element={<Register />}></Route>
             <Route path="/home" element={<Home />}></Route>
             <Route path="/singleProduct" element={<SingleProduct />}></Route>
-            <Route path="/productDetails/:productId" element={<ProductDetails />}></Route>
-            <Route path="/mans" element={<Mans/>}></Route>
-            <Route path="/sunglass" element={<Sunglass/>}></Route>
-            <Route path="/women" element={<Woman/>}></Route>
-            <Route path="/orderSuccess" element={<OrderSuccess/>}></Route>
-            <Route path="/accessories" element={<Accessories/>}></Route>
-            <Route path="/checkout" element={<CheckoutPage/>}></Route>
-            <Route path="/products" element={<ProductLayout/>}></Route>
-            <Route path="/exp" element={<Exp/>}></Route>
-            <Route path={`/edit/:productId`} element={<EditProduct/>}></Route>
+            <Route
+              path="/productDetails/:productId"
+              element={<ProductDetails />}
+            ></Route>
+            <Route path="/mans" element={<Mans />}></Route>
+            <Route path="/sunglass" element={<Sunglass />}></Route>
+            <Route path="/women" element={<Woman />}></Route>
+            <Route path="/orderSuccess" element={<OrderSuccess />}></Route>
+            <Route path="/accessories" element={<Accessories />}></Route>
+            <Route path="/checkout" element={<CheckoutPage />}></Route>
+            <Route path="/products" element={<ProductLayout />}></Route>
+            <Route path="/exp" element={<Exp />}></Route>
+            <Route path={`/edit/:productId`} element={<EditProduct />}></Route>
           </Routes>
         </AuthProvider>
       </BrowserRouter>
