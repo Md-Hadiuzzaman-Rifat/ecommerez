@@ -10,27 +10,24 @@ import { useAuth } from "../../context/AuthContext";
 import { useGetSelectedProductMutation } from "../../features/product/productApi";
 import { getStoredCart } from "../../utilities/localStorage";
 import { useDispatch, useSelector } from "react-redux";
-import { handleToggle } from "../../features/cartHandler/cartHandler";
+import { handleToggle, searchToggle } from "../../features/cartHandler/cartHandler";
 
 const Header = () => {
   const dispatch= useDispatch()
-  const {condition}= useSelector(state=>state.cartHandler)
+  const {cartCondition, searchCondition}= useSelector(state=>state.cartHandler)
 
   const { currentUser,logout } = useAuth();
-  const [search, setSearch] = useState(false);
-
 
   const handleLogout=()=>{
     logout()
   }
   
   const handleSearch = () => {
-    setSearch((search) => !search);
+    dispatch(searchToggle())
   };
 
   const handleCart = () => {
     dispatch(handleToggle())
-
   };
 
   return (
@@ -67,8 +64,8 @@ const Header = () => {
           </div>
         </div>
       </div>
-      {search && <SearchField handleSearch={handleSearch} />}
-      {condition && <Cart handleCart={handleCart}></Cart>}
+      {searchCondition && <SearchField handleSearch={handleSearch} />}
+      {cartCondition && <Cart handleCart={handleCart}></Cart>}
     </div>
   );
 };

@@ -10,7 +10,7 @@ import { useGetSingleProductQuery } from "../../features/product/productApi";
 import { useParams } from "react-router-dom";
 import {addToDb} from "../../utilities/localStorage"
 import { useDispatch } from "react-redux";
-import { handleClose } from "../../features/cartHandler/cartHandler";
+import { handleClose, searchClose } from "../../features/cartHandler/cartHandler";
 
 const ProductDetails = () => {
   const {productId}= useParams()
@@ -20,8 +20,9 @@ const ProductDetails = () => {
 
   useEffect(() => {
     dispatch(handleClose())
+    dispatch(searchClose())
     window.scrollTo(0, 0)
-  }, [])
+  }, [dispatch])
 
   const handleAction=(_id)=>{
     addToDb(_id)

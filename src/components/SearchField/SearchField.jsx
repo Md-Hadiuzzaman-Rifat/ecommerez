@@ -6,7 +6,7 @@ import { useState } from "react";
 import { useGetProductsQuery } from "../../features/product/productApi";
 
 const SearchField = ({ handleSearch: control }) => {
-  const { data, isLoading, isError } = useGetProductsQuery();
+  const { data =[], isLoading, isError } = useGetProductsQuery();
   const [search, setSearch] = useState("");
   const [result, setResult] = useState([]);
 
@@ -28,7 +28,7 @@ const SearchField = ({ handleSearch: control }) => {
   useEffect(() => {
     const ans = data.filter((item) => item.name.toLowerCase().includes(search.toLowerCase()));
     setResult(ans);
-  },[data, search]);
+  },[search]);
 
 
   return (
