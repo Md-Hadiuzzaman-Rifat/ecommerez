@@ -1,17 +1,18 @@
-import React, { useEffect } from 'react';
 import "./OrderTable.scss"
 import OrderTableBody from '../../components/OrderTableBody/OrderTableBody';
 import { useState } from 'react';
+import { useGetAllOrderedQuery } from '../../../features/confirmOrder/confirmOrder';
 
 const OrderTable = () => {
-  const [orderList, setOrderList]= useState([])
 
 
-useEffect(()=>{
-  fetch("http://localhost:2020/orderedProduct")
-  .then(res=>res.json())
-  .then(data=>setOrderList(data))
-},[])
+// useEffect(()=>{
+//   fetch("http://localhost:2020/orderedProduct")
+//   .then(res=>res.json())
+//   .then(data=>setOrderList(data))
+// },[])
+
+const {data, isLoading, isError}= useGetAllOrderedQuery()
 
 
     return (
@@ -30,8 +31,11 @@ useEffect(()=>{
           
           <tbody>
             {/* // table body  */}
+            {
+              isLoading && "Loading..."
+            }
           {
-            orderList?.length >0 && orderList.map(item=><OrderTableBody key={item._id} item={item}></OrderTableBody>)
+            data?.length >0 && data.map(item=><OrderTableBody key={item._id} item={item}></OrderTableBody>)
           }
           </tbody>
         </table>

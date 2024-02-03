@@ -10,7 +10,7 @@ const OrderTableBody = ({item}) => {
   const {_id, timestamp}= item
   return (
       <tr className="orderTableBody">
-        <td>{_id}</td>
+        <td><Link target="_blank" to={`${_id}`}>{_id}</Link></td>
         <td>cash</td>
         <td>{timestamp}</td>
         <td>

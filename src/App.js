@@ -23,6 +23,8 @@ import Invoice from "./AdminPannel/pages/Invoice/Invoice";
 import Control from "./AdminPannel/pages/Control/Control";
 import OrderSuccess from "./components/OrderSuccess/OrderSuccess";
 import MainContent from "./AdminPannel/components/MainContent/MainContent";
+import Badges from "./AdminPannel/components/Badges/Badges";
+import ViewOrder from "./AdminPannel/pages/ViewOrder/ViewOrder";
 
 function App() {
   return (
@@ -35,13 +37,14 @@ function App() {
             <Route path="/invoice" element={<Invoice></Invoice>}></Route>
             <Route path="/control" element={<Control />}></Route>
             {/* Admin subRoute start*/}
-            <Route path="admin/" element={<Admin />}>
-              <Route path="dashboard/" element={<Dashboard></Dashboard>}>
+            {/* <Route path="admin/" element={<Admin />}> */}
+              <Route path="dashboard" element={<Dashboard></Dashboard>}>
                 <Route path="control" element={<Control></Control>} />
                 <Route path="orders" element={<MainContent></MainContent>} />
+                <Route path="orders/:orderId" element={<ViewOrder />}></Route>
                 <Route path="product" element={<Product></Product>} />
               </Route>
-            </Route>
+            {/* </Route> */}
 
             {/* Admin subRoute end */}
             <Route path="/adminLogin" element={<AdminLogin />}></Route>
@@ -69,6 +72,7 @@ function App() {
             <Route path="/products" element={<ProductLayout />}></Route>
             <Route path="/exp" element={<Exp />}></Route>
             <Route path={`/edit/:productId`} element={<EditProduct />}></Route>
+            <Route path="/badge" element={<Badges></Badges>}></Route>
           </Routes>
         </AuthProvider>
       </BrowserRouter>

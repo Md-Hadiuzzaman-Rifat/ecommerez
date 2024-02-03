@@ -9,9 +9,19 @@ export const confirmOrder= apiSlice.injectEndpoints({
                 method:"post",
                 body:data
             }),
+        }),
+        getSingleOrder:builder.query({
+            query:(data)=>({
+                 url:`/singleOrder/${data}`
+            })
+        }),
+        getAllOrdered:builder.query({
+            query:(data)=>({
+                url:'/orderedProduct'
+            })
         })
     })
 })
-export const {useOrderMutation}=confirmOrder
+export const {useOrderMutation, useGetSingleOrderQuery, useGetAllOrderedQuery}=confirmOrder
 ;
 
