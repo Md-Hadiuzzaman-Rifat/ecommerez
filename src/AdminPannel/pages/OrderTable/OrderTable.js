@@ -5,16 +5,7 @@ import { useGetAllOrderedQuery } from '../../../features/confirmOrder/confirmOrd
 
 const OrderTable = () => {
 
-
-// useEffect(()=>{
-//   fetch("http://localhost:2020/orderedProduct")
-//   .then(res=>res.json())
-//   .then(data=>setOrderList(data))
-// },[])
-
 const {data, isLoading, isError}= useGetAllOrderedQuery()
-
-
     return (
         <div className='orderTable'>
             <table>
@@ -28,12 +19,10 @@ const {data, isLoading, isError}= useGetAllOrderedQuery()
               <th>Action</th>
             </tr>
           </thead>
-          
-          <tbody>
-            {/* // table body  */}
-            {
+          {/* {
               isLoading && "Loading..."
-            }
+            } */}
+          <tbody>
           {
             data?.length >0 && data.map(item=><OrderTableBody key={item._id} item={item}></OrderTableBody>)
           }

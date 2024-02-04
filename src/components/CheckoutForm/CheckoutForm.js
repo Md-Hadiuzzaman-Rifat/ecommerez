@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import "./CheckoutForm.scss";
 import { useState } from "react";
-import { useOrderMutation } from "../../features/confirmOrder/confirmOrder";
+import { usePurchaseOrderMutation } from "../../features/confirmOrder/confirmOrder";
 import { clearTheCart } from "../../utilities/localStorage";
 import { useDispatch } from "react-redux";
 import { resetOrder } from "../../features/orderProduct/orderProductSlice";
@@ -29,7 +29,7 @@ const CheckoutForm = ({data}) => {
     setCountry("");
   }
 
-  const [order, {isSuccess, isError, isLoading}]=useOrderMutation()
+  const [order, {isSuccess, isError, isLoading}]=usePurchaseOrderMutation()
 
   const handleSubmit=(e)=>{
     e.preventDefault() 
@@ -42,6 +42,7 @@ const CheckoutForm = ({data}) => {
       city,
       zip,
       country,
+      status:"pending",
       timestamp: new Date().toLocaleString(),
       order:data
     }

@@ -3,10 +3,10 @@ import {apiSlice} from "../api/apiSlice"
 
 export const confirmOrder= apiSlice.injectEndpoints({
     endpoints:(builder)=>({
-        order:builder.mutation({
+        purchaseOrder:builder.mutation({
             query:(data)=>({
                 url:"/confirmOrder",
-                method:"post",
+                method:"POST",
                 body:data
             }),
         }),
@@ -19,9 +19,17 @@ export const confirmOrder= apiSlice.injectEndpoints({
             query:(data)=>({
                 url:'/orderedProduct'
             })
+        }),
+        editOrder:builder.mutation({
+            query:({id, status})=>({
+                url:`/singleOrder/${id}`,
+                method:"PATCH",
+                body:status
+            }),
         })
     })
 })
-export const {useOrderMutation, useGetSingleOrderQuery, useGetAllOrderedQuery}=confirmOrder
+
+export const { useGetSingleOrderQuery, useGetAllOrderedQuery, usePurchaseOrderMutation, useEditOrderMutation}=confirmOrder
 ;
 

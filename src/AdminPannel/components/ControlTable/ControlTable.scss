@@ -1,7 +1,7 @@
-@import "../../../css-config/mixins.scss";
 $border-color: #ddd;
-.orderTable{
-    margin: 30px 20px;
+@import "../../../css-config/mixins.scss";
+
+.ControlTable{
     table {
         border-collapse: collapse;
         width: 100%;

@@ -1,6 +1,7 @@
 import {
   createUserWithEmailAndPassword,
   getAuth,
+  getIdToken,
   onAuthStateChanged,
   signInWithEmailAndPassword,
   signOut,
@@ -8,8 +9,7 @@ import {
 } from "firebase/auth";
 import React, { useContext, useEffect, useState } from "react";
 import firebaseInitialize from "../firebase/firebase.initialize"
-import { useAddUserMutation } from "../features/users/userApi";
-
+// import { useAddUserMutation } from "../features/users/userApi";
 
 firebaseInitialize()
 const AuthContext = React.createContext();
@@ -28,6 +28,10 @@ export function AuthProvider({ children }) {
       setCurrentUser(user);
       saveUser(user)
       setLoading(false);
+      if(user){
+        getIdToken(user)
+        .then(idToken=>localStorage.setItem("idToken",idToken))
+      }
     });
     return unsubscribe;
   }, []);

@@ -27,34 +27,6 @@ const ProductForm = () => {
     setCategory("sunglass");
   };
 
-  // upload product post method
-  // const handleSubmit = async (e) => {
-  //   e.preventDefault();
-  //   try {
-  //     const response = await fetch(`http://localhost:2020/uploadProduct`, {
-  //       method: "POST",
-  //       headers: {
-  //         "Content-Type": "application/json",
-  //       },
-  //       body: JSON.stringify({
-  //         name,
-  //         category,
-  //         description,
-  //         tags,
-  //         price,
-  //         discount,
-  //         gender,
-  //         image,
-  //       }),
-  //     });
-  //     if(response?.status == 200){
-  //       clearInput()
-  //       alert("Product Added successfully.")
-  //     }
-  //   } catch (err) {
-  //     alert("Failed to upload")
-  //   }
-  // };
 
   const handleSubmit = (e) => {
     e.preventDefault();

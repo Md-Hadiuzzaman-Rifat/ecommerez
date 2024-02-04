@@ -25,6 +25,7 @@ import OrderSuccess from "./components/OrderSuccess/OrderSuccess";
 import MainContent from "./AdminPannel/components/MainContent/MainContent";
 import Badges from "./AdminPannel/components/Badges/Badges";
 import ViewOrder from "./AdminPannel/pages/ViewOrder/ViewOrder";
+import Profile from "./components/Profile/Profile";
 
 function App() {
   return (
@@ -64,6 +65,7 @@ function App() {
               element={<ProductDetails />}
             ></Route>
             <Route path="/mans" element={<Mans />}></Route>
+            <Route path="/profile" element={<Profile />}></Route>
             <Route path="/sunglass" element={<Sunglass />}></Route>
             <Route path="/women" element={<Woman />}></Route>
             <Route path="/orderSuccess" element={<OrderSuccess />}></Route>

@@ -13,7 +13,7 @@ const orderProductSlice= createSlice({
             state[action.payload.id]= action.payload.count
         },
         removeOrder:(state,action)=>{
-            delete state[action.payload.id]
+
         },
         resetOrder:(state)=>{
             state={}
