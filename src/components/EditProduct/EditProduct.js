@@ -12,7 +12,7 @@ const EditProduct = () => {
     // const {}= useEditProductMutation(productId)
 
     const {data, isLoading}= useGetSingleProductQuery(productId)
-    console.log(data)  
+
     return (
         <div className='editProduct'>
             {

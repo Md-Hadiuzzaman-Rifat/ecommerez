@@ -3,7 +3,7 @@ import "./RelatedProduct.scss"
 import SingleProduct from '../SingleProduct/SingleProduct';
 const RelatedProduct = () => {
     return (
-        <div className="product">
+        <div className="relatedProduct">
             <div className="product_container">
                 <SingleProduct></SingleProduct>
                 <SingleProduct></SingleProduct>

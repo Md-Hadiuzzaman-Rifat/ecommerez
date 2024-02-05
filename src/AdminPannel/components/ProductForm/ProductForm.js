@@ -10,7 +10,8 @@ const ProductForm = () => {
   const [price, setPrice] = useState("");
   const [discount, setDiscount] = useState("");
   const [tags, setTags] = useState("");
-  const [image, setImage] = useState("");
+  const [image1, setImage1] = useState("");
+  const [image2, setImage2] = useState("");
   const [category, setCategory] = useState("sunglass");
 
   const [addProduct, { data, isError, isLoading, isSuccess }] =
@@ -23,7 +24,8 @@ const ProductForm = () => {
     setPrice("");
     setDiscount("");
     setTags("");
-    setImage("");
+    setImage1("");
+    setImage2("");
     setCategory("sunglass");
   };
 
@@ -38,7 +40,7 @@ const ProductForm = () => {
       price,
       discount,
       gender,
-      image,
+      image:[image1,image2],
     });
     console.log(response);
     response
@@ -112,37 +114,22 @@ const ProductForm = () => {
         />
         <label htmlFor="product-image">Product Image:</label>
         <input
-          onChange={(e) => setImage(e.target.value)}
+          onChange={(e) => setImage1(e.target.value)}
           type="text"
           id="product-image"
           name="product-image"
+          style={{marginBottom:"20px"}}
+          placeholder="Image 1"
           required
         />
-        {/* // --------image upload  --------*/}
-        {/* <label htmlFor="product-image">Product Image:</label>
         <input
-          type="file"
+          onChange={(e) => setImage2(e.target.value)}
+          type="text"
           id="product-image"
           name="product-image"
-          accept="image/*"
+          placeholder="Image 1"
           required
-        /> */}
-        {/*---------- gender checkbox -----------*/}
-        {/* <div className="gender-checkbox">
-            <p>Gender: </p>
-          <label htmlFor="gender">
-            <input type="checkbox" id="topping" name="topping" value="Paneer" />
-            Male
-          </label>
-          <label htmlFor="gender">
-            <input type="checkbox" id="topping" name="topping" value="Paneer" />
-            Female
-          </label>
-          <label htmlFor="gender">
-            <input type="checkbox" id="topping" name="topping" value="Paneer" />
-            Unisex
-          </label>
-        </div> */}
+        />
         <select
           className="gender"
           name="gender"

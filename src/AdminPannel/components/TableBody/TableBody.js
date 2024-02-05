@@ -11,6 +11,8 @@ const TableBody = ({data}) => {
 
   const dis=Math.floor((discount/price)*100)
 
+  const [image1, image2]= image || []
+
   const [deleteProduct, {isLoading, isSuccess:deleteSuccess}]= useDeleteProductMutation()
 
   useEffect(()=>{
@@ -37,12 +39,12 @@ const TableBody = ({data}) => {
       <td>
         <img
           className="table-img"
-          src={image}
+          src={image1}
           alt=""
         />
         <img
           className="table-img"
-          src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSrOJSc2-5DkX1JScbalvUwegBOVqG3oBXU5q-_BKIlIA&s"
+          src={image2}
           alt=""
         />
       </td>

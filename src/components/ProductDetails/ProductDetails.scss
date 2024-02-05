@@ -20,17 +20,36 @@
       @include md {
         flex-direction: column;
       }
-      .display_image {
-        flex: 1;
-        img {
-          margin-top: 10px;
-          width: 100%;
-          box-shadow: rgba(136, 165, 191, 0.288) 6px 2px 16px 0px,
-            rgba(255, 255, 255, 0.288) -6px -2px 16px 0px;
-        }
+.image_container{
+   flex: 12;
+  .display_image {
+   
+    display: flex;
+    .side-image{
+      display: flex;
+      flex-direction: column;
+      img{
+        height: 100px;
+        width: 80px;
+        object-fit: cover;
+        padding: 10px 10px 0px 0;
+        cursor: pointer;
       }
+    }
+    .main-image{
+      img {
+      margin-top: 10px;
+      height: 400px;
+      object-fit: cover;
+      width: 100%;
+      box-shadow: rgba(136, 165, 191, 0.288) 6px 2px 16px 0px,
+        rgba(255, 255, 255, 0.288) -6px -2px 16px 0px;
+    }
+    }
+  }
+}
       .display_content {
-        flex: 1;
+        flex: 12;
         padding: 2rem;
         .displayContent_action {
           display: flex;

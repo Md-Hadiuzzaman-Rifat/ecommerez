@@ -5,6 +5,8 @@ import { removeOrder } from "../../features/orderProduct/orderProductSlice";
 import { useDispatch } from "react-redux";
 
 const CartItem = ({data}) => {
+  const {image}= data || {}
+  const [image1]=image
 
   const dispatch= useDispatch()
 
@@ -26,7 +28,7 @@ const CartItem = ({data}) => {
     <div className="cartItem">
       <div className="container">
         <img
-          src={data?.image}
+          src={image1}
           alt=""
         />
         <h3>{nameFunction()}</h3>

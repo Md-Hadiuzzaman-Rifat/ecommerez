@@ -7,8 +7,7 @@ import { useParams } from "react-router-dom";
 
 const EditForm = ({editData}) => {
   const {name:editName, gender:editGender, category:editCategory, description:editDescription, discount:editDiscount, image:editImage, price:editPrice, tags:editTags}=editData || {}
-
-
+  
   const {productId}= useParams()
   const [name, setName] = useState(editName);
   const [gender, setGender] = useState(editGender);
@@ -16,11 +15,11 @@ const EditForm = ({editData}) => {
   const [price, setPrice] = useState(editPrice);
   const [discount, setDiscount] = useState(editDiscount);
   const [tags, setTags] = useState(editTags);
-  const [image, setImage] = useState(editImage);
+  const [newImage1, setNewImage1] = useState(editImage[0]);
+  const [newImage2, setNewImage2] = useState(editImage[1]);
   const [category, setCategory] = useState(editCategory);
 
   const [editProduct, {isSuccess}]=useEditProductMutation()
-
 
   const productObj={
     name,
@@ -30,13 +29,12 @@ const EditForm = ({editData}) => {
     price,
     discount,
     gender,
-    image,
+    image:[newImage1, newImage2]
   }
 
   const handleSubmit = (e) => {
     e.preventDefault();
     const response = editProduct({productId,productObj});
-    console.log(response);
     response
       .then(()=>{
         alert("Product added successfully.")
@@ -114,23 +112,23 @@ const EditForm = ({editData}) => {
         />
         <label htmlFor="product-image">Product Image:</label>
         <input
-        value={editImage}
-          onChange={(e) => setImage(e.target.value)}
+        value={editImage[0]}
+          onChange={(e) => setNewImage1(e.target.value)}
           type="text"
           id="product-image"
           name="product-image"
           required
         />
-        {/* // --------image upload  --------*/}
-        {/* <label htmlFor="product-image">Product Image:</label>
         <input
-          type="file"
+        value={editImage[1]}
+          onChange={(e) => setNewImage2(e.target.value)}
+          type="text"
           id="product-image"
           name="product-image"
-          accept="image/*"
+          style={{marginTop:"20px"}}
           required
-        /> */}
-        {/*---------- gender checkbox -----------*/}
+        />
+
         <select
           className="gender"
           name="gender"

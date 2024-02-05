@@ -26,6 +26,8 @@ import MainContent from "./AdminPannel/components/MainContent/MainContent";
 import Badges from "./AdminPannel/components/Badges/Badges";
 import ViewOrder from "./AdminPannel/pages/ViewOrder/ViewOrder";
 import Profile from "./components/Profile/Profile";
+import Practice from "./components/Practice/Practice";
+import Practice2 from "./components/Practice2/Practice2";
 
 function App() {
   return (
@@ -59,6 +61,9 @@ function App() {
             <Route path="/login" element={<Login />}></Route>
             <Route path="/register" element={<Register />}></Route>
             <Route path="/home" element={<Home />}></Route>
+            <Route path="/home/productDetails/:productId" element={<ProductDetails/>}></Route>
+            <Route path="/practice" element={<Practice />}></Route>
+            <Route path="/practice2" element={<Practice2 />}></Route>
             <Route path="/singleProduct" element={<SingleProduct />}></Route>
             <Route
               path="/productDetails/:productId"

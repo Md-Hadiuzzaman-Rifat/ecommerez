@@ -1,4 +1,5 @@
 import { apiSlice } from "../api/apiSlice";
+import { addProduct } from "./productSlice";
 
 export const productApi= apiSlice.injectEndpoints({
     endpoints:(builder)=>({
@@ -7,7 +8,15 @@ export const productApi= apiSlice.injectEndpoints({
                 url:"/uploadProduct",
                 method:"POST",
                 body:data
-            })
+            }),
+            async onQueryStarted(arg, {dispatch, queryFulfilled}){
+                try{
+                    const result = await queryFulfilled;
+                    dispatch(addProduct(arg.data))
+                }catch(err){
+
+                }
+            }
         }),
         getProducts:builder.query({
             query:()=>`/getProducts`

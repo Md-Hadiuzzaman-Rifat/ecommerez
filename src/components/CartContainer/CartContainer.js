@@ -4,6 +4,7 @@ import "./CartContainer.scss"
 
 const CartContainer = ({data}) => {
     let {name, image, price, _id}= data
+    const [image1]= image ||[]
 
     if(name.length>12){
         name= name.substring(0,12)
@@ -13,7 +14,7 @@ const CartContainer = ({data}) => {
         <div className="cart_container">
         <div className="cart_product_image">
           <img
-            src={image}
+            src={image1}
             alt=""
           />
         </div>

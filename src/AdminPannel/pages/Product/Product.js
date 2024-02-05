@@ -10,7 +10,6 @@ const Product = () => {
   console.log(selector);
   return (
     <div className="product">
-      {/* <Exp></Exp> */}
       <div className="container">
         <h1>Upload a Product</h1>
         <ProductForm></ProductForm>
