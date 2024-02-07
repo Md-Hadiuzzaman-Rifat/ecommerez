@@ -64,7 +64,7 @@ export function AuthProvider({ children }) {
       headers:{
         "content-type":"application/json"
       },
-      body:JSON.stringify({email:user?.email, name:user?.displayName, uid:user?.uid, role:undefined})
+      body:JSON.stringify({email:user?.email, name:user?.displayName, uid:user?.uid})
     })
   }
 

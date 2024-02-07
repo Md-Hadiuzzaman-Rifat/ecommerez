@@ -4,6 +4,8 @@ import "./Login.scss";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "../../context/AuthContext";
+import { useDispatch } from "react-redux";
+import { handleClose } from "../../features/cartHandler/cartHandler";
 
 const Login = () => {
   const [email, setEmail] = useState("");
@@ -11,10 +13,13 @@ const Login = () => {
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
-
+  const dispatch= useDispatch()
+  
   useEffect(() => {
-    window.scrollTo(0, 0)
-  }, [])
+    dispatch(handleClose());
+    window.scrollTo(0, 0);
+  }, [dispatch]);
+
 
   const { login } = useAuth();
 

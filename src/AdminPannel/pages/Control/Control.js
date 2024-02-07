@@ -3,7 +3,6 @@ import "./Control.scss";
 import ControlForm from "../../components/ControlForm/ControlForm";
 import ControlTable from "../../components/ControlTable/ControlTable";
 
-
 const Control = () => {
   return (
     <div className="Control">

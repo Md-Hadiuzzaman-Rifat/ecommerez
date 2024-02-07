@@ -7,7 +7,7 @@ const Practice = ({product}) => {
   const [image1, image2]= image || []
 
   if (name?.length > 25) {
-    name = name.substring(0, 34) + "...";
+    name = name.substring(0, 22) + "...";
   }
   return (
     <div className="Practice">
@@ -28,9 +28,8 @@ const Practice = ({product}) => {
         <h2>{name}</h2>
         <div className="prices">
           <h3>Original Price: {price}</h3>
-          <h3>After Discount:{Math.floor((price*discount)/100)}</h3>
+          <h3>After Discount:{Math.floor((discount))}</h3>
         </div>
-      
     </Link>
     </div>
   );

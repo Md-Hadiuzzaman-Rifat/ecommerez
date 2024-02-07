@@ -40,6 +40,7 @@ const TableBody = ({data}) => {
         <img
           className="table-img"
           src={image1}
+          style={{marginRight:"5px"}}
           alt=""
         />
         <img

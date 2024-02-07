@@ -28,6 +28,8 @@ import ViewOrder from "./AdminPannel/pages/ViewOrder/ViewOrder";
 import Profile from "./components/Profile/Profile";
 import Practice from "./components/Practice/Practice";
 import Practice2 from "./components/Practice2/Practice2";
+import PrivateRoute from "./components/PrivateRoute/PrivateRoute";
+import PublicRoute from "./components/PublicRoute/PublicRoute";
 
 function App() {
   return (
@@ -37,16 +39,17 @@ function App() {
           <Header></Header>
           <Routes>
             <Route path="/" element={<Home />}></Route>
-            <Route path="/invoice" element={<Invoice></Invoice>}></Route>
+            <Route path="/invoice" element={<Invoice />}></Route>
             <Route path="/control" element={<Control />}></Route>
             {/* Admin subRoute start*/}
             {/* <Route path="admin/" element={<Admin />}> */}
-              <Route path="dashboard" element={<Dashboard></Dashboard>}>
-                <Route path="control" element={<Control></Control>} />
-                <Route path="orders" element={<MainContent></MainContent>} />
-                <Route path="orders/:orderId" element={<ViewOrder />}></Route>
-                <Route path="product" element={<Product></Product>} />
-              </Route>
+            <Route path="/dashboard" element={<AdminLogin></AdminLogin>} />
+            <Route path="dashboard/*" element={<Dashboard></Dashboard>}>
+              <Route path="control" element={<Control></Control>} />
+              <Route path="orders" element={<MainContent></MainContent>} />
+              <Route path="orders/:orderId" element={<ViewOrder />}></Route>
+              <Route path="product" element={<Product></Product>} />
+            </Route>
             {/* </Route> */}
 
             {/* Admin subRoute end */}
@@ -56,12 +59,17 @@ function App() {
             {/* <Route path="/product" element={<Product/>} ></Route> */}
             {/* // user page  */}
 
-
             {/* // for user router  */}
-            <Route path="/login" element={<Login />}></Route>
-            <Route path="/register" element={<Register />}></Route>
+            <Route path="/" element={<PublicRoute/>}>
+              <Route path="login" element={<Login />}></Route>
+              <Route path="register" element={<Register />}></Route>
+            </Route>
+            
             <Route path="/home" element={<Home />}></Route>
-            <Route path="/home/productDetails/:productId" element={<ProductDetails/>}></Route>
+            <Route
+              path="/home/productDetails/:productId"
+              element={<ProductDetails />}
+            ></Route>
             <Route path="/practice" element={<Practice />}></Route>
             <Route path="/practice2" element={<Practice2 />}></Route>
             <Route path="/singleProduct" element={<SingleProduct />}></Route>
@@ -75,7 +83,14 @@ function App() {
             <Route path="/women" element={<Woman />}></Route>
             <Route path="/orderSuccess" element={<OrderSuccess />}></Route>
             <Route path="/accessories" element={<Accessories />}></Route>
-            <Route path="/checkout" element={<CheckoutPage />}></Route>
+            <Route
+              path="/checkout"
+              element={
+                <PrivateRoute>
+                  <CheckoutPage />
+                </PrivateRoute>
+              }
+            ></Route>
             <Route path="/products" element={<ProductLayout />}></Route>
             <Route path="/exp" element={<Exp />}></Route>
             <Route path={`/edit/:productId`} element={<EditProduct />}></Route>

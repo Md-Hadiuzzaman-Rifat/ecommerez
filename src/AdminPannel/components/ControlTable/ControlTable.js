@@ -1,32 +1,48 @@
-import React from 'react';
-import "./ControlTable.scss"
+import React, { useEffect, useState } from "react";
+import "./ControlTable.scss";
+import { useGetUsersQuery } from "../../../features/users/userApi";
 
 const ControlTable = () => {
-    return (
-        <div className='ControlTable'>
-            <table>
-            <thead>
+  const { data: findUser, isLoading: findLoading } = useGetUsersQuery();
+
+  const [controlUser, setControlUser] = useState([]);
+
+  // Find user with role property
+  useEffect(() => {
+    if (findUser?.length > 0) {
+      setControlUser(findUser.filter((user) => user?.role));
+    }
+  }, [findUser]);
+
+  return (
+    <div className="ControlTable">
+      {findLoading && "Loading"}
+      {!findLoading && findUser && controlUser?.length === 0 && (
+        <h3>No user found</h3>
+      )}
+      {!findLoading && findUser && controlUser?.length > 0 && (
+        <table>
+          <thead>
             <tr>
               <th>Name</th>
               <th>Email</th>
               <th>Role</th>
             </tr>
           </thead>
+
           <tbody>
-            <tr>
-                <td>Md Hadi</td>
-                <td>hadi@gmail.com</td>
-                <td>Moderator</td>
-            </tr>
-            <tr>
-                <td>Md Hadi</td>
-                <td>hadi@gmail.com</td>
-                <td>Admin</td>
-            </tr>
+            {
+              controlUser.map(user=><tr key={user._id}>
+                <td>{user.name}</td>
+                <td>{user.email}</td>
+                <td>{user.role}</td>
+              </tr>)
+            }
           </tbody>
-            </table>
-        </div>
-    );
+        </table>
+      )}
+    </div>
+  );
 };
 
 export default ControlTable;

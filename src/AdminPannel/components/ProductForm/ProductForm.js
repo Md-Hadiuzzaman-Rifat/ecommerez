@@ -29,10 +29,9 @@ const ProductForm = () => {
     setCategory("sunglass");
   };
 
-
   const handleSubmit = (e) => {
     e.preventDefault();
-    const response = addProduct({
+    addProduct({
       name,
       category,
       description,
@@ -42,14 +41,7 @@ const ProductForm = () => {
       gender,
       image:[image1,image2],
     });
-    console.log(response);
-    response
-      .then(()=>{
-        alert("Product added successfully.")
-      })
-      .catch(()=>{
-        alert("Failed to upload product.")
-      })
+    clearInput()
   };
 
   return (

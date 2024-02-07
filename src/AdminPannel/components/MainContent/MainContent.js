@@ -6,7 +6,8 @@ import OrderTable from '../../pages/OrderTable/OrderTable';
 const MainContent = () => {
     return (
         <div className='mainContent'>
-            <Box></Box>
+            {/* <Box></Box> */}
+            <h2>Order Page:</h2>
             <OrderTable></OrderTable>
         </div>
     );

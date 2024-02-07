@@ -1,11 +1,52 @@
-import React from 'react';
+import React from "react";
+import "./AdminLogin.scss";
+import { useState } from "react";
 
-const AdminLogin = () => {
-    return (
-        <div>
-            <h3>This is login page</h3>
-        </div>
-    );
+const Login = () => {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    console.log(email, password);
+  };
+
+  return (
+    <div className="login">
+      <div className="container">
+        <h1>Login</h1>
+        <form onSubmit={handleSubmit}>
+          <div className="input-field">
+            <label htmlFor="email">Email</label>
+            <input
+              type="email"
+              id="email"
+              name="email"
+              required
+              onChange={(e) => setEmail(e.target.value)}
+            />
+          </div>
+          <div className="input-field">
+            <label htmlFor="password">Password</label>
+            <input
+              type="password"
+              id="password"
+              name="password"
+              required
+              onChange={(e) => setPassword(e.target.value)}
+            />
+          </div>
+
+          <div className="button-field">
+            <button type="submit">
+              Login
+            </button>
+          </div>
+        </form>
+      </div>
+
+    </div>
+  );
 };
 
-export default AdminLogin;
+export default Login;

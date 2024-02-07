@@ -1,9 +1,9 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useState } from "react";
 // import "./ProductForm.scss";
 import { useEditProductMutation } from "../../../features/product/productApi";
 import { useParams } from "react-router-dom";
-
+import {useNavigate} from "react-router-dom"
 
 const EditForm = ({editData}) => {
   const {name:editName, gender:editGender, category:editCategory, description:editDescription, discount:editDiscount, image:editImage, price:editPrice, tags:editTags}=editData || {}
@@ -20,6 +20,13 @@ const EditForm = ({editData}) => {
   const [category, setCategory] = useState(editCategory);
 
   const [editProduct, {isSuccess}]=useEditProductMutation()
+  const navigate= useNavigate()
+
+  useEffect(()=>{
+    if(isSuccess){
+        navigate('/dashboard/product')
+    }
+  },[isSuccess, navigate])
 
   const productObj={
     name,
@@ -34,14 +41,7 @@ const EditForm = ({editData}) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    const response = editProduct({productId,productObj});
-    response
-      .then(()=>{
-        alert("Product added successfully.")
-      })
-      .catch(()=>{
-        alert("Failed to upload product.")
-      })
+    editProduct({productId,productObj})
   };
 
   return (
@@ -52,7 +52,7 @@ const EditForm = ({editData}) => {
           type="text"
           id="product-name"
           name="product-name"
-          value={editName}
+          value={name}
           onChange={(e) => setName(e.target.value)}
           required
         />
@@ -61,7 +61,7 @@ const EditForm = ({editData}) => {
           name="category"
           required
           id=""
-        
+          value={category}
           onChange={(e) => setCategory(e.target.value)}
         >
           <option value="sunglass">Sunglass</option>
@@ -71,7 +71,7 @@ const EditForm = ({editData}) => {
         </select>
         <label htmlFor="product-description">Product Description:</label>
         <textarea
-        value={editDescription}
+        value={description}
           onChange={(e) => setDescription(e.target.value)}
           id="product-description"
           name="product-description"
@@ -82,7 +82,7 @@ const EditForm = ({editData}) => {
         </label>
         <input
           onChange={(e) => setTags(e.target.value)}
-          value={editTags}
+          value={tags}
           type="text"
           id="tags"
           name="tags"
@@ -90,7 +90,7 @@ const EditForm = ({editData}) => {
         />
         <label htmlFor="product-price">Product Price:</label>
         <input
-        value={editPrice}
+        value={price}
           onChange={(e) => setPrice(e.target.value)}
           type="number"
           id="product-price"
@@ -103,7 +103,7 @@ const EditForm = ({editData}) => {
         </label>
         <input
           onChange={(e) => setDiscount(e.target.value)}
-          value={editDiscount}
+          value={discount}
           type="number"
           id="discount"
           name="discount"
@@ -112,7 +112,7 @@ const EditForm = ({editData}) => {
         />
         <label htmlFor="product-image">Product Image:</label>
         <input
-        value={editImage[0]}
+        value={newImage1}
           onChange={(e) => setNewImage1(e.target.value)}
           type="text"
           id="product-image"
@@ -120,7 +120,7 @@ const EditForm = ({editData}) => {
           required
         />
         <input
-        value={editImage[1]}
+        value={newImage2}
           onChange={(e) => setNewImage2(e.target.value)}
           type="text"
           id="product-image"
@@ -133,6 +133,7 @@ const EditForm = ({editData}) => {
           className="gender"
           name="gender"
           id=""
+          value={gender}
           onChange={(e) => setGender(e.target.value)}
         >
           <option value="male">Male</option>

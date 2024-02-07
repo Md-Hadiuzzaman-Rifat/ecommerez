@@ -1,7 +1,6 @@
 import React from "react";
 import "./ProductLayout.scss";
 import Product from "../Product/Product";
-import { useSelector, useDispatch } from "react-redux";
 import { useGetProductsQuery } from "../../features/product/productApi";
 import { useState } from "react";
 import Practice from "../Practice/Practice"
@@ -21,7 +20,7 @@ const ProductLayout = () => {
         ) : (
           <div className="productLayout_product">
             {
-              !isLoading && data?.length>0 && data.map((item) => (
+              !isLoading && data?.length>0 && data?.map((item) => (
                 <Practice key={item._id} product={item} />
                 // <Product key={item._id} product={item} />
               ))
