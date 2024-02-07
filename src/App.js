@@ -30,6 +30,7 @@ import Practice from "./components/Practice/Practice";
 import Practice2 from "./components/Practice2/Practice2";
 import PrivateRoute from "./components/PrivateRoute/PrivateRoute";
 import PublicRoute from "./components/PublicRoute/PublicRoute";
+import ControllerPrivateRoute from "./AdminPannel/components/ControllerPrivateRoute/ControllerPrivateRoute";
 
 function App() {
   return (
@@ -44,12 +45,15 @@ function App() {
             {/* Admin subRoute start*/}
             {/* <Route path="admin/" element={<Admin />}> */}
             <Route path="/dashboard" element={<AdminLogin></AdminLogin>} />
-            <Route path="dashboard/*" element={<Dashboard></Dashboard>}>
+
+            <Route path="/dashboard/*" element={<ControllerPrivateRoute/>}>
+            {/* <Route path="dashboard/*" element={<Dashboard></Dashboard>}> */}
               <Route path="control" element={<Control></Control>} />
               <Route path="orders" element={<MainContent></MainContent>} />
               <Route path="orders/:orderId" element={<ViewOrder />}></Route>
               <Route path="product" element={<Product></Product>} />
             </Route>
+            {/* </Route> */}
             {/* </Route> */}
 
             {/* Admin subRoute end */}

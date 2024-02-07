@@ -59,7 +59,6 @@ const Cart = () => {
                 <Button>Return Shop</Button>
                 </div>
                 
-                
               </div>}
               <div className="cart_product">
                 {isSuccess && data?.length>0 && <CartProduct data={data}></CartProduct>}

@@ -9,22 +9,7 @@ export const productSlice = createSlice({
     addProduct: (state,action) => {
         state.push(action.payload)
     },
-    // handleClose: (state) => {
-    //     state.cartCondition= false
-    // },
-    // handleToggle: (state) => {
-    //     state.cartCondition= !state.cartCondition
-    // },
-    // // search condition 
-    // searchOpen: (state) => {
-    //     state.searchCondition= true
-    // },
-    // searchClose: (state) => {
-    //     state.searchCondition= false
-    // },
-    // searchToggle: (state) => {
-    //     state.searchCondition= !state.searchCondition
-    // },
+
   },
 })
 

@@ -7,6 +7,7 @@ const ControlTable = () => {
 
   const [controlUser, setControlUser] = useState([]);
 
+
   // Find user with role property
   useEffect(() => {
     if (findUser?.length > 0) {

@@ -8,16 +8,14 @@ import { useEditOrderMutation } from "../../../features/confirmOrder/confirmOrde
 
 
 const OrderTableBody = ({item}) => {
- 
-
   const {_id, timestamp, status}= item
   const [orderStatus, setOrderStatus]=useState(status)
   
   const [editOrder,{isLoading, isError}]=useEditOrderMutation()
 
-
   const handleEdit=(e)=>{
     setOrderStatus(e)
+    console.log(_id, e);
     editOrder({id:_id,status:e})
   }
   
@@ -32,7 +30,7 @@ const OrderTableBody = ({item}) => {
             required
             id=""
             className={`${orderStatus}`}
-            // value={orderStatus}
+            value={orderStatus}
             onChange={(e) => handleEdit(e.target.value)}
           >
             <option value="pending">Pending</option>

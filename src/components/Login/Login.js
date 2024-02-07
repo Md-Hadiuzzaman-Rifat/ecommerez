@@ -24,7 +24,6 @@ const Login = () => {
   const { login } = useAuth();
 
   const handleSubmit = async (e) => {
-    console.log("ami");
     e.preventDefault();
 
     try {

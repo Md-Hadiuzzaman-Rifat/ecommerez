@@ -19,9 +19,6 @@ const {data, isLoading, isError}= useGetAllOrderedQuery()
               <th>Action</th>
             </tr>
           </thead>
-          {/* {
-              isLoading && "Loading..."
-            } */}
           <tbody>
           {
             data?.length >0 && data.map(item=><OrderTableBody key={item._id} item={item}></OrderTableBody>)

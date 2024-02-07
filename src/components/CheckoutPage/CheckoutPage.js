@@ -24,7 +24,7 @@ const CheckoutPage = () => {
   useEffect(() => {
     dispatch(handleClose());
     window.scrollTo(0, 0);
-  }, []);
+  }, [dispatch]);
 
   return (
     <div className="checkoutPage">
