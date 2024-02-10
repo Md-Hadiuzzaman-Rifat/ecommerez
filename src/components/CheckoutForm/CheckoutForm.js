@@ -6,7 +6,7 @@ import { clearTheCart } from "../../utilities/localStorage";
 import { useDispatch } from "react-redux";
 import { resetOrder } from "../../features/orderProduct/orderProductSlice";
 
-const CheckoutForm = ({data}) => {
+const CheckoutForm = ({data, products, keys}) => {
   const [firstName, setFirstName]=useState("")
   const [lastName, setLastName]=useState("")
   const [email, setEmail]=useState("")
@@ -31,6 +31,47 @@ const CheckoutForm = ({data}) => {
 
   const [order, {isSuccess, isError, isLoading}]=usePurchaseOrderMutation()
 
+  
+  useEffect(()=>{
+    if(isSuccess){
+      reset()
+      clearTheCart()
+      dispatch(resetOrder())
+    }
+  },[isSuccess, dispatch])
+
+
+  // traverse the function
+  let orderedProduct=Object.entries(products)
+  // console.log(orderedProduct, data);
+
+  function getData(orders, products) {
+    let newArray = [];
+    for (let i = 0; i < orders.length; i++) {
+      for (let j = 0; j < products.length; j++) {
+        if (orders[i][0] === products[i]._id) {
+          newArray.push({
+            ...products[i],
+            amount: orders[i][1],
+          });
+        } else if (orders[i][0] === products[j]._id) {
+          newArray.push({
+            ...products[j],
+            amount: orders[i][1],
+          });
+        } else {
+          continue;
+        }
+      }
+    }
+    return newArray;
+  }
+  console.log(getData(orderedProduct, data));
+
+// console.log(data);
+
+
+
   const handleSubmit=(e)=>{
     e.preventDefault() 
     let product={
@@ -44,18 +85,12 @@ const CheckoutForm = ({data}) => {
       country,
       status:"pending",
       timestamp: new Date().toLocaleString(),
-      order:data
+      order:getData(orderedProduct, data)
+      // order:data
     }
-    order(product)
+     order(product)
+     clearTheCart()
   }
-
-  useEffect(()=>{
-    if(isSuccess){
-      reset()
-      clearTheCart()
-      dispatch(resetOrder())
-    }
-  },[isSuccess])
 
   return (
     <div className="checkoutForm">

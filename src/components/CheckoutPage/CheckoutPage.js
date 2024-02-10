@@ -13,6 +13,8 @@ const CheckoutPage = () => {
   const findProducts = getStoredCart() || {};
   const keys = Object.keys(findProducts);
 
+  // console.log(findProducts);
+
   // get multiple product
   const [getSelectedProduct, { data, isLoading, isError, isSuccess }] =
     useGetSelectedProductMutation();
@@ -28,11 +30,14 @@ const CheckoutPage = () => {
 
   return (
     <div className="checkoutPage">
-      <div className="container">
+      {isLoading && "Loading..."}
+      {
+        isSuccess && (
+          <div className="container">
         {
           !isLoading && <div className="checkoutCart">
           <h1>Checkout</h1>
-          <CheckoutForm data={data}></CheckoutForm>
+          <CheckoutForm keys={keys} products={findProducts} data={data}></CheckoutForm>
         </div>
         }
         {isLoading && "Loading..."}
@@ -42,6 +47,9 @@ const CheckoutPage = () => {
               </div>
             )}
       </div>
+        )
+      }
+      
     </div>
   );
 };
