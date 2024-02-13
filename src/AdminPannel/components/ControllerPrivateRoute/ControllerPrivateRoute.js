@@ -10,7 +10,7 @@ const ControllerPrivateRoute = () => {
     let person= data?.find(e=>e.email===currentUser?.email)
 
     if (!isLoading){
-        return Object.keys(person || [])?.includes("role") && currentUser ? <Outlet></Outlet> : <Navigate to="/dashboard"/>
+        return Object.keys(person || [])?.includes("role") && currentUser ? <Outlet></Outlet> : <Navigate to="/admin"/>
     }
 };
 

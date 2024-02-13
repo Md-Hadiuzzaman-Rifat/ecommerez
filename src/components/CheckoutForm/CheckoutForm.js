@@ -5,6 +5,7 @@ import { usePurchaseOrderMutation } from "../../features/confirmOrder/confirmOrd
 import { clearTheCart } from "../../utilities/localStorage";
 import { useDispatch } from "react-redux";
 import { resetOrder } from "../../features/orderProduct/orderProductSlice";
+import { useNavigate } from "react-router-dom";
 
 const CheckoutForm = ({data, products, keys}) => {
   const [firstName, setFirstName]=useState("")
@@ -16,6 +17,7 @@ const CheckoutForm = ({data, products, keys}) => {
   const [zip, setZip]=useState("")
   const [country, setCountry]=useState("")
 
+  const navigate= useNavigate()
   const dispatch= useDispatch()
 
   function reset(){
@@ -37,6 +39,8 @@ const CheckoutForm = ({data, products, keys}) => {
       reset()
       clearTheCart()
       dispatch(resetOrder())
+      alert("Order Confirmed")
+      navigate('/orderSuccess')
     }
   },[isSuccess, dispatch])
 
@@ -69,8 +73,6 @@ const CheckoutForm = ({data, products, keys}) => {
   console.log(getData(orderedProduct, data));
 
 // console.log(data);
-
-
 
   const handleSubmit=(e)=>{
     e.preventDefault() 

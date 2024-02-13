@@ -30,7 +30,7 @@ import Practice from "./components/Practice/Practice";
 import Practice2 from "./components/Practice2/Practice2";
 import PrivateRoute from "./components/PrivateRoute/PrivateRoute";
 import PublicRoute from "./components/PublicRoute/PublicRoute";
-import ControllerPrivateRoute from "./AdminPannel/components/ControllerPrivateRoute/ControllerPrivateRoute";
+import BlogDashboard from "./AdminPannel/pages/BlogDashboard/BlogDashboard";
 
 function App() {
   return (
@@ -44,18 +44,19 @@ function App() {
             <Route path="/control" element={<Control />}></Route>
             {/* Admin subRoute start*/}
             {/* <Route path="admin/" element={<Admin />}> */}
-            <Route path="/dashboard" element={<AdminLogin></AdminLogin>} />
-
-            <Route path="/dashboard/*" element={<ControllerPrivateRoute/>}>
-            {/* <Route path="dashboard/*" element={<Dashboard></Dashboard>}> */}
+            <Route path="/admin" element={<AdminLogin></AdminLogin>} />
+            {/* <Route path="admin/*" element={<ControllerPrivateRoute/>}> */}
+            <Route path="dashboard/*" element={<Dashboard></Dashboard>}>
               <Route path="control" element={<Control></Control>} />
               <Route path="orders" element={<MainContent></MainContent>} />
+              <Route path="blogDashboard" element={<BlogDashboard></BlogDashboard>} />
               <Route path="orders/:orderId" element={<ViewOrder />}></Route>
               <Route path="product" element={<Product></Product>} />
+            {/* </Route> */}
             </Route>
             {/* </Route> */}
-            {/* </Route> */}
 
+            
             {/* Admin subRoute end */}
             <Route path="/adminLogin" element={<AdminLogin />}></Route>
             <Route path="/product" element={<Product />}></Route>

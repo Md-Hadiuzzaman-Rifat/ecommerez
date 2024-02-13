@@ -11,6 +11,7 @@ import { useAuth } from "../../context/AuthContext";
 import { useState, CSSProperties } from "react";
 import { PacmanLoader, ScaleLoader } from "react-spinners";
 import "./Home.scss";
+import Blogs from "../Blogs/Blogs";
 
 const override = {
   display: "block",
@@ -32,6 +33,7 @@ const Home = () => {
       <Showcase></Showcase>
       <ProductLayout></ProductLayout>
       <DiscountSell></DiscountSell>
+      <Blogs></Blogs>
       <Newsletter></Newsletter>
       <Footer></Footer>
     </div>

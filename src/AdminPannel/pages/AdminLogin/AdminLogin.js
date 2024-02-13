@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import "./AdminLogin.scss";
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useAuth } from "../../../context/AuthContext";
 import { useDispatch } from "react-redux";
 
@@ -26,6 +26,7 @@ const AdminLogin = () => {
       setError("");
       setLoading(true);
       await login(email, password);
+      navigate("/dashboard")
     } catch (err) {
       setError("Failed to Login");
       setLoading(false);

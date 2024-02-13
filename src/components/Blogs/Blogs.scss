@@ -1,0 +1,19 @@
+.Blogs{
+    width: 100%;
+    .container{
+        max-width: 1300px;
+        margin: 0 auto;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        .blogs-post{
+            color: blueviolet;
+            font-weight: bold;
+        }
+        .blogs-heading{
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+    
+    }
+}

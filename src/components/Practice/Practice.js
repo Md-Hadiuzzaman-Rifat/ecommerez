@@ -27,8 +27,8 @@ const Practice = ({product}) => {
         </div>
         <h2>{name}</h2>
         <div className="prices">
-          <h3>Original Price: {price}</h3>
-          <h3>After Discount:{Math.floor((discount))}</h3>
+          <p className="original">Original Price: {price}</p>
+          <p style={{color:"gray"}}>After Discount: {Math.floor((price-discount))} Taka</p>
         </div>
     </Link>
     </div>

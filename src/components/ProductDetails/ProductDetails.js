@@ -19,19 +19,26 @@ import {
   handleClose,
   searchClose,
 } from "../../features/cartHandler/cartHandler";
+import {
+  GlassMagnifier,
+  Magnifier,
+  MagnifierContainer,
+  MagnifierPreview,
+  MagnifierZoom,
+} from "react-image-magnifiers";
 
 const ProductDetails = () => {
   const { productId } = useParams();
   const { data, isLoading } = useGetSingleProductQuery(productId);
   const { name, image, description, price, _id } = data || {};
-  const [image1, image2]= image || []
+  const [image1, image2] = image || [];
   const dispatch = useDispatch();
 
-  const [mainImage, setMainImage]= useState(image1)
+  const [mainImage, setMainImage] = useState(image1);
 
-useEffect(()=>{
-  setMainImage(image1)
-},[image1])
+  useEffect(() => {
+    setMainImage(image1);
+  }, [image1]);
 
   useEffect(() => {
     dispatch(handleClose());
@@ -51,15 +58,24 @@ useEffect(()=>{
           <Tags></Tags>
           <div className="product_display">
             <div className="image_container">
-            <div className="display_image">
-              <div className="side-image">
-                <img src={image1} alt="" onClick={()=>setMainImage(image1)}/>
-                <img src={image2} alt="" onClick={()=>setMainImage(image2)}/>
+              <div className="display_image">
+                <div className="side-image">
+                  <img
+                    src={image1}
+                    alt=""
+                    onClick={() => setMainImage(image1)}
+                  />
+                  <img
+                    src={image2}
+                    alt=""
+                    onClick={() => setMainImage(image2)}
+                  />
+                </div>
+                <div className="main-image">
+                  {/* <img src={mainImage} alt="" /> */}
+                  <GlassMagnifier imageSrc={mainImage} imageAlt="Example" />
+                </div>
               </div>
-              <div className="main-image">
-                 <img src={mainImage} alt="" />
-              </div>
-            </div>
             </div>
             <div className="display_content">
               <h2>{name}</h2>
