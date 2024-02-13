@@ -9,7 +9,7 @@ const Category = () => {
     <div className="category">
       <div className="container">
         <div className="category_heading">
-          <h2>Product List: </h2>
+          <h2>Featured Product: </h2>
         </div>
         <div className="category_product">
           {arr.map(item => (

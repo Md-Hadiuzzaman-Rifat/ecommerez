@@ -64,5 +64,9 @@ $border-color: #ddd;
         flex-direction: row;
         gap: 3rem;
     }
+    .flex{
+        display: flex;
+        gap: 10px;
+    }
 
 }

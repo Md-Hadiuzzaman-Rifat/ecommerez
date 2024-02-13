@@ -6,7 +6,6 @@ import { useGetAllBlogQuery } from "../../features/Blog/BlogApi";
 const Blogs = () => {
   const { data, isSuccess, isLoading } = useGetAllBlogQuery();
 
-  console.log(data);
   return (
     <div className="Blogs">
       <div className="container">

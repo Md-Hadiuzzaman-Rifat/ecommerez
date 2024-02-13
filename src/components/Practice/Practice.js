@@ -25,7 +25,7 @@ const Practice = ({product}) => {
             className="secondImg"
           />
         </div>
-        <h2>{name}</h2>
+        <h3>{name}</h3>
         <div className="prices">
           <p className="original">Original Price: {price}</p>
           <p style={{color:"gray"}}>After Discount: {Math.floor((price-discount))} Taka</p>
