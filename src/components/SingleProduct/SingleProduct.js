@@ -1,19 +1,26 @@
 import React from "react";
 import "./SingleProduct.scss";
-import FilteredProducts from "../FilterProduct/FilteredProducts";
-const SingleProduct = () => {
+import { Link } from "react-router-dom";
+
+const SingleProduct = ({item}) => {
+  const {name, price, image, _id}= item || {}
+  const [image1]= image || []
+
   return (
+    
     <div className="product_view">
+      <Link to={`productDetails/${_id}`}>
       <div className="product_img">
         <img
-          src="https://www.ubuy.com.bd/productimg/?image=aHR0cHM6Ly9pNS53YWxtYXJ0aW1hZ2VzLmNvbS9zZW8vV29tZW4tTWVuLUNsYXNzaWMtRXllZ2xhc3Nlcy1GcmFtZXMtRXlld2Vhci1QbGFpbi1HbGFzcy1TcGVjdGFjbGUtRnJhbWUtU2lsaWNvbmUtT3B0aWNhbC1CcmFuZC1FeWUtR2xhc3Nlcy1GcmFtZV9jYTY0MTExZi1iNTFjLTRmZTgtYjZkMy01NDYzZmE1ZjExZDQuYzJjMWU1MzU1ZDcxM2EyYTIyNTc0M2IzN2JiOTBiMWYuanBlZw.jpg"
+          src={image1}
           alt="product"
         />
       </div>
       <div className="product_description">
-        <h3>$500</h3>
-        <p>Pixel 7 pro</p>
+        <h3>{name}</h3>
+        <p>{price} Taka</p>
       </div>
+      </Link>
     </div>
   );
 };

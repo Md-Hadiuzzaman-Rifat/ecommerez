@@ -9,7 +9,6 @@ import DiscountSell from "../Discount/DiscountSell";
 import ProductLayout from "../ProductLayout/ProductLayout";
 import { useAuth } from "../../context/AuthContext";
 import { useState, CSSProperties } from "react";
-import { PacmanLoader, ScaleLoader } from "react-spinners";
 import "./Home.scss";
 import Blogs from "../Blogs/Blogs";
 
@@ -35,6 +34,7 @@ const Home = () => {
       <DiscountSell></DiscountSell>
       <Blogs></Blogs>
       <Newsletter></Newsletter>
+      <img src="https://i0.wp.com/glassesbd.com/wp-content/uploads/2023/04/SSL-Commerz-Pay-With-logo-All-Size_Feb-2023-02-scaled.jpg?resize=1500%2C176&ssl=1" alt="" />
       <Footer></Footer>
     </div>
   );
