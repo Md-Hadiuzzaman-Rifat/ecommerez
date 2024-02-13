@@ -20,9 +20,10 @@ const ProductLayout = () => {
         ) : (
           <div className="productLayout_product">
             {
-              !isLoading && data?.length>0 && data?.map((item) => (
+              !isLoading && data?.length>0 && 
+              data?.filter(item=>item.featured)
+              .map((item) => (
                 <Practice key={item._id} product={item} />
-                // <Product key={item._id} product={item} />
               ))
             }
             {

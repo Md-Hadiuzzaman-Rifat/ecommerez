@@ -4,9 +4,11 @@ import { useState } from "react";
 import { useEditProductMutation } from "../../../features/product/productApi";
 import { useParams } from "react-router-dom";
 import {useNavigate} from "react-router-dom"
+import { useDispatch } from "react-redux";
+import { modalOpen } from "../../../features/cartHandler/cartHandler";
 
 const EditForm = ({editData}) => {
-  const {name:editName, gender:editGender, category:editCategory, description:editDescription, discount:editDiscount, image:editImage, price:editPrice, tags:editTags}=editData || {}
+  const {name:editName, gender:editGender, category:editCategory, description:editDescription, discount:editDiscount, image:editImage, price:editPrice, tags:editTags, featured:editFeatured}=editData || {}
   
   const {productId}= useParams()
   const [name, setName] = useState(editName);
@@ -18,15 +20,19 @@ const EditForm = ({editData}) => {
   const [newImage1, setNewImage1] = useState(editImage[0]);
   const [newImage2, setNewImage2] = useState(editImage[1]);
   const [category, setCategory] = useState(editCategory);
+  const [featured, setFeatured] = useState(Boolean(editFeatured));
+
 
   const [editProduct, {isSuccess}]=useEditProductMutation()
   const navigate= useNavigate()
+  const dispatch= useDispatch()
 
   useEffect(()=>{
     if(isSuccess){
+      dispatch(modalOpen())
         navigate('/dashboard/product')
     }
-  },[isSuccess, navigate])
+  },[isSuccess, navigate, dispatch])
 
   const productObj={
     name,
@@ -36,7 +42,8 @@ const EditForm = ({editData}) => {
     price,
     discount,
     gender,
-    image:[newImage1, newImage2]
+    image:[newImage1, newImage2],
+    featured:JSON.parse(featured)
   }
 
   const handleSubmit = (e) => {
@@ -56,7 +63,10 @@ const EditForm = ({editData}) => {
           onChange={(e) => setName(e.target.value)}
           required
         />
-        <label htmlFor="product-category">Product Category:</label>
+         {/* flex section  */}
+        <div className="flex">
+          <div>
+          <label htmlFor="product-category">Product Category:</label>
         <select
           name="category"
           required
@@ -69,6 +79,23 @@ const EditForm = ({editData}) => {
           <option value="lense">Glass</option>
           <option value="all">All</option>
         </select>
+          </div>
+          {/* // featured product  */}
+          <div>
+            <label htmlFor="featured-product">Featured:</label>
+            <select
+            style={{background:"orange", color:"white"}}
+              name="featured-product"
+              required
+              value={featured}
+              onChange={(e) => setFeatured(e.target.value)}
+            >
+              <option value={true}>True</option>
+              <option value={false}>False</option>
+
+            </select>
+          </div>
+        </div>
         <label htmlFor="product-description">Product Description:</label>
         <textarea
         value={description}
