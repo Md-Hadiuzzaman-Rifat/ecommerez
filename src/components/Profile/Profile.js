@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useAuth } from '../../context/AuthContext';
+import OrderedItem from '../OrderedItem/OrderedItem';
 
 const Profile = () => {
     const auth= useAuth()
@@ -18,11 +19,14 @@ const Profile = () => {
       })
     },[email])
 
-    console.log(data);
+    // console.log(data);    
 
     return (
         <div>
-            
+            <h2>View your orders</h2>
+            {
+              data && data?.length > 0 && data.map(item=><OrderedItem key={item._id} item={item}/>)
+            }
         </div>
     );
 };

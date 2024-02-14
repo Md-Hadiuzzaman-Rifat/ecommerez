@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "./Header.scss";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { BiSearch } from "react-icons/bi";
 import { AiOutlineShoppingCart } from "react-icons/ai";
 import { AiOutlineHeart } from "react-icons/ai";
@@ -17,9 +17,14 @@ const Header = () => {
   const {cartCondition, searchCondition}= useSelector(state=>state.cartHandler)
 
   const { currentUser,logout } = useAuth();
+  const navigate= useNavigate()
 
   const handleLogout=()=>{
     logout()
+  }
+
+  const handleProfile=()=>{
+    navigate('/profile')
   }
   
   const handleSearch = () => {
@@ -40,7 +45,6 @@ const Header = () => {
             </h1>
           </div>
           <div className="header_shopping">
-           
             {
               currentUser?.email ? <span onClick={handleLogout}>Logout</span> : <Link to="/login">
               <span>Login</span>
@@ -55,10 +59,14 @@ const Header = () => {
             <div onClick={handleSearch}>
               <BiSearch></BiSearch>
             </div>
-            <div>
+            <div className="heart">
               <AiOutlineHeart></AiOutlineHeart>
+              <span className="subMenu">
+                <li onClick={handleProfile}>Profile</li>
+                <li>Wishlist</li>
+              </span>
             </div>
-            <div onClick={handleCart}>
+            <div className="shopping-cart" onClick={handleCart}>
               <AiOutlineShoppingCart></AiOutlineShoppingCart>
             </div>
           </div>

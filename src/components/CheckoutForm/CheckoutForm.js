@@ -71,8 +71,18 @@ const CheckoutForm = ({data, products, keys}) => {
     return newArray;
   }
   console.log(getData(orderedProduct, data));
+  let  ordered=getData(orderedProduct, data)
+  
 
-// console.log(data);
+// find unique order cz upper function return duplicate orders
+  function uniqueByListening(data, key){
+    return[
+      ...new Map(
+        data.map(x=>[key(x),x])
+      ).values()
+    ]
+  }
+  console.log();
 
   const handleSubmit=(e)=>{
     e.preventDefault() 
@@ -87,7 +97,8 @@ const CheckoutForm = ({data, products, keys}) => {
       country,
       status:"pending",
       timestamp: new Date().toLocaleString(),
-      order:getData(orderedProduct, data)
+      order:uniqueByListening(ordered, res=>res._id)
+      // order:getData(orderedProduct, data)
       // order:data
     }
      order(product)
