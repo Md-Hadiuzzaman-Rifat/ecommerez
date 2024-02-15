@@ -1,13 +1,13 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import "./Women.scss";
 import ProductLayout from "../ProductLayout/ProductLayout";
 import { useDispatch } from "react-redux";
 import { handleClose } from "../../features/cartHandler/cartHandler";
 import { useGetProductsQuery } from "../../features/product/productApi";
 import SingleProduct from "../SingleProduct/SingleProduct";
+import Footer from "../Footer/Footer";
 
 const Women = () => {
-  const { data = [], error: isError, isLoading } = useGetProductsQuery();
 
   const dispatch = useDispatch();
   useEffect(() => {
@@ -15,7 +15,13 @@ const Women = () => {
     window.scrollTo(0, 0);
   }, [dispatch]);
 
-  console.log(data);
+  const [page, setPage]= useState(1)
+  const handleNextPage=()=>{
+    setPage(page+1)
+  }
+  const limit=20
+  const { data = [], isSuccess ,error: isError, isLoading } = useGetProductsQuery({page, limit});
+
 
   return (
     <div className="women">
@@ -38,7 +44,11 @@ const Women = () => {
                 ></SingleProduct>
               ))}
         </div>
+        <div className="load-button">
+          <button disabled={page*limit > data?.length} onClick={handleNextPage}>Load More...</button>
+        </div>
       </div>
+      <Footer></Footer>
     </div>
   );
 };

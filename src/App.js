@@ -83,9 +83,18 @@ function App() {
               element={<ProductDetails />}
             ></Route>
             <Route path="/mans" element={<Mans />}></Route>
+            <Route path="/mans/productDetails/:productId"
+              element={<ProductDetails />}
+            ></Route>
             <Route path="/profile" element={<Profile />}></Route>
             <Route path="/sunglass" element={<Sunglass />}></Route>
+            <Route path="/sunglass/productDetails/:productId"
+              element={<ProductDetails />}
+            ></Route>
             <Route path="/women" element={<Woman />}></Route>
+            <Route path="/women/productDetails/:productId"
+              element={<ProductDetails />}
+            ></Route>
             <Route path="/orderSuccess" element={<OrderSuccess />}></Route>
             <Route path="/accessories" element={<Accessories />}></Route>
             <Route

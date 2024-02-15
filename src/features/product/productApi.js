@@ -5,9 +5,13 @@ export const productApi= apiSlice.injectEndpoints({
     tagTypes: ['Products', 'Product'],
     endpoints:(builder)=>({
         getProducts:builder.query({
-            query:()=>`/getProducts`,
+            query:({page, limit})=>`/getProducts?page=${page}&limit=${limit}`,
             providesTags:['Products']
         }),
+        // allProducts:builder.query({
+        //     query:(data)=>`/getProducts?page=${data}`,
+        //     providesTags:['Products']
+        // }),
         getSingleProduct:builder.query({
             query:(id)=>`/getProduct/${id}`,
             providesTags:(result, error, arg)=>[{ type: 'Product', id: arg }]
@@ -44,7 +48,8 @@ export const productApi= apiSlice.injectEndpoints({
                 method:"DELETE"
             }),
             invalidatesTags:["Products"]
-        })
+        }),
+        
     })
 })
 

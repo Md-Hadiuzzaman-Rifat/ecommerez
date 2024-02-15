@@ -1,10 +1,17 @@
-import React from "react";
+import React, { useState } from "react";
 import SingleProduct from "../SingleProduct/SingleProduct";
 import "./DiscountSell.scss";
 import { useGetProductsQuery } from "../../features/product/productApi";
 
 const DiscountSell = () => {
-  const { data = [], error: isError, isLoading } = useGetProductsQuery();
+  
+  const [page, setPage]= useState(1)
+  const handleNextPage=()=>{
+    setPage(page+1)
+  }
+  const limit=10
+  const { data = [], isSuccess ,error: isError, isLoading } = useGetProductsQuery({page, limit});
+
 
   return (
     <div className="discountSell">
@@ -25,7 +32,7 @@ const DiscountSell = () => {
               ))}
         </div>
         <div className="load-button">
-          <button>Load More...</button>
+          <button disabled={page*limit > data?.length} onClick={handleNextPage}>Load More...</button>
         </div>
       </div>
     </div>
