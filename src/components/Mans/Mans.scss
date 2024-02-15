@@ -1,3 +1,5 @@
+@import "../../css-config/mixins.scss";
+
 .mans {
   width: 100%;
 
@@ -10,5 +12,18 @@
   .mans_container{
     max-width: 1300px;
     margin: 0 auto;
+    .discount_product{
+      display: flex;
+      flex-wrap: wrap;
+      flex-direction: row;
+      gap: 20px;
+
+      .discount_product_item{
+          width: calc(25% - 40px);
+          @include md {
+              width: calc(50% - 20px);
+            }
+      }
+  }
   }
 }

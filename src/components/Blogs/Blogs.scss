@@ -1,5 +1,6 @@
 .Blogs{
-    width: 100%;
+    width: calc(100% - 60px);
+    padding: 30px;
     .container{
         max-width: 1300px;
         margin: 0 auto;
@@ -13,7 +14,13 @@
         .blogs-heading{
             font-weight: bold;
             font-size: 1.2rem;
+            margin-bottom: 50px;
         }
-    
+    }
+    .blogs-section{
+        display: flex;
+        flex-direction: row;
+        gap: 7%;
+        flex-wrap: wrap;
     }
 }

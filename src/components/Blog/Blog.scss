@@ -1,0 +1,33 @@
+.Blog{
+    flex-basis: 300px;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+    flex-grow: 1;
+    flex-shrink: 1;
+    margin-bottom: 30px;
+    
+    img{
+        height: 200px;
+        width: 100%;
+        object-fit: cover;
+    }
+    .paragraph{
+        height: 300px;
+        overflow: hidden;
+        color: gray;
+    }
+    .blog-content{
+        padding: 10px;
+        line-height: 35px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        button{
+            border: none;
+            background-color: white;
+            font-weight: 600;
+            font-size: 1rem;
+            margin: 20px 0;
+            cursor: pointer;
+        }
+    }
+}

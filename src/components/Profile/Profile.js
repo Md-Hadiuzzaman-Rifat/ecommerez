@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useAuth } from '../../context/AuthContext';
 import OrderedItem from '../OrderedItem/OrderedItem';
+import "./Profile.scss"
 
 const Profile = () => {
     const auth= useAuth()
@@ -17,16 +18,16 @@ const Profile = () => {
       .then(res=>{
         setData(res)
       })
-    },[email])
-
-    // console.log(data);    
+    },[email])  
 
     return (
-        <div>
-            <h2>View your orders</h2>
+        <div className='Profile'>
+            <div className="container">
+            <p className='heading'>Your Orders</p>
             {
               data && data?.length > 0 && data.map(item=><OrderedItem key={item._id} item={item}/>)
             }
+            </div>
         </div>
     );
 };

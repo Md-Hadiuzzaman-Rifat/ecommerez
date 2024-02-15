@@ -19,8 +19,8 @@ const OrderedItem = ({ item }) => {
   return (
     <div style={{ marginBottom: "60px" }} className="OrderItem">
       <p>orderId: {_id}</p>
-      <p>Date: {timestamp}</p>
-      <p>Order Status: {status}</p>
+      <h4>Date: {timestamp}</h4>
+      <h3>Order Status: <span>{status}</span></h3>
       <table>
         <thead>
             <tr>
@@ -40,6 +40,7 @@ const OrderedItem = ({ item }) => {
         ))}
       </tbody>
       </table>
+      <hr className="hr"/>
     </div>
   );
 };

@@ -6,6 +6,7 @@ const SingleProduct = ({item}) => {
   const {name, price, image, _id}= item || {}
   const [image1]= image || []
 
+
   return (
     
     <div className="product_view">

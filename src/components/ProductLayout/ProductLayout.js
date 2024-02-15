@@ -13,7 +13,7 @@ const ProductLayout = () => {
     <div className="productLayout">
       <div className="container">
         <div className="productLayout_heading">
-          <h2>Product List: </h2>
+          <h2>Winter Sale</h2>
         </div>
         {isLoading ? (
           "Loading..."

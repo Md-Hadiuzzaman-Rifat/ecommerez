@@ -11,6 +11,7 @@ import { useGetSelectedProductMutation } from "../../features/product/productApi
 import { getStoredCart } from "../../utilities/localStorage";
 import { useDispatch, useSelector } from "react-redux";
 import { handleToggle, searchToggle } from "../../features/cartHandler/cartHandler";
+import { CgProfile } from "react-icons/cg";
 
 const Header = () => {
   const dispatch= useDispatch()
@@ -60,7 +61,7 @@ const Header = () => {
               <BiSearch></BiSearch>
             </div>
             <div className="heart">
-              <AiOutlineHeart></AiOutlineHeart>
+            <CgProfile />
               <span className="subMenu">
                 <li onClick={handleProfile}>Profile</li>
                 <li>Wishlist</li>

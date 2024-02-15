@@ -1,24 +1,22 @@
 import React from 'react';
 import "./Blog.scss"
 
-const Blog = () => {
+const Blog = ({item}) => {
+    const {image, paragraph, heading}= item
     return (
         <div className='Blog'>
             <div className='blog-image'>
-        
+                <img src={image} alt="" />
             </div>
             <div className="blog-content">
-                <div className="date">
-
-                </div>
                 <div className="heading">
-
+                    <h4>{heading}</h4>
                 </div>
-                <div className="blog">
-
+                <div className="paragraph">
+                    <p>{paragraph}</p>
                 </div>
                 <div className="blog-btn">
-
+                    <button>Read More</button>
                 </div>
             </div>
         </div>
