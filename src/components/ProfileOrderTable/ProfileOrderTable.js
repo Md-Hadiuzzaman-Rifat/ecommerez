@@ -1,7 +1,7 @@
 import React from "react";
 import "./ProfileOrderTable.scss";
 
-const ProfileOrderTable = ({ item }) => {
+const ProfileOrderTable = ({ item, total }) => {
   const {
     name,
     amount,

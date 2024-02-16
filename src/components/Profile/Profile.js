@@ -18,7 +18,7 @@ const Profile = () => {
       .then(res=>{
         setData(res)
       })
-    },[email])  
+    },[email])
 
     return (
         <div className='Profile'>
