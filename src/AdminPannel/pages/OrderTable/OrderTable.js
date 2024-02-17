@@ -13,6 +13,7 @@ const {data, isLoading, isError}= useGetAllOrderedQuery()
             <tr>
               <th>Order ID</th>
               <th>Payment</th>
+              <th>Transaction / Bkash</th>
               <th>Order Date</th>
               <th>Status</th>
               <th>Total</th>

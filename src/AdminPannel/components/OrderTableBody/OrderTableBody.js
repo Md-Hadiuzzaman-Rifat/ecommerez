@@ -8,7 +8,7 @@ import { useEditOrderMutation } from "../../../features/confirmOrder/confirmOrde
 
 
 const OrderTableBody = ({item}) => {
-  const {_id, timestamp, status}= item
+  const {_id, timestamp, status, payable, advancePaid, transactionId}= item
   const [orderStatus, setOrderStatus]=useState(status)
   
   const [editOrder,{isLoading, isError}]=useEditOrderMutation()
@@ -22,7 +22,8 @@ const OrderTableBody = ({item}) => {
   return (
       <tr className="orderTableBody">
         <td><Link target="_blank" to={`${_id}`}>{_id}</Link></td>
-        <td>cash</td>
+        <td>{advancePaid}</td>
+        <td>{transactionId}</td>
         <td>{timestamp}</td>
         <td>
         <select
@@ -39,7 +40,7 @@ const OrderTableBody = ({item}) => {
             <option value="received">Received</option>
           </select>
         </td>
-        <td>1200</td>
+        <td>{payable}</td>
         <td className="productAction">
           <div className="content">
           <Link to=""><IoMdDownload></IoMdDownload></Link>

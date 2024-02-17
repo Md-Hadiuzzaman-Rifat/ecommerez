@@ -9,11 +9,8 @@ import { useGetSelectedProductMutation } from "../../features/product/productApi
 
 const CheckoutPage = () => {
   const dispatch = useDispatch();
-
   const findProducts = getStoredCart() || {};
   const keys = Object.keys(findProducts);
-
-  // console.log(findProducts);
 
   // get multiple product
   const [getSelectedProduct, { data, isLoading, isError, isSuccess }] =

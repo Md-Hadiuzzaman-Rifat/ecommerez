@@ -8,7 +8,7 @@ import { Link } from "react-router-dom";
 
 const CheckoutItem = ({data}) => {
 
-  // console.log(data);
+  console.log(data);
   return (
     <div className="checkoutItem">
       <div className="container">

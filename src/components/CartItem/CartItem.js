@@ -1,6 +1,6 @@
 import React from "react";
 import Counter from "../Counter/Counter";
-import { removeFromDb } from "../../utilities/localStorage";
+import { findOne, removeFromDb } from "../../utilities/localStorage";
 import { removeOrder } from "../../features/orderProduct/orderProductSlice";
 import { useDispatch } from "react-redux";
 
@@ -23,6 +23,9 @@ const CartItem = ({data}) => {
     dispatch(removeOrder(id))
     removeFromDb(id)
   }
+  function count(id){
+    return findOne(id) || 0
+}
 
   return (
     <div className="cartItem">
@@ -33,7 +36,7 @@ const CartItem = ({data}) => {
         />
         <h3>{nameFunction()}</h3>
         <p>{data?.price}</p>
-        <Counter id={data?._id}></Counter>
+        <h3>{count(data?._id)}</h3>
         {/* <button onClick={()=>handleRemove(data?._id)} className="removeBtn">Remove</button> */}
       </div>
     </div>

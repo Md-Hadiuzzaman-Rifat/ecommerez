@@ -7,7 +7,7 @@ import { useDispatch } from "react-redux";
 import { resetOrder } from "../../features/orderProduct/orderProductSlice";
 import { useNavigate } from "react-router-dom";
 
-const CheckoutForm = ({data, products, keys}) => {
+const CheckoutForm = ({data, products ,keys}) => {
   const [firstName, setFirstName]=useState("")
   const [lastName, setLastName]=useState("")
   const [email, setEmail]=useState("")
@@ -31,18 +31,7 @@ const CheckoutForm = ({data, products, keys}) => {
     setCountry("");
   }
 
-  const [order, {isSuccess, isError, isLoading}]=usePurchaseOrderMutation()
 
-  
-  useEffect(()=>{
-    if(isSuccess){
-      reset()
-      clearTheCart()
-      dispatch(resetOrder())
-      alert("Order Confirmed")
-      navigate('/orderSuccess')
-    }
-  },[isSuccess, dispatch])
 
 
   // traverse the function
@@ -70,11 +59,11 @@ const CheckoutForm = ({data, products, keys}) => {
     }
     return newArray;
   }
-  console.log(getData(orderedProduct, data));
+  // console.log(getData(orderedProduct, data));
   let  ordered=getData(orderedProduct, data)
   
 
-// find unique order cz upper function return duplicate orders
+// find unique order cz upper function return duplicate values
   function uniqueByListening(data, key){
     return[
       ...new Map(
@@ -82,7 +71,17 @@ const CheckoutForm = ({data, products, keys}) => {
       ).values()
     ]
   }
-  console.log();
+  console.log(uniqueByListening(ordered, res=>res._id));
+
+  let total=0
+  let payableTotal=(arr)=>{
+    for(let i=0; i<arr.length; i++){
+      total= total+arr[i].amount*arr[i].price
+    }
+    return total
+  }
+
+  let payable= payableTotal(uniqueByListening(ordered, res=>res._id))
 
   const handleSubmit=(e)=>{
     e.preventDefault() 
@@ -97,16 +96,38 @@ const CheckoutForm = ({data, products, keys}) => {
       country,
       status:"pending",
       timestamp: new Date().toLocaleString(),
-      order:uniqueByListening(ordered, res=>res._id)
-      // order:getData(orderedProduct, data)
-      // order:data
+      order:uniqueByListening(ordered, res=>res._id),
+      payable
     }
-     order(product)
-     clearTheCart()
+    navigate('/payment',{state:{product}})
+
+    //  order(product)
+    //  clearTheCart()
   }
+  // const handleSubmit=(e)=>{
+  //   e.preventDefault() 
+  //   navigate('/')
+  //   let product={
+  //     firstName,
+  //     lastName,
+  //     email,
+  //     phone,
+  //     address,
+  //     city,
+  //     zip,
+  //     country,
+  //     status:"pending",
+  //     timestamp: new Date().toLocaleString(),
+  //     order:uniqueByListening(ordered, res=>res._id),
+  //     payable
+  //   }
+  //    order(product)
+  //    clearTheCart()
+  // }
 
   return (
     <div className="checkoutForm">
+
       <form className="container" onSubmit={handleSubmit}>
         <div className="input-row">
           <label htmlFor="fname">First Name</label>

@@ -31,6 +31,7 @@ import Practice2 from "./components/Practice2/Practice2";
 import PrivateRoute from "./components/PrivateRoute/PrivateRoute";
 import PublicRoute from "./components/PublicRoute/PublicRoute";
 import BlogDashboard from "./AdminPannel/pages/BlogDashboard/BlogDashboard";
+import PaymentPage from "./components/PaymentPage/PaymentPage";
 
 function App() {
   return (
@@ -71,6 +72,7 @@ function App() {
             </Route>
             
             <Route path="/home" element={<Home />}></Route>
+            <Route path="/payment" element={<PaymentPage />}></Route>
             <Route
               path="/home/productDetails/:productId"
               element={<ProductDetails />}

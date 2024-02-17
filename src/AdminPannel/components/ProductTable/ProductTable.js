@@ -5,8 +5,8 @@ import { useGetProductsQuery } from "../../../features/product/productApi";
 import TableBody from "../TableBody/TableBody";
 
 const ProductTable = () => {
-  const { data, isLoading } = useGetProductsQuery();
-
+  const { data, isLoading } = useGetProductsQuery({page:1,limit:1000});
+console.log(data);
   return (
     <div className="productTable">
       {isLoading && "Loading..."}
