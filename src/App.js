@@ -41,7 +41,8 @@ function App() {
           <Header></Header>
           <Routes>
             <Route path="/" element={<Home />}></Route>
-            <Route path="/invoice" element={<Invoice />}></Route>
+            <Route path="/invoice/:id" element={<Invoice />}></Route>
+            <Route path="/dashboard/orders/invoice/:id" element={<Invoice />}></Route>
             <Route path="/control" element={<Control />}></Route>
             {/* Admin subRoute start*/}
             {/* <Route path="admin/" element={<Admin />}> */}

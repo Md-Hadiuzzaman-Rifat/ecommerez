@@ -10,6 +10,8 @@ import { useEditOrderMutation } from "../../../features/confirmOrder/confirmOrde
 const OrderTableBody = ({item}) => {
   const {_id, timestamp, status, payable, advancePaid, transactionId}= item
   const [orderStatus, setOrderStatus]=useState(status)
+
+  console.log(item);
   
   const [editOrder,{isLoading, isError}]=useEditOrderMutation()
 
@@ -22,6 +24,7 @@ const OrderTableBody = ({item}) => {
   return (
       <tr className="orderTableBody">
         <td><Link target="_blank" to={`${_id}`}>{_id}</Link></td>
+        <th>{payable}</th>
         <td>{advancePaid}</td>
         <td>{transactionId}</td>
         <td>{timestamp}</td>
@@ -40,11 +43,12 @@ const OrderTableBody = ({item}) => {
             <option value="received">Received</option>
           </select>
         </td>
-        <td>{payable}</td>
+        
         <td className="productAction">
           <div className="content">
           <Link to=""><IoMdDownload></IoMdDownload></Link>
-          <Link to=""><TbEyeClosed></TbEyeClosed></Link>
+          <Link to={`invoice/${_id}`} state={item}><TbEyeClosed></TbEyeClosed></Link>
+          {/* <Link to={`/invoice/${_id}`} state={item}><TbEyeClosed></TbEyeClosed></Link> */}
           <Link to=""><FaEdit></FaEdit></Link>
           </div>
         </td>

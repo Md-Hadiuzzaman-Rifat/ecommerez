@@ -4,6 +4,7 @@ import "./OrderedItem.scss";
 
 const OrderedItem = ({ item }) => {
   const {
+    advancePaid,
     _id,
     address,
     city,
@@ -57,7 +58,8 @@ const OrderedItem = ({ item }) => {
             ))}
         </tbody>
       </table>
-      <h2 style={{color:"blueViolate"}}>Payable Amount: {total} Taka</h2>
+      <h2 style={{color:"blueViolate"}}>Payable Amount: {total} Taka + Delivery charge</h2>
+      <h2>Already paid: {advancePaid} Taka</h2>
       <hr className="hr" />
     </div>
   );

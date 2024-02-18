@@ -1,13 +1,13 @@
 import React from "react";
 
-const InvoiceHeader = () => {
+const InvoiceHeader = ({details}) => {
   return (
     <div className="invoiceHeader">
       <div className="invoice-top">
         <div>
           <h1 className="invoice-logo">Shohag Eye Care</h1>
-          <h3>Invoice :24fdhfgf</h3>
-          <p>Date: Dec 27, 2022</p>
+          <h4>Invoice: {details._id}</h4>
+          <p>Date: {details.timestamp}</p>
         </div>
         
         <div className="invoice-text">
@@ -20,16 +20,15 @@ const InvoiceHeader = () => {
           <p>
             Bill from: <strong>Shohag Eye care</strong>
           </p>
-          <p>Address</p>
-          <p>Zip Code</p>
-          <p>01919109</p>
+          <p>Address: {details.address}</p>
+          <p>Zip Code: {details.zip}</p>
+          <p>Phone: {details.phone}</p>
         </div>
         <div>
           <p>
-            Bill to: <strong>Rifat</strong>
+            Bill to: <strong>{details.firstName} {details.lastName}</strong>
           </p>
-          <p>Rajshahi</p>
-          <p>01910803372</p>
+          <p>Email: {details.email}</p>
         </div>
       </div>
       {/* <hr /> */}

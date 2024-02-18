@@ -1,7 +1,7 @@
 import React from "react";
 import InvoiceItem from "./InvoiceItem";
 
-const InvoiceDetails = () => {
+const InvoiceDetails = ({details}) => {
   return (
     <div className="InvoiceDetails">
       <table>
@@ -14,9 +14,10 @@ const InvoiceDetails = () => {
           </tr>
         </thead>
         <tbody>
-          <InvoiceItem></InvoiceItem>
-          <InvoiceItem></InvoiceItem>
-          <InvoiceItem></InvoiceItem>
+          {
+            details?.order?.map(item=><InvoiceItem key={item._id} item={item}></InvoiceItem>)
+          }
+          
         </tbody>
       </table>
       {/* <hr /> */}

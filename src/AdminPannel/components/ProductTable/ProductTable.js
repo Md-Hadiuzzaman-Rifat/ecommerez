@@ -6,7 +6,7 @@ import TableBody from "../TableBody/TableBody";
 
 const ProductTable = () => {
   const { data, isLoading } = useGetProductsQuery({page:1,limit:1000});
-console.log(data);
+// console.log(data);
   return (
     <div className="productTable">
       {isLoading && "Loading..."}

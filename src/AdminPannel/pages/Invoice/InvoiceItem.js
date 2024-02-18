@@ -1,11 +1,11 @@
 import React from 'react';
 
-const InvoiceItem = () => {
+const InvoiceItem = ({item}) => {
     return (
         <tr>
-              <td>Zeiss</td>
-              <td>2</td>
-              <td>1000</td>
+              <td>{item.name}</td>
+              <td>{item.amount}</td>
+              <td>{item.price}</td>
               <td>0</td>
             </tr>
     );

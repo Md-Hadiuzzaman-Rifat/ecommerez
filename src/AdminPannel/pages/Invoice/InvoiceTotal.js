@@ -1,6 +1,7 @@
 import React from "react";
 
-const InvoiceTotal = () => {
+const InvoiceTotal = ({details}) => {
+  console.log(details);
   return (
     <div className="invoiceTotal">
       <div className="invoice-content">
@@ -10,19 +11,19 @@ const InvoiceTotal = () => {
         <div className="total-cost">
           <div className="left">
             <p>Subtotal:</p>
-            <p>Discount:</p>
+            <p>Paid:</p>
             <p>Total:</p>
           </div>
           <div className="right">
-            <p>1200 Taka</p>
-            <p>200 Taka</p>
-            <p>1000 Taka</p>
+            <p>{details.payable} Taka</p>
+            <p>{details.advancePaid} Taka</p>
+            <p>{details.payable - details.advancePaid} Taka</p>
           </div>
         </div>
       </div>
       <hr />
       <div className="invoice-payable">
-        <h2>Total: 200</h2>
+        <h2>Total: {details.payable - details.advancePaid}</h2>
       </div>
     </div>
   );
