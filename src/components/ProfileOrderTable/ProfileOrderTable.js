@@ -22,7 +22,7 @@ const ProfileOrderTable = ({ item, total }) => {
       <td>
         <img src={image[0]} alt="" />
       </td>
-      <td>{price}</td>
+      <td>{price-discount}</td>
       <td>{amount}</td>
     </tr>
   );

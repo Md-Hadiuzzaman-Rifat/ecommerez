@@ -6,11 +6,13 @@ const SingleProduct = ({item}) => {
   const {name, price, image, _id}= item || {}
   const [image1]= image || []
 
+  const handleClick=()=>{
+      window.scrollTo(0, 0);
+  }
 
   return (
-    
     <div className="product_view">
-      <Link to={`productDetails/${_id}`}>
+      <Link to={`../productDetails/${_id}`} onClick={handleClick}>
       <div className="product_img">
         <img
           src={image1}

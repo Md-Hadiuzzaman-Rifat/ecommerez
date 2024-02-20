@@ -4,6 +4,7 @@ import { useDispatch } from "react-redux";
 import { handleClose } from "../../features/cartHandler/cartHandler";
 import { useGetProductsQuery } from "../../features/product/productApi";
 import SingleProduct from "../SingleProduct/SingleProduct";
+import Footer from "../Footer/Footer";
 
 const Accessories = () => {
   const dispatch = useDispatch();
@@ -21,20 +22,10 @@ const Accessories = () => {
 
   return (
     <div className="accessories">
-      <div className="container">
-        <div className="accessories_header">
-            {/* banner section  */}
-          <div className="accessories_banner"></div>
-          {/* left content section  */}
-          <div className="accessories_top_content">
-            <div className="accessories_content">Lense</div>
-            <div className="accessories_content">Frame</div>
-            <div className="accessories_content">Cleaner</div>
-            <div className="accessories_content">Box</div>
-          </div>
-        </div>
+      <div className="accessories_banner"></div>
+      <div className="accessories_container">
         <div className="accessories_body">
-        <h2>Mans Zone</h2>
+        <h2>Accessories</h2>
         <div className="discount_product">
           {isLoading && "Loading..."}
           {!isLoading &&
@@ -54,6 +45,7 @@ const Accessories = () => {
           <button disabled={page*limit > data?.length} onClick={handleNextPage}>Load More...</button>
         </div>
       </div>
+      <Footer></Footer>
     </div>
   );
 };

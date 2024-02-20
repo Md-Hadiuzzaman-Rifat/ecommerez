@@ -18,7 +18,7 @@ export const confirmOrder= apiSlice.injectEndpoints({
                  url:`/singleOrder/${data}`
             }),
             providesTags:(result, error, arg)=>[
-                {type:"Video", id:arg}
+                {type:"Order", id:arg}
             ]
         }),
         getAllOrdered:builder.query({

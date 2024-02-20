@@ -20,19 +20,17 @@ import {
   searchClose,
 } from "../../features/cartHandler/cartHandler";
 import {
-  GlassMagnifier,
-  Magnifier,
-  MagnifierContainer,
-  MagnifierPreview,
-  MagnifierZoom,
+  SideBySideMagnifier,
 } from "react-image-magnifiers";
+import Footer from "../Footer/Footer";
 
 const ProductDetails = () => {
   const { productId } = useParams();
   const { data, isLoading } = useGetSingleProductQuery(productId);
-  const { name, image, description, price, _id } = data || {};
+  const { name, image, description, price, _id, discount } = data || {};
   const [image1, image2] = image || [];
   const dispatch = useDispatch();
+  const {category} = data || {}
 
   const [mainImage, setMainImage] = useState(image1);
 
@@ -73,13 +71,16 @@ const ProductDetails = () => {
                 </div>
                 <div className="main-image">
                   {/* <img src={mainImage} alt="" /> */}
-                  <GlassMagnifier imageSrc={mainImage} imageAlt="Example" />
+                  <SideBySideMagnifier
+                    alwaysInPlace={true}
+                  imageSrc={mainImage} imageAlt="Example" />
+              
                 </div>
               </div>
             </div>
             <div className="display_content">
               <h2>{name}</h2>
-              <h3>Price: {price} Tk</h3>
+              <h3>Price: {price-discount} Tk</h3>
 
               <div className="displayContent_action">
                 <Counter id={_id}></Counter>
@@ -108,7 +109,8 @@ const ProductDetails = () => {
           <div className="product_heading">
             <h2>Related Product:</h2>
           </div>
-          <RelatedProduct></RelatedProduct>
+          <RelatedProduct category={category}></RelatedProduct>
+          <Footer></Footer>
         </div>
       )}
     </div>

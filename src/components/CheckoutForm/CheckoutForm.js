@@ -1,16 +1,17 @@
 import React, { useEffect } from "react";
 import "./CheckoutForm.scss";
 import { useState } from "react";
-import { usePurchaseOrderMutation } from "../../features/confirmOrder/confirmOrder";
-import { clearTheCart } from "../../utilities/localStorage";
 import { useDispatch } from "react-redux";
-import { resetOrder } from "../../features/orderProduct/orderProductSlice";
 import { useNavigate } from "react-router-dom";
+import {useAuth} from "../../context/AuthContext"
 
 const CheckoutForm = ({data, products ,keys}) => {
+  const {currentUser}=useAuth()
+  console.log(currentUser.email);
+
   const [firstName, setFirstName]=useState("")
   const [lastName, setLastName]=useState("")
-  const [email, setEmail]=useState("")
+  const [email, setEmail]=useState(currentUser?.email)
   const [phone, setPhone]=useState("")
   const [address, setAddress]=useState("")
   const [city, setCity]=useState("")
@@ -30,7 +31,6 @@ const CheckoutForm = ({data, products ,keys}) => {
     setZip("");
     setCountry("");
   }
-
 
 
 
@@ -76,7 +76,7 @@ const CheckoutForm = ({data, products ,keys}) => {
   let total=0
   let payableTotal=(arr)=>{
     for(let i=0; i<arr.length; i++){
-      total= total+arr[i].amount*arr[i].price
+      total= total+(arr[i].amount*arr[i].price - arr[i].amount*arr[i].discount)
     }
     return total
   }
@@ -128,7 +128,9 @@ const CheckoutForm = ({data, products ,keys}) => {
   return (
     <div className="checkoutForm">
 
-      <form className="container" onSubmit={handleSubmit}>
+      {
+        currentUser?.email && (
+          <form className="container" onSubmit={handleSubmit}>
         <div className="input-row">
           <label htmlFor="fname">First Name</label>
           <input type="text" id="fname" onChange={e=>setFirstName(e.target.value)} name="fname" required />
@@ -139,7 +141,7 @@ const CheckoutForm = ({data, products ,keys}) => {
         </div>
         <div className="input-row">
           <label htmlFor="email">Email</label>
-          <input type="email" id="email" onChange={e=>setEmail(e.target.value)} name="email" required />
+          <input type="email" id="email" value={email}  name="email" required />
         </div>
         <div className="input-row">
           <label htmlFor="Phone">Phone</label>
@@ -163,6 +165,8 @@ const CheckoutForm = ({data, products ,keys}) => {
         </div>
         <button type="submit">Confirm Order</button>
       </form>
+        )
+      }
     </div>
   );
 };

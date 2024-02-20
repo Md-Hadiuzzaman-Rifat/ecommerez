@@ -17,13 +17,13 @@ const InvoiceTotal = ({details}) => {
           <div className="right">
             <p>{details.payable} Taka</p>
             <p>{details.advancePaid} Taka</p>
-            <p>{details.payable - details.advancePaid} Taka</p>
+            <p>{Math.floor(details.payable - details.advancePaid)} Taka</p>
           </div>
         </div>
       </div>
       <hr />
       <div className="invoice-payable">
-        <h2>Total: {details.payable - details.advancePaid}</h2>
+        <h2>Total: {Math.floor(details.payable - details.advancePaid)}</h2>
       </div>
     </div>
   );

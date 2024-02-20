@@ -35,7 +35,7 @@ const CartItem = ({data}) => {
           alt=""
         />
         <h3>{nameFunction()}</h3>
-        <p>{data?.price}</p>
+        <p>{data.price - data.discount}</p>
         <h3>{count(data?._id)}</h3>
         {/* <button onClick={()=>handleRemove(data?._id)} className="removeBtn">Remove</button> */}
       </div>

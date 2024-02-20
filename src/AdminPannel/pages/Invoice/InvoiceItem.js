@@ -5,7 +5,7 @@ const InvoiceItem = ({item}) => {
         <tr>
               <td>{item.name}</td>
               <td>{item.amount}</td>
-              <td>{item.price}</td>
+              <td>{item.price - item.discount}</td>
               <td>0</td>
             </tr>
     );

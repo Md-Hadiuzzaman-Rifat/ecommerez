@@ -7,7 +7,6 @@ import ProductDetails from "./components/ProductDetails/ProductDetails";
 import Login from "./components/Login/Login";
 import Register from "./components/Register/Register";
 import { AuthProvider } from "./context/AuthContext";
-import Admin from "./AdminPannel/pages/Admin/Admin";
 import AdminLogin from "./AdminPannel/pages/AdminLogin/AdminLogin";
 import Product from "./AdminPannel/pages/Product/Product";
 import Mans from "./components/Mans/Mans";
@@ -32,6 +31,7 @@ import PrivateRoute from "./components/PrivateRoute/PrivateRoute";
 import PublicRoute from "./components/PublicRoute/PublicRoute";
 import BlogDashboard from "./AdminPannel/pages/BlogDashboard/BlogDashboard";
 import PaymentPage from "./components/PaymentPage/PaymentPage";
+import ControllerPrivateRoute from "./AdminPannel/components/ControllerPrivateRoute/ControllerPrivateRoute";
 
 function App() {
   return (
@@ -45,16 +45,18 @@ function App() {
             <Route path="/dashboard/orders/invoice/:id" element={<Invoice />}></Route>
             <Route path="/control" element={<Control />}></Route>
             {/* Admin subRoute start*/}
+
             {/* <Route path="admin/" element={<Admin />}> */}
             <Route path="/admin" element={<AdminLogin></AdminLogin>} />
-            {/* <Route path="admin/*" element={<ControllerPrivateRoute/>}> */}
-            <Route path="dashboard/*" element={<Dashboard></Dashboard>}>
+            {/* // dashbaord and its nasted routes  */}
+            <Route path="dashboard" element={<Dashboard></Dashboard>}>
+              <Route path="*" element={<ControllerPrivateRoute/>}>
               <Route path="control" element={<Control></Control>} />
               <Route path="orders" element={<MainContent></MainContent>} />
               <Route path="blogDashboard" element={<BlogDashboard></BlogDashboard>} />
               <Route path="orders/:orderId" element={<ViewOrder />}></Route>
               <Route path="product" element={<Product></Product>} />
-            {/* </Route> */}
+              </Route>
             </Route>
             {/* </Route> */}
 
@@ -62,7 +64,7 @@ function App() {
             {/* Admin subRoute end */}
             <Route path="/adminLogin" element={<AdminLogin />}></Route>
             <Route path="/product" element={<Product />}></Route>
-            <Route path="/dashboard" element={<Dashboard />}></Route>
+            <Route path="/dashboard" element={<ControllerPrivateRoute><Dashboard /></ControllerPrivateRoute>}></Route>
             {/* <Route path="/product" element={<Product/>} ></Route> */}
             {/* // user page  */}
 
@@ -89,7 +91,6 @@ function App() {
             <Route path="/mans/productDetails/:productId"
               element={<ProductDetails />}
             ></Route>
-            <Route path="/profile" element={<Profile />}></Route>
             <Route path="/sunglass" element={<Sunglass />}></Route>
             <Route path="/sunglass/productDetails/:productId"
               element={<ProductDetails />}
@@ -105,6 +106,14 @@ function App() {
               element={
                 <PrivateRoute>
                   <CheckoutPage />
+                </PrivateRoute>
+              }
+            ></Route>
+            <Route
+              path="/profile"
+              element={
+                <PrivateRoute>
+                  <Profile />
                 </PrivateRoute>
               }
             ></Route>

@@ -23,21 +23,35 @@ const OrderedItem = ({ item }) => {
   let total = 0;
   function orderTotal(order) {
     for (let i = 0; i < order.length; i++) {
-      total = total + order[i].amount * order[i].price;
+      total = total + order[i].amount * (order[i].price - order[i].discount);
       // console.log(order[i]);
       // console.log(order[i].amount * order[i].price);
     }
   }
 
   orderTotal(order);
-  console.log(total);
+
+  const currentStatus=(status)=>{
+    switch(status){
+      case "pending":
+        return "orange";
+        case "failed":
+          return "red";
+          case "received":
+            return "green";
+            case "delivered":
+              return "blue"
+              default:
+                return "yellow"
+    }
+  }
 
   return (
     <div style={{ marginBottom: "60px" }} className="OrderItem">
       <p>orderId: {_id}</p>
       <h4>Date: {timestamp}</h4>
-      <h3>
-        Order Status: <span>{status}</span>
+      <h3 className="status" style={{backgroundColor:currentStatus(status)}}>
+        Order Status: <span>{status.toUpperCase()}</span>
       </h3>
       <table>
         <thead>

@@ -19,6 +19,12 @@
             min-height: 70vh;
             width: 90%;
             background-color: white;
+            .box-inline{
+                display: inline-block;
+                background-color: red;
+                color: white;
+                padding: 10px 20px;
+            }
             .input-box{
                 display: flex;
                 flex-direction: column;

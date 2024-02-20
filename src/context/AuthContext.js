@@ -9,7 +9,7 @@ import {
 } from "firebase/auth";
 import React, { useContext, useEffect, useState } from "react";
 import firebaseInitialize from "../firebase/firebase.initialize"
-// import { useAddUserMutation } from "../features/users/userApi";
+
 
 firebaseInitialize()
 const AuthContext = React.createContext();
@@ -59,7 +59,7 @@ export function AuthProvider({ children }) {
   }
 
   const saveUser=(user)=>{
-    fetch("http://localhost:2020/addUser",{
+    fetch("https://eye-care-back-end.vercel.app/addUser",{
       method:"POST",
       headers:{
         "content-type":"application/json"

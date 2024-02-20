@@ -51,7 +51,7 @@ const ViewOrder = () => {
             {/* <img src={item.image[0]} alt="" /> */}
             <img style={{width:"80px"}} src={item.image[0]} alt="" />
             <p>Name: {item.name}</p>
-            <p>Unit Price: {item.price}</p>
+            <p>Unit Price: {item.price - item.discount}</p>
             <p>Amount: {item.amount}</p>
           </div>
         </div> )

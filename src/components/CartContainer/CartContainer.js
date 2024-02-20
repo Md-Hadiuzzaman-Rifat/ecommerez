@@ -3,7 +3,7 @@ import Counter from '../Counter/Counter';
 import "./CartContainer.scss"
 
 const CartContainer = ({data}) => {
-    let {name, image, price, _id}= data
+    let {name, image, price, _id, discount}= data
     const [image1]= image ||[]
 
     if(name.length>12){
@@ -23,7 +23,7 @@ const CartContainer = ({data}) => {
           <div>
             <Counter id={_id}></Counter>
           </div>
-          <h5>{price}</h5>
+          <h5>{price-discount}</h5>
         </div>
       </div>
     );

@@ -48,7 +48,7 @@ const PaymentPage = () => {
       {location?.state?.product && (
         <div className="container">
           <div className="box">
-            <h3 style={{backgroundColor:"red", color:"white"}}>Price Total: {payable}</h3>
+            <h3 className="box-inline">Price Total: {payable}</h3>
             <div className="content">
               <h3>
                 Cash On Delivery এর জন্য কুরিয়ার ফি পরিশোধ করা লাগবে। ঢাকার ভিতর
