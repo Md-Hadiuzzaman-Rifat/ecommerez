@@ -1,6 +1,7 @@
 import {apiSlice} from "../api/apiSlice"
 
 export const usersApi= apiSlice.injectEndpoints({
+    tagTypes: ['Users', 'User'],
     endpoints:(builder)=>({
         addUser:builder.mutation({
             query:(data)=>({
@@ -8,22 +9,43 @@ export const usersApi= apiSlice.injectEndpoints({
                 method:"POST",
                 body:data
             }),
+            invalidatesTags:["Users"]
         }),
+
         getUsers:builder.query({
-            query:(data)=>({
+            query:()=>({
                 url:"/getUser",
                 method:"GET",
-                body:data
             }),
+            providesTags:["Users"]
         }),
-        editUsers:builder.mutation({
-            query:(data)=>({
-                url:"/editUser",
+        getSingleUser:builder.query({
+            query:({_id})=>({
+                url:`/getUser/${_id}`,
+                method:"GET",
+            }),
+            providesTags:["User"]
+        }),
+        editUser:builder.mutation({
+            query:({_id,data})=>(
+                {
+                url:`/editUser/${_id}`,
                 method:"PUT",
                 body:data
             }),
+            invalidatesTags: (result, error, arg) => [
+                "Users",
+                { type: "User", id: arg._id },
+              ],
+        }),
+        deleteUser:builder.mutation({
+            query:(_id)=>({
+                url:`/deleteUser/${_id}`,
+                method:"DELETE",
+            }),
+            invalidatesTags:["Users"]
         })
     })
 }) 
-export const {useAddUserMutation, useGetUsersQuery, useEditUsersMutation}=usersApi
+export const {useAddUserMutation, useGetSingleUserQuery,useGetUsersQuery, useEditUserMutation, useDeleteUserMutation}=usersApi
 ;

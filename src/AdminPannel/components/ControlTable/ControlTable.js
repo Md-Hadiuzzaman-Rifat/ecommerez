@@ -1,12 +1,34 @@
 import React, { useEffect, useState } from "react";
 import "./ControlTable.scss";
-import { useGetUsersQuery } from "../../../features/users/userApi";
+import { useDeleteUserMutation, useEditUserMutation, useGetSingleUserQuery, useGetUsersQuery } from "../../../features/users/userApi";
+import { ImBin } from "react-icons/im";
+import { FiEdit } from "react-icons/fi";
+import Modal from "../../../components/Modal/Modal"
+import { useDispatch, useSelector } from "react-redux";
+import { modalOpen } from "../../../features/cartHandler/cartHandler";
 
 const ControlTable = () => {
   const { data: findUser, isLoading: findLoading } = useGetUsersQuery();
+  const [editUser, {isLoading, isError, isSuccess}]= useEditUserMutation()
+  const [deleteUser, {isLoading:deleteLoading, isError:deleteError, isSuccess:deleteSuccess}]= useDeleteUserMutation()
+  const {modalCondition}= useSelector(state=>state.cartHandler) || {}
+  const dispatch= useDispatch()
+
+
+  useEffect(()=>{
+    if(deleteSuccess){
+      dispatch(modalOpen())
+    }
+  },[deleteSuccess, dispatch])
+
+  const handleDelete = (id) => {
+    deleteUser(id)
+  };
+  const handleEdit=(_id)=>{
+    editUser({_id})
+  }
 
   const [controlUser, setControlUser] = useState([]);
-
 
   // Find user with role property
   useEffect(() => {
@@ -17,6 +39,9 @@ const ControlTable = () => {
 
   return (
     <div className="ControlTable">
+      {
+        modalCondition && <Modal/>
+      }
       {findLoading && "Loading"}
       {!findLoading && findUser && controlUser?.length === 0 && (
         <h3>No user found</h3>
@@ -28,17 +53,29 @@ const ControlTable = () => {
               <th>Name</th>
               <th>Email</th>
               <th>Role</th>
+              <th>Action</th>
             </tr>
           </thead>
 
           <tbody>
-            {
-              controlUser.map(user=><tr key={user._id}>
+            {controlUser.map((user) => (
+              <tr key={user._id}>
                 <td>{user.name}</td>
                 <td>{user.email}</td>
                 <td>{user.role}</td>
-              </tr>)
-            }
+                <td>
+                  <span
+                    className=""
+                    onClick={() => handleDelete(user._id)}
+                  >
+                    <ImBin />{" "}
+                  </span>
+                  <span className="" onClick={()=>handleEdit(user._id)}>
+                      <FiEdit style={{color:"black"}}/>
+                  </span>
+                </td>
+              </tr>
+            ))}
           </tbody>
         </table>
       )}

@@ -7,6 +7,7 @@ import { useDispatch, useSelector } from "react-redux";
 import {
   modalOpen,
 } from "../../../features/cartHandler/cartHandler";
+import BlogTable from "../../components/BlogTable/BlogTable";
 
 const BlogDashboard = () => {
   const [image, setImage] = useState("");
@@ -71,6 +72,7 @@ const BlogDashboard = () => {
           <Button>Submit</Button>
         </form>
       </div>
+      <BlogTable></BlogTable>
     </div>
   );
 };

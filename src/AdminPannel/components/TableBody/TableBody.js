@@ -1,7 +1,6 @@
 import React, { useEffect } from "react";
 import { ImBin } from "react-icons/im";
 import { FiEdit } from "react-icons/fi";
-import { string } from "i/lib/util";
 import "./TableBody.scss"
 import { Link } from "react-router-dom";
 import { useDeleteProductMutation } from "../../../features/product/productApi";

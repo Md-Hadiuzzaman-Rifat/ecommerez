@@ -59,7 +59,7 @@ export function AuthProvider({ children }) {
   }
 
   const saveUser=(user)=>{
-    fetch("https://eye-care-back-end.vercel.app/addUser",{
+    fetch("http://localhost:2020/addUser",{
       method:"POST",
       headers:{
         "content-type":"application/json"

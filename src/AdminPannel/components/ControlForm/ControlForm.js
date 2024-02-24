@@ -3,17 +3,23 @@ import { useState } from "react";
 import Button from "../../../components/Button/Button";
 import "./ControlForm.scss";
 import {
-  useEditUsersMutation,
+  useAddUserMutation,
   useGetUsersQuery,
 } from "../../../features/users/userApi";
+import Modal from "../../../components/Modal/Modal";
+import { useDispatch, useSelector } from "react-redux";
+import { modalOpen } from "../../../features/cartHandler/cartHandler";
 
 const ControlForm = () => {
   const [role, setRole] = useState("moderator");
   const { data:findUser } = useGetUsersQuery();
-  const [editUsers, {isSuccess}] = useEditUsersMutation();
+  const [addUser, {isLoading, isSuccess}]= useAddUserMutation()
 
   const [search, setSearch] = useState("");
   const [result, setResult] = useState();
+
+  const dispatch= useDispatch()
+  const {modalCondition}= useSelector(state=>state.cartCondition) || {}
 
   const debounceHandler = (fn, delay) => {
     let timeoutId;
@@ -37,17 +43,21 @@ const ControlForm = () => {
 
   useEffect(()=>{
     if(isSuccess){
-      alert("User added successfully as "+role)
+      setSearch("")
+      dispatch(modalOpen())
     }
-  },[isSuccess, role])
+  },[isSuccess,dispatch, role])
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    editUsers({ email: search, role });
+    addUser({ email: search, role });
   };
 
   return (
     <form onSubmit={handleSubmit} className="ControlForm">
+      {
+        modalCondition && <Modal></Modal>
+      }
       <label htmlFor="product-name">Enter Email</label>
       <input
         type="text"

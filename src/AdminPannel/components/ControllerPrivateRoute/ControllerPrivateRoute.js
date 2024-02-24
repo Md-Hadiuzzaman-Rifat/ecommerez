@@ -8,9 +8,8 @@ const ControllerPrivateRoute = () => {
     
     const {data, isLoading}= useGetUsersQuery()
     let person= data?.find(e=>e.email===currentUser?.email)
-
     if (!isLoading){
-        return Object.keys(person || [])?.includes("role") && currentUser ? <Outlet></Outlet> : <Navigate to="/admin"/>
+        return person?.role === "admin" || person?.role === "moderator" && currentUser ? <Outlet></Outlet> : <Navigate to="/admin"/>
     }
 };
 

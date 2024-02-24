@@ -1,5 +1,6 @@
 import React from 'react';
 import "./Blog.scss"
+import BlogTable from '../../AdminPannel/components/BlogTable/BlogTable';
 
 const Blog = ({item}) => {
     const {image, paragraph, heading}= item

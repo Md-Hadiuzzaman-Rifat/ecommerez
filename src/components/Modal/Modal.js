@@ -17,7 +17,7 @@ const Modal = () => {
         <div className='Modal'>
             <div className='Container'>
                 <div className="content">
-                    <h1>Added successfully</h1>
+                    <h1>Successfully</h1>
                     <img src="https://cdn.dribbble.com/users/129972/screenshots/3964116/75_smile.gif" alt="" />
                     <Button onClick={handleClose}>Close</Button>
                 </div>
