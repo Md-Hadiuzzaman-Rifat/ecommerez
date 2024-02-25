@@ -19,6 +19,7 @@ const ImageSlider = ({ slides }) => {
   const goToSlide = (slideIndex) => {
     setCurrentIndex(slideIndex);
   };
+
   const slideStylesWidthBackground = {
     backgroundImage: `url(${slides[currentIndex]?.image[0]})`,
   };
@@ -26,6 +27,15 @@ const ImageSlider = ({ slides }) => {
   const handleControl = (id) => {
     navigate(`/productDetails/${id}`);
   };
+
+  let discountPrice;
+  if (slides[currentIndex]) {
+    discountPrice =
+      slides[currentIndex]?.price - slides[currentIndex]?.discount;
+  } else {
+    return "Lading";
+  }
+  console.log(discountPrice);
 
   return (
     <div className="sliderStyles">
@@ -39,11 +49,21 @@ const ImageSlider = ({ slides }) => {
       </div>
       <div className="slider-container">Winter Sale</div>
       <div className="slider-discount">Upto 50% Off</div>
+
       <div
         onClick={() => handleControl(slides[currentIndex]?._id)}
         className="slideStyles"
         style={slideStylesWidthBackground}
-      ></div>
+      >
+        {/* // slider description  */}
+        <div className="slider-description">
+          <div className="slider-content">
+            <div>{slides[currentIndex]?.name.substring(0, 22)}</div>
+            <div>Price: {slides[currentIndex]?.price}</div>
+            <div>Now: {discountPrice}</div>
+          </div>
+        </div>
+      </div>
       <div className="dotsContainerStyles">
         {slides.map((slide, slideIndex) => (
           <div

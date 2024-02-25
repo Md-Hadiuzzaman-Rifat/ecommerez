@@ -1,18 +1,17 @@
-.slider {
-  margin: 20px;
-  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
-  .containerStyles{
-     height: 300px;
-     width: auto;
-     margin: 0 auto
-  }
-}
 
-
-.turn-icon {
-  div {
-    background-color: black;
-    padding: 0 18px;
-    border-radius: 50%;
+.slider-content{
+  width: 100%;
+  margin: 0 auto;
+  .slider {
+    margin: 20px 6%;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+    
+    .containerStyles{
+       height: 300px;
+       width: auto;
+       margin: 0 auto;
+       
+    }
   }
+  
 }

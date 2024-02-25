@@ -4,13 +4,22 @@
     border-radius: 10px;
     background-size: cover;
     background-position: center;
+
   };
+  .turn-icon {
+    div {
+      background-color: teal;
+      padding: 0 14px;
+      border-radius: 50%;
+      font-size: 2rem;
+    }
+  }
   
   .rightArrowStyles  {
     position: absolute;
     top: 50%;
     transform: translate(0, -50%);
-    right: 32px;
+    right: -6%;
     font-size: 45px;
     color: #fff;
     z-index: 1;
@@ -21,7 +30,7 @@
     position: absolute;
     top: 50%;
     transform: translate(0, -50%);
-    left: 32px;
+    left: -6%;
     font-size: 45px;
     color: #fff;
     z-index: 1;
@@ -42,6 +51,7 @@
     margin: 0 3px;
     cursor: pointer;
     font-size: 20px;
+    color: teal
   };
   
   .slider-container{
@@ -66,4 +76,20 @@
     z-index: 3;
     font-weight: 500;
     font-size: 12px;
+  }
+  .slider-description{
+    height: 300px;
+    position: relative;
+    .slider-content{
+      font-size: 14px;
+      position: absolute;
+      display: flex;
+      flex-direction: column;
+      left: 10px;
+      bottom: 10px;
+      background-color: teal;
+      width: calc(100% - 30px);
+      color: white;
+      padding: 5px;
+    }
   }

@@ -43,7 +43,9 @@ const Home = () => {
       <DiscountSell></DiscountSell>
       <Blogs></Blogs>
       <Newsletter></Newsletter>
+      <div className="payment-banner">
       <img src="https://i0.wp.com/glassesbd.com/wp-content/uploads/2023/04/SSL-Commerz-Pay-With-logo-All-Size_Feb-2023-02-scaled.jpg?resize=1500%2C176&ssl=1" alt="" />
+      </div>
       <Footer></Footer>
     </div>
   );

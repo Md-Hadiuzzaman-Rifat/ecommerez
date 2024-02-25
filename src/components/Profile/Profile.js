@@ -9,7 +9,7 @@ const Profile = () => {
     const [data, setData]= useState([])
 
     useEffect(()=>{
-      fetch(`http://localhost:2020/myOrders?email=${email}`,{
+      fetch(`https://eye-care-back-end.vercel.app/myOrders?email=${email}`,{
         headers:{
           "authorization":`Bearer ${localStorage.getItem('idToken')}`
         }
