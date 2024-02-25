@@ -3,8 +3,12 @@ import "./SingleProduct.scss";
 import { Link } from "react-router-dom";
 
 const SingleProduct = ({item}) => {
-  const {name, price, image, _id}= item || {}
+  let {name, price, image, _id}= item || {}
   const [image1]= image || []
+
+  if (name?.length > 25) {
+    name = name.substring(0, 22) + "...";
+  }
 
   const handleClick=()=>{
       window.scrollTo(0, 0);

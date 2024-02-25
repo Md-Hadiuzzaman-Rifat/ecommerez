@@ -4,7 +4,6 @@ import { Link } from "react-router-dom";
 
 const Showcase = () => {
   return (
-    <div>
       <div className="showcase">
         <div className="showcase_container">
           <div className="showcase_container_image">
@@ -54,7 +53,6 @@ const Showcase = () => {
           </div>
         </div>
       </div>
-    </div>
   );
 };
 

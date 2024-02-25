@@ -53,7 +53,7 @@ const ProductDetails = () => {
       {isLoading && "Loading..."}
       {!isLoading && (
         <div className="productDetails_container">
-          <Tags></Tags>
+          {/* <Tags></Tags> */}
           <div className="product_display">
             <div className="image_container">
               <div className="display_image">

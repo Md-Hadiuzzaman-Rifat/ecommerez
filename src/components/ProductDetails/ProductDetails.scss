@@ -23,17 +23,26 @@
 .image_container{
    flex: 12;
   .display_image {
-   
+    margin-right: 0;
+    @include md {
+      margin-right: 40px;
+    }
     display: flex;
     .side-image{
       display: flex;
       flex-direction: column;
       img{
-        height: 100px;
+        // height: 100px;
         width: 80px;
         object-fit: cover;
         padding: 10px 10px 0px 0;
         cursor: pointer;
+        @include sm {
+          width: 70px;
+        }
+        @include xsm {
+          width: 60px;
+        }
       }
     }
     .main-image{

@@ -38,9 +38,9 @@ const OrderedItem = ({ item }) => {
         case "failed":
           return "red";
           case "received":
-            return "green";
+            return "blue";
             case "delivered":
-              return "blue"
+              return "green"
               default:
                 return "yellow"
     }

@@ -11,6 +11,7 @@ import { useAuth } from "../../context/AuthContext";
 import { useState, CSSProperties } from "react";
 import "./Home.scss";
 import Blogs from "../Blogs/Blogs";
+import Slider from "../ImageSlider/Slider";
 
 const override = {
   display: "block",
@@ -30,6 +31,7 @@ const Home = () => {
       </div> */}
       <Banner></Banner>
       <Showcase></Showcase>
+      <Slider></Slider>
       <ProductLayout></ProductLayout>
       <DiscountSell></DiscountSell>
       <Blogs></Blogs>

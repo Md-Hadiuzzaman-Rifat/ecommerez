@@ -7,6 +7,18 @@
         background-image: url("https://www.replacealens.com/v/images/Accessories/Eyeglasses-Accessories.jpg");
         background-position: center;
         background-size: cover;
+        @include lg {
+            height: 70vh;
+          }
+          @include md {
+            height: 60vh;
+          }
+          @include sm {
+            height: 45vh;
+          }
+          @include xsm {
+            height: 30vh;
+          }
       }
       .accessories_container{
         max-width: 1300px;

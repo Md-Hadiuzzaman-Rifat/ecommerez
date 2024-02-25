@@ -10,6 +10,9 @@
   border-radius: 10px;
   height: 100%;
   cursor: pointer;
+  @include xmd{
+    width: calc(33% - 20px);
+  }
   @include md {
     width: calc(50% - 20px);
   }

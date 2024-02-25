@@ -7,6 +7,18 @@
       background-image: url("https://site-1306369054.file.myqcloud.com/4958033261489775/2020/06/0c2a32f42892fe480de92c3bc53a2198.png?imageMogr2/format/webp/ignore-error/1");
       background-position: center;
       background-size: cover;
+      @include lg {
+        height: 70vh;
+      }
+      @include md {
+        height: 60vh;
+      }
+      @include sm {
+        height: 45vh;
+      }
+      @include xsm {
+        height: 30vh;
+      }
     }
     .women_container{
       max-width: 1300px;

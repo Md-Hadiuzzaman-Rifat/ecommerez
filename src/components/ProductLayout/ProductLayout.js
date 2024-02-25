@@ -38,22 +38,7 @@ const ProductLayout = () => {
             
           </div>
         )} 
-        {/* {isLoading ? (
-          "Loading..."
-        ) : (
-          <div className="productLayout_product">
-            {
-              !isLoading && data?.length>0 && 
-              data?.filter(item=>item.featured)
-              .map((item) => (
-                <Practice key={item._id} product={item} />
-              ))
-            }
-            {
-              !isLoading && data?.length===0 && "No Product Found"
-            }
-          </div>
-        )} */}
+
       </div>
     </div>
   );

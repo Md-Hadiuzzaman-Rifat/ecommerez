@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import Footer from "../Footer/Footer";
 import "./Login.scss";
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useAuth } from "../../context/AuthContext";
 import { useDispatch } from "react-redux";
 import { handleClose } from "../../features/cartHandler/cartHandler";
@@ -32,7 +32,7 @@ const Login = () => {
       await login(email, password);
       navigate("/home");
     } catch (err) {
-      setError("Failed to Login");
+      setError("Failed to Login. Or account not already exist.");
       setLoading(false);
     } finally {
       setLoading(false);
@@ -64,6 +64,8 @@ const Login = () => {
               onChange={(e) => setPassword(e.target.value)}
             />
           </div>
+          <Link to="/register">
+          <p style={{color:"blue", fontWeight:"bold"}}>Create new Account</p></Link>
           {error && <p className="error">{error}</p>}
           <div className="button-field">
             <button disabled={loading} type="submit">

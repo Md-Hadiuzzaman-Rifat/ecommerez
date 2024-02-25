@@ -1,8 +1,27 @@
-.banner{
-    width: 100%;
+@import "../../css-config/mixins.scss";
+
+.banner {
+  width: 100%;
+  .image {
+    max-width: 1380px;
+    margin: 0 auto;
     height: 82vh;
-    background-image: url('https://static1.lenskart.com/media/desktop/img/nov23/search/Search-query-plp-rooftop-banner-jj-sun.png');
+    width: auto;
+    background-image: url("https://static1.lenskart.com/media/desktop/img/nov23/search/Search-query-plp-rooftop-banner-jj-sun.png");
     background-position: center;
     background-size: cover;
-
+    background-repeat: no-repeat;
+    @include lg {
+      height: 70vh;
+    }
+    @include md {
+      height: 60vh;
+    }
+    @include sm {
+      height: 45vh;
+    }
+    @include xsm {
+      height: 30vh;
+    }
+  }
 }

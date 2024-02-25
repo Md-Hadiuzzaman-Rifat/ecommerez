@@ -2,7 +2,7 @@ import React from "react";
 import "./ProfileOrderTable.scss";
 
 const ProfileOrderTable = ({ item, total }) => {
-  const {
+  let {
     name,
     amount,
     category,
@@ -15,6 +15,12 @@ const ProfileOrderTable = ({ item, total }) => {
     _id,
     image,
   } = item;
+
+  
+  if (_id?.length > 10) {
+    _id = _id.substring(0, 7) + "...";
+  }
+
   return (
     <tr className="ProfileOrderTable">
       <td>{name}</td>
