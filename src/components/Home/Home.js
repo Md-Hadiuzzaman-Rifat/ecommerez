@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useRef } from "react";
 import Banner from "../Banner/Banner";
 import Footer from "../Footer/Footer";
 import Showcase from "../Showcase/Showcase";
@@ -21,18 +21,25 @@ const override = {
 
 const Home = () => {
   const { currentUser } = useAuth();
-  // console.log(currentUser);
   let [loading, setLoading] = useState(true);
   let [color, setColor] = useState("#365ed6");
+
+
   return (
     <div className="Home">
+      
       {/* <div className="loader">
         <PacmanLoader color="#6268ff" margin={2} size={35} />
       </div> */}
       <Banner></Banner>
       <Showcase></Showcase>
-      <Slider></Slider>
-      <ProductLayout></ProductLayout>
+      {
+        window.innerWidth <= 500 && <Slider></Slider>
+      }
+      {
+        window.innerWidth > 500 && <ProductLayout></ProductLayout>
+      }
+      
       <DiscountSell></DiscountSell>
       <Blogs></Blogs>
       <Newsletter></Newsletter>

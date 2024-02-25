@@ -16,7 +16,7 @@ const DiscountSell = () => {
   return (
     <div className="discountSell">
       <div className="container">
-        <h2>Discount Product</h2>
+        <h2>Discount Product hadiuzzaman </h2>
         <div className="discount_product">
           {isLoading && "Loading..."}
           {!isLoading &&

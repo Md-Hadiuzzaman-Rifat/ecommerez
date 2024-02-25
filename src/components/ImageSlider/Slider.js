@@ -12,8 +12,7 @@ const Slider = () => {
       },[])
 
       let filtered = products.filter(item=>item?.featured)
-      console.log(filtered);
-
+      // console.log(filtered);
 
   return (
     <div className="slider">
