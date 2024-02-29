@@ -59,7 +59,7 @@ export function AuthProvider({ children }) {
   }
 
   const saveUser=(user)=>{
-    fetch("http://localhost:2020/addUser",{
+    fetch("https://eye-care-back-end-git-master-md-hadiuzzaman-rifat.vercel.app/addUser",{
       method:"POST",
       headers:{
         "content-type":"application/json"

@@ -17,7 +17,6 @@ const Article = () => {
     navigate(-1)
   }
 
-
   return (
     <div className="article">
       <div className="container">

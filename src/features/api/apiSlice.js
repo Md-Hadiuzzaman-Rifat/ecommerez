@@ -4,6 +4,6 @@ import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 // initialize an empty api service that we'll inject endpoints into later as needed
 export const apiSlice = createApi({
   reducerPath: "api",
-  baseQuery: fetchBaseQuery({ baseUrl: "http://localhost:2020" }),
+  baseQuery: fetchBaseQuery({ baseUrl: "https://eye-care-back-end-git-master-md-hadiuzzaman-rifat.vercel.app" }),
   endpoints: () => ({}),
 });
