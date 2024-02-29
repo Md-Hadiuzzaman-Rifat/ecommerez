@@ -8,6 +8,12 @@
     background-image: url("https://cdn.shopify.com/s/files/1/1276/5299/files/shopMenEye.jpg");
     background-position: center;
     background-size: cover;
+    max-width: 1330px;
+    margin: 0 auto;
+    margin-top: 80px;
+    @include md{
+      margin-top: 50px;
+    }
     @include lg {
       height: 70vh;
     }

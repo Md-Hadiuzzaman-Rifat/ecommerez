@@ -4,6 +4,11 @@
   .container {
     max-width: 1300px;
     margin: 0 auto;
+
+    margin-top: 80px;
+    @include md{
+      margin-top: 50px;
+    }
     .discount_product{
       display: flex;
       flex-wrap: wrap;
@@ -24,6 +29,5 @@
     width: 100%;
     background-size: cover;
     background-position: top;
-    // clip-path: polygon(0 10%, 100% 10%, 83% 100%, 0 100%);
   }
 }

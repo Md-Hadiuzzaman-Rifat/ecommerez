@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 import { useDeleteProductMutation } from "../../../features/product/productApi";
 
 const TableBody = ({data}) => {
-  let {name, category, discount,_id, image, price}= data || {}
+  let {name, category, discount,_id, featured, image, price}= data || {}
 
   const dis=Math.floor((discount/price)*100)
 
@@ -27,10 +27,16 @@ const TableBody = ({data}) => {
   const handleDelete=(id)=>{
     console.log(id);
     deleteProduct(id)
+  } 
+
+  const style={
+    background:"orange"
   }
 
   return (
-    <tr className="tableBody">
+    <tr style={{
+      background: featured ? '#dfd8ff' : ''
+    }} className="tableBody">
       <td>{name}</td>
       <td>{category}</td>
       <td>{price}</td>

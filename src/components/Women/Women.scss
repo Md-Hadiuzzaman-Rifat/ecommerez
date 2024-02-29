@@ -7,6 +7,12 @@
       background-image: url("https://site-1306369054.file.myqcloud.com/4958033261489775/2020/06/0c2a32f42892fe480de92c3bc53a2198.png?imageMogr2/format/webp/ignore-error/1");
       background-position: center;
       background-size: cover;
+      max-width: 1330px;
+      margin: 0 auto;
+      margin-top: 80px;
+      @include md{
+        margin-top: 50px;
+      }
       @include lg {
         height: 70vh;
       }

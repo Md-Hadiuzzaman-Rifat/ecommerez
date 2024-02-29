@@ -17,7 +17,7 @@ const Accessories = () => {
   const handleNextPage=()=>{
     setPage(page+1)
   }
-  const limit=20
+  const limit=10
   const { data = [], isSuccess ,error: isError, isLoading } = useGetProductsQuery({page, limit});
 
   return (

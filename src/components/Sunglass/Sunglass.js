@@ -20,11 +20,12 @@ const Sunglass = () => {
   const handleNextPage=()=>{
     setPage(page+1)
   }
-  const limit=20
+  const limit=10
   const { data = [], isSuccess ,error: isError, isLoading } = useGetProductsQuery({page, limit});
 
   return (
     <div className="sunglass">
+      <div className="container">
       <div className="sunglass_cover"></div>
       <div className="container">
         {/* <ProductLayout></ProductLayout> */}
@@ -48,6 +49,7 @@ const Sunglass = () => {
         </div>
       </div>
       <Footer></Footer>
+      </div>
     </div>
   );
 };

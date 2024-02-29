@@ -11,7 +11,7 @@ const DiscountSell = () => {
   }
   const limit=10
   const { data = [], isSuccess ,error: isError, isLoading } = useGetProductsQuery({page, limit});
-
+  console.log(data);
 
   return (
     <div className="discountSell">
@@ -22,7 +22,7 @@ const DiscountSell = () => {
           {!isLoading &&
             data?.length > 0 &&
             data
-              .filter((item) => !item.featured)
+              // .filter((item) => !item.featured)
               .map((item) => (
                 <SingleProduct
                   className="discount_product_item"

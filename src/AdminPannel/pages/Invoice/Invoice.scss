@@ -1,5 +1,6 @@
 $bg-black: rgba(0, 0, 0, 0.767);
 $bg-gray: rgba(0, 0, 0, 0.219);
+@import "../../../css-config/mixins.scss";
 @mixin content-flex {
     display: flex;
     align-items: center;
@@ -8,6 +9,10 @@ $bg-gray: rgba(0, 0, 0, 0.219);
   }
 
 .Invoice{
+    
+    .container{
+        margin-top: 110px;
+    }
     p, h3, h1{
         margin: 7px 0;
     }

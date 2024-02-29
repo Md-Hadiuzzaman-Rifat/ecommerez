@@ -9,7 +9,7 @@ const Invoice = () => {
   let {state}=useLocation()
   return (
     <div className="Invoice">
-      <div>
+      <div className="container">
         <InvoiceHeader details={state}/>
         <InvoiceDetails details={state}/>
         <InvoiceTotal details={state} />

@@ -6,8 +6,8 @@ const Practice = ({product}) => {
   let {image, name, price, discount, _id}= product || {}
   const [image1, image2]= image || []
 
-  if (name?.length > 25) {
-    name = name.substring(0, 22) + "...";
+  if (name?.length > 15) {
+    name = name.substring(0, 12) + "...";
   }
   return (
     <div className="Practice">
