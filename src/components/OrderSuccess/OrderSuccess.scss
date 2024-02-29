@@ -1,3 +1,4 @@
+@import "../../css-config/mixins.scss";
 $primary-color: #2ecc71;
 $secondary-color: #34495e;
 $font-family: 'Open Sans', sans-serif;
@@ -7,6 +8,10 @@ $font-family: 'Open Sans', sans-serif;
     height: 75vh;
     justify-content: center;
     align-items: center;
+    margin-top: 80px;
+    @include md{
+        margin-top: 50px;
+    }
     .container {
         max-width: 500px;
         text-align: center;

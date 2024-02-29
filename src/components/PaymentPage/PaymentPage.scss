@@ -1,5 +1,11 @@
+@import "../../css-config/mixins.scss";
+
 .payment{
     width: 100%;
+    margin-top: 80px;
+    @include md{
+        margin-top: 50px;
+    }
     .container{
         max-width: 1330px;
         margin: 0 auto;
