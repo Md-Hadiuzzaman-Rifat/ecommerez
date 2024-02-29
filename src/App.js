@@ -32,6 +32,7 @@ import PublicRoute from "./components/PublicRoute/PublicRoute";
 import BlogDashboard from "./AdminPannel/pages/BlogDashboard/BlogDashboard";
 import PaymentPage from "./components/PaymentPage/PaymentPage";
 import ControllerPrivateRoute from "./AdminPannel/components/ControllerPrivateRoute/ControllerPrivateRoute";
+import Article from "./components/Article/Article";
 
 function App() {
   return (
@@ -118,6 +119,7 @@ function App() {
               }
             ></Route>
             <Route path="/products" element={<ProductLayout />}></Route>
+            <Route path="/blog/:id" element={<Article />}></Route>
             <Route path="/exp" element={<Exp />}></Route>
             <Route path={`/edit/:productId`} element={<EditProduct />}></Route>
             <Route path="/badge" element={<Badges></Badges>}></Route>

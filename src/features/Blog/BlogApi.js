@@ -9,6 +9,7 @@ export const BlogApi= apiSlice.injectEndpoints({
                  url:`/blogPost/${id}`
             })
         }),
+
         postBlog:builder.mutation({
            query:(data)=>({
             url: `/blogPost`,
@@ -23,6 +24,6 @@ export const BlogApi= apiSlice.injectEndpoints({
         }),
     })
 })
-export const { useGetAllBlogQuery, useGetSingleBlogQuery,usePostBlogMutation}=BlogApi
+export const { useGetAllBlogQuery,usePostBlogMutation, useGetSingleBlogQuery}=BlogApi
 ;
 

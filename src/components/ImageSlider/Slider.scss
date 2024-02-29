@@ -2,6 +2,18 @@
 .slider-content{
   width: 100%;
   margin: 0 auto;
+  h2{
+    padding: 20px;
+  }
+  h2::after{
+    content: "";
+    display: block;
+    width: 50px;
+    height: 5px;
+    background-color: blueviolet;
+    border-radius: 5px;
+    margin: 5px 0;
+  }
   .slider {
     margin: 20px 6%;
     box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;

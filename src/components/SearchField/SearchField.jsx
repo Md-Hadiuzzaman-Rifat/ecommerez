@@ -3,10 +3,10 @@ import "./SearchField.scss";
 import { RxCross1 } from "react-icons/rx";
 import FilteredProducts from "../FilterProduct/FilteredProducts";
 import { useState } from "react";
-import { useGetProductsQuery } from "../../features/product/productApi";
+import { useSearchProductsQuery } from "../../features/product/productApi";
 
 const SearchField = ({ handleSearch: control }) => {
-  const { data =[], isLoading, isError } = useGetProductsQuery();
+  const { data =[], isLoading, isError } = useSearchProductsQuery();
   const [search, setSearch] = useState("");
   const [result, setResult] = useState([]);
 
@@ -19,6 +19,7 @@ const SearchField = ({ handleSearch: control }) => {
       }, delay);
     };
   };
+
     
   const doSearch = (value) => {
     setSearch(value);

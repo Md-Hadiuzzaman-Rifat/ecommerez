@@ -7,6 +7,10 @@ export const productApi = apiSlice.injectEndpoints({
       query: ({ page, limit }) => `/getProducts?page=${page}&limit=${limit}`,
       providesTags: ["Products"],
     }),
+    searchProducts: builder.query({
+      query: () => `/searchProducts`,
+      providesTags: ["Products"],
+    }),
     getSingleProduct: builder.query({
       query: (id) => `/getProduct/${id}`,
       providesTags: (result, error, arg) => [{ type: "Product", id: arg }],
@@ -59,5 +63,6 @@ export const {
   useEditProductMutation,
   useDeleteProductMutation,
   useGetSelectedProductMutation,
-  useGetRelatedProductQuery
+  useGetRelatedProductQuery,
+  useSearchProductsQuery
 } = productApi;

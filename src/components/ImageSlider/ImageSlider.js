@@ -35,7 +35,6 @@ const ImageSlider = ({ slides }) => {
   } else {
     return "Lading";
   }
-  console.log(discountPrice);
 
   return (
     <div className="sliderStyles">

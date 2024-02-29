@@ -10,8 +10,7 @@ const Product = () => {
   const selector= useSelector(state=>state.productApi)
   const handleSelector= useSelector(state=>state.cartHandler)
   const {modalCondition}=handleSelector || {}
-
-  console.log(selector);
+  
   return (
     <div className="product">
       {

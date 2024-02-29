@@ -2,7 +2,7 @@
 
 .header {
   width: 100%;
-  z-index: 100;
+  z-index: 10000;
   margin-bottom: 80px;
   display: flex;
   justify-content: center;
@@ -52,6 +52,9 @@
       }
     }
     .header_name {
+      img{
+        height: 40px;
+      }
       a {
         color: white;
         text-decoration: none;

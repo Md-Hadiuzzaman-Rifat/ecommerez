@@ -44,7 +44,6 @@ const Footer = () => {
             </span>
             <span>hadirift100@gmail.com</span>
           </p>
-         
         </div>
         </div>
         <div className="footer_content_bottom">
@@ -55,14 +54,9 @@ const Footer = () => {
           <p onClick={()=>changePage("mans")}><span>&gt;</span> Man</p>
           <p onClick={()=>changePage("accessories")}><span>&gt;</span> Accessories</p>
         </div>
-        <div>
-          <h3>Pages</h3>
-          <p>Lorem, ipsum.</p>
-          <p>Lorem, ipsum.</p>
-          <p>Lorem, ipsum.</p>
-          <p>Lorem, ipsum.</p>
-          <p>Lorem, ipsum.</p>
-          <p>Lorem, ipsum.</p>
+        <div className="footer-image">
+            <h3>Sponsored</h3>
+            <img src="https://i.ibb.co/0DTP4WM/image.png" alt="" />
         </div>
         </div>
       </div>

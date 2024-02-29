@@ -1,11 +1,11 @@
 import React from "react";
 
 import "./ProductTable.scss";
-import { useGetProductsQuery } from "../../../features/product/productApi";
+import { useSearchProductsQuery } from "../../../features/product/productApi";
 import TableBody from "../TableBody/TableBody";
 
 const ProductTable = () => {
-  const { data, isLoading } = useGetProductsQuery({page:1,limit:1000});
+  const { data, isLoading } = useSearchProductsQuery();
 // console.log(data);
   return (
     <div className="productTable">
