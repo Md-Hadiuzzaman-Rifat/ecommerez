@@ -1,9 +1,11 @@
 import {
+  GoogleAuthProvider,
   createUserWithEmailAndPassword,
   getAuth,
   getIdToken,
   onAuthStateChanged,
   signInWithEmailAndPassword,
+  signInWithPopup,
   signOut,
   updateProfile,
 } from "firebase/auth";
@@ -36,6 +38,20 @@ export function AuthProvider({ children }) {
     return unsubscribe;
   }, []);
 
+  // google SignIn
+async function googleSignIn(){
+  const auth=getAuth()
+  const provider = new GoogleAuthProvider();
+  try{
+    const result =await signInWithPopup(auth, provider)
+    // const credential = GoogleAuthProvider.credentialFromResult(result);
+    const user= result.user 
+    console.log(user);
+  }catch{
+  }
+}
+
+
   // signup function
   async function signup(email, password, username) {
     const auth = getAuth();
@@ -59,7 +75,7 @@ export function AuthProvider({ children }) {
   }
 
   const saveUser=(user)=>{
-    fetch("https://eye-care-back-end-git-master-md-hadiuzzaman-rifat.vercel.app/addUser",{
+    fetch("http://localhost:2020/addUser",{
       method:"POST",
       headers:{
         "content-type":"application/json"
@@ -79,6 +95,7 @@ export function AuthProvider({ children }) {
     signup,
     login,
     logout,
+    googleSignIn
   };
 
   return (

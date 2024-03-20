@@ -70,16 +70,17 @@ const PaymentPage = () => {
                 করে জানানো হবে।
               </p>
 
-              <div className="input-box">
+              <form className="input-box" onSubmit={handleSubmit}>
                 <input
                   type="text"
                   onChange={e=>setTranId(e.target.value)}
                   placeholder="বিকাশ নম্বর অথবা ট্রানজেকশন আই ডি "
+                  required
                 />
                 <input type="number"
                 onChange={e=>setPaid(e.target.value)} placeholder="প্রদানকৃত অর্থের পরিমান" />
-                <Button onClick={handleSubmit}>Submit</Button>
-              </div>
+                <Button type="submit">Submit</Button>
+              </form>
               
             </div>
           </div>

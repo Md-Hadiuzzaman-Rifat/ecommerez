@@ -6,11 +6,10 @@ const Slider = () => {
 
     const [products, setProducts]= useState([])
     useEffect(()=>{
-        fetch(`https://eye-care-back-end-git-master-md-hadiuzzaman-rifat.vercel.app/featuredProduct`)
+        fetch(`http://localhost:2020/featuredProduct`)
           .then(res=>res.json())
           .then(data=>setProducts(data))
       },[])
-
       let filtered = products.filter(item=>item?.featured)
     
 

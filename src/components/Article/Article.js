@@ -14,14 +14,14 @@ const Article = () => {
   const {data, isLoading, isError } = useGetSingleBlogQuery(id);
 
   const previousPage=()=>{
-    navigate(-1)
+    navigate("/")
   }
 
   return (
     <div className="article">
       <div className="container">
         
-        <button onClick={previousPage}>Back</button>
+        <span onClick={previousPage}>Previous Page</span>
         {!isLoading && !isError && data && (
         <div >
             <div className="top_section">

@@ -3,6 +3,9 @@ import "./Register.scss";
 import Footer from "../Footer/Footer";
 import { useAuth } from "../../context/AuthContext";
 import { useNavigate } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import ErrorModal from "../ErrorModal/ErrorModal";
+import { errorModalOpen } from "../../features/cartHandler/cartHandler";
 
 const Register = () => {
   const [name, setName] = useState("");
@@ -13,11 +16,14 @@ const Register = () => {
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
 
+  const {errorCondition}= useSelector(state=>state.cartHandler) || {}
+  const dispatch= useDispatch()
+
   useEffect(() => {
     window.scrollTo(0, 0)
   }, [])
 
-  const { signup } = useAuth();
+  const { signup, googleSignIn } = useAuth();
 
   const handleSubmit = async (e) => {
 
@@ -33,7 +39,8 @@ const Register = () => {
       setLoading(false)
       navigate("/home");
     } catch (err) {
-      setError("Failed to Register");
+      // setError("Failed to Register");
+      dispatch(errorModalOpen())
       setLoading(false);
     } finally {
       setLoading(false);
@@ -41,9 +48,12 @@ const Register = () => {
   };
 
   return (
-    <div className="register">
+    <div className="register-section">
+      {
+        errorCondition && <ErrorModal text="Failed to Create Account. Click the Google SignIn button."/>
+      }
       <div className="container">
-        <h1>Sign Up</h1>
+        <h2>Create Account</h2>
         <form onSubmit={handleSubmit}>
           <div className="input-field">
             <label htmlFor="username">Username</label>
@@ -94,13 +104,17 @@ const Register = () => {
             <button disabled={loading} type="submit">
               Sign Up
             </button>
+            <p>--OR--</p>
+            <div className="google" onClick={googleSignIn}>
+              Google SignIn
+            </div>
           </div>
         </form>
       </div>
       <Footer></Footer>
     </div>
+
   );
 };
 
-// export default React.memo(Register);
 export default Register;

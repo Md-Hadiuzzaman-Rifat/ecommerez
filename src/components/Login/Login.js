@@ -4,8 +4,10 @@ import "./Login.scss";
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useAuth } from "../../context/AuthContext";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { handleClose } from "../../features/cartHandler/cartHandler";
+import ErrorModal from "../ErrorModal/ErrorModal"
+import {errorModalOpen, errorModalClose} from "../../features/cartHandler/cartHandler"
 
 const Login = () => {
   const [email, setEmail] = useState("");
@@ -14,18 +16,18 @@ const Login = () => {
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
   const dispatch= useDispatch()
-  
+
+  const {errorCondition} = useSelector((state) => state.cartHandler) ||{}
+
   useEffect(() => {
     dispatch(handleClose());
     window.scrollTo(0, 0);
   }, [dispatch]);
 
-
-  const { login } = useAuth();
+  const { login, googleSignIn } = useAuth();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-
     try {
       setError("");
       setLoading(true);
@@ -34,13 +36,19 @@ const Login = () => {
     } catch (err) {
       setError("Failed to Login. Or account not already exist.");
       setLoading(false);
+      dispatch(errorModalOpen())
     } finally {
       setLoading(false);
     }
   };
 
+  const handleError=()=>{
+      dispatch(errorModalClose())
+  } 
+
   return (
     <div className="login">
+      {errorCondition && <ErrorModal text="Incorrect Email or Password"></ErrorModal>}
       <div className="container">
         <h1>Login</h1>
         <form onSubmit={handleSubmit}>
@@ -65,12 +73,15 @@ const Login = () => {
             />
           </div>
           <Link to="/register">
-          <p style={{color:"blue", fontWeight:"bold"}}>Create new Account</p></Link>
-          {error && <p className="error">{error}</p>}
+          <p style={{color:"green", fontWeight:"bold"}}>Create new Account</p></Link>
+          {error && handleError}
+          {/* {error && <p className="error">{error}</p>} */}
           <div className="button-field">
             <button disabled={loading} type="submit">
               Login
             </button>
+            <p className="or">--OR--</p>
+            <div onClick={googleSignIn} className="google">Google SignIn</div>
           </div>
         </form>
       </div>

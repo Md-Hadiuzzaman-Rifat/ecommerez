@@ -5,7 +5,7 @@ import { useSelector, useDispatch  } from 'react-redux';
 import { modalClose } from '../../features/cartHandler/cartHandler';
 
 const Modal = () => {
-    const {cartHandler}= useSelector(state=>state.cartHandler) |{}
+    const {cartHandler}= useSelector(state=>state.cartHandler) ||{}
     const dispatch= useDispatch()
     console.log(cartHandler);
 

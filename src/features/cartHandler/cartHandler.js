@@ -3,7 +3,8 @@ import { createSlice } from '@reduxjs/toolkit'
 const initialState = {
   cartCondition:false,
   searchCondition:false,
-  modalCondition:false
+  modalCondition:false,
+  errorCondition: false
 }
 
 export const cartHandler = createSlice({
@@ -39,10 +40,20 @@ export const cartHandler = createSlice({
     modalToggle: (state) => {
         state.modalCondition= !state.modalCondition
     },
+    // error modal 
+    errorModalOpen: (state) => {
+        state.errorCondition= true
+    },
+    errorModalClose: (state) => {
+        state.errorCondition= false
+    },
+    errorModalToggle: (state) => {
+        state.errorCondition= !state.modalCondition
+    },
   },
 })
 
 // Action creators are generated for each case reducer function
-export const { handleClose, handleOpen, handleToggle, searchOpen, searchClose, searchToggle, modalClose, modalOpen, modalToggle } = cartHandler.actions
+export const { handleClose,errorModalClose, errorModalOpen, handleOpen, handleToggle, searchOpen, searchClose, searchToggle, modalClose, modalOpen, modalToggle } = cartHandler.actions
 
 export default cartHandler.reducer

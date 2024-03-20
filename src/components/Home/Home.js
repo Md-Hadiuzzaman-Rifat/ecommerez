@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React, { useEffect, useRef } from "react";
 import Banner from "../Banner/Banner";
 import Footer from "../Footer/Footer";
 import Showcase from "../Showcase/Showcase";
@@ -12,6 +12,9 @@ import { useState, CSSProperties } from "react";
 import "./Home.scss";
 import Blogs from "../Blogs/Blogs";
 import Slider from "../ImageSlider/Slider";
+import Preloader from "../PreLoader/PreLoader"
+import { handleClose, searchClose } from "../../features/cartHandler/cartHandler";
+import { useDispatch } from "react-redux";
 
 const override = {
   display: "block",
@@ -20,26 +23,31 @@ const override = {
 };
 
 const Home = () => {
+  const dispatch= useDispatch()
   const { currentUser } = useAuth();
   let [loading, setLoading] = useState(true);
   let [color, setColor] = useState("#365ed6");
 
+  useEffect(() => {
+    dispatch(handleClose());
+    dispatch(searchClose());
+    window.scrollTo(0, 0);
+  }, [dispatch]);
+
 
   return (
     <div className="Home">
-      
-      {/* <div className="loader">
-        <PacmanLoader color="#6268ff" margin={2} size={35} />
-      </div> */}
+      <Preloader></Preloader>
       <Banner></Banner>
       <Showcase></Showcase>
+       {/* for small screen  */}
       {
         window.innerWidth <= 500 && <Slider></Slider>
       }
+      {/* // for large screen  */}
       {
         window.innerWidth > 500 && <ProductLayout></ProductLayout>
       }
-      
       <DiscountSell></DiscountSell>
       <Blogs></Blogs>
       <Newsletter></Newsletter>

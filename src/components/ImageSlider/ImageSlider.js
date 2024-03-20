@@ -59,7 +59,7 @@ const ImageSlider = ({ slides }) => {
           <div className="slider-content">
             <div>{slides[currentIndex]?.name.substring(0, 22)}</div>
             <div>Price: {slides[currentIndex]?.price}</div>
-            <div>Now: {discountPrice}</div>
+            <div>Offer Price: {discountPrice}</div>
           </div>
         </div>
       </div>
