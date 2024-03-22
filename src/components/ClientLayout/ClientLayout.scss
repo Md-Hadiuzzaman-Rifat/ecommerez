@@ -1,0 +1,47 @@
+.ClientLayout {
+  height: 100vh;
+  width: 100%;
+  position: relative;
+  .callingFeature {
+    cursor: pointer;
+    position: fixed;
+    z-index: 100;
+    bottom: 30px;
+    left: 30px;
+    height: 60px;
+    width: 60px;
+    border-radius: 50%;
+    background-color: #008080;
+    color: white;
+    font-size: 2rem;
+    
+    .phone{
+        position: absolute;
+        height: inherit;
+        width: inherit;
+        opacity: 0.8;
+        background-color: inherit;
+        border-radius: inherit;
+        animation: pulseAnimate 1.5s ease-out infinite;
+    }
+    .phone-number {
+      position: absolute;
+      height: inherit;
+      top: 10px;
+      left: 15px;
+      animation: phoneRotate 0.4s ease-in-out infinite alternate;
+      animation-delay: 2s;
+    }
+    @keyframes phoneRotate {
+        100%{
+            transform: rotate(15deg);
+        }
+    }
+    @keyframes pulseAnimate {
+        100%{
+            opacity: 0;
+            transform: scale(2);
+        }
+    }
+  }
+}
