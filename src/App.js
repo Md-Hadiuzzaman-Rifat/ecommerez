@@ -33,6 +33,7 @@ import BlogDashboard from "./AdminPannel/pages/BlogDashboard/BlogDashboard";
 import PaymentPage from "./components/PaymentPage/PaymentPage";
 import ControllerPrivateRoute from "./AdminPannel/components/ControllerPrivateRoute/ControllerPrivateRoute";
 import Article from "./components/Article/Article";
+import CallButton from "./components/CallButton/CallButton";
 
 function App() {
   return (
@@ -125,6 +126,7 @@ function App() {
             <Route path="/badge" element={<Badges></Badges>}></Route>
           </Routes>
         </AuthProvider>
+        <CallButton></CallButton>
       </BrowserRouter>
     </div>
   );
