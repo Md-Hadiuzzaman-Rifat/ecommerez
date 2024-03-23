@@ -1,39 +1,65 @@
 @import "../../css-config/mixins.scss";
 
-.product_view{
-    width: calc(20% - 20px);
-    display: flex;
-    align-items: center;
-    flex-wrap: wrap;
-    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
-    border-radius: 15px;
-    a{
-      text-decoration: none;
-      color: black;
-    }
+.product_view {
+  width: calc(20% - 20px);
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+  border-radius: 15px;
+  a {
+    text-decoration: none;
+    color: black;
+  }
   cursor: pointer;
-    @include md{
-      width: calc(50% - 20px);
-    }
-    .product_img{
-      overflow: hidden;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      img{
-        margin: 1rem 0;
-        width: 80%;
-        &:hover{
-          transform: scale(1.3);
-          transition: 0.5s;
-        }
-      }
-    }
-    .product_description{
-      padding: 0 10px;
-      h3{
-        color: gray;
-        font-weight: 400;
+  @include md {
+    width: calc(50% - 20px);
+  }
+  .product_img {
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    img {
+      // margin: 1rem 0;
+      // width: 80%;
+      width: 100%;
+      object-fit: cover;
+      &:hover {
+        transform: scale(1.3);
+        transition: 0.5s;
       }
     }
   }
+  .product_description {
+    padding: 0 10px;
+    h3 {
+      color: gray;
+      font-weight: 400;
+      font-size: 1rem;
+      margin-bottom: -10px;
+    }
+  }
+  .cartButton {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+    button {
+      cursor: pointer;
+      border-radius: 5px;
+      color: white;
+      background-color: orange;
+      border: none;
+      padding: 8px 15px;
+      font-size: 1rem;
+    }
+  }
+  .product_price{
+    color: orangered;
+    font-style: italic;
+    font-weight: 600;
+    font-size: 1.25rem;
+  }
+
+}

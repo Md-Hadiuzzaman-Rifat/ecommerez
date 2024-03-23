@@ -1,6 +1,9 @@
 import React from "react";
 import "./SingleProduct.scss";
 import { Link } from "react-router-dom";
+import { FaCartArrowDown } from "react-icons/fa";
+
+
 
 const SingleProduct = ({item}) => {
   let {name, price, image, _id}= item || {}
@@ -24,10 +27,15 @@ const SingleProduct = ({item}) => {
         />
       </div>
       <div className="product_description">
-        <h3>{name}</h3>
-        <p>{price} Taka</p>
+        <h3 className="product_name">{name}</h3>
+        <p className="product_price">৳ {price} Taka</p>
       </div>
       </Link>
+      <div className="cartButton">
+      <Link to={`../productDetails/${_id}`} onClick={handleClick}>
+        <button> Add Cart <FaCartArrowDown /> </button>
+        </Link>
+      </div>
     </div>
   );
 };

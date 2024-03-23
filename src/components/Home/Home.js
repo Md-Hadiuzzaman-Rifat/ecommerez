@@ -31,7 +31,7 @@ const Home = () => {
   useEffect(() => {
     dispatch(handleClose());
     dispatch(searchClose());
-    window.scrollTo(0, 0);
+    // window.scrollTo(0, 0);
   }, [dispatch]);
 
 
