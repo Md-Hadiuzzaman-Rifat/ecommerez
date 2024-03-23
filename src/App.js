@@ -34,6 +34,7 @@ import PaymentPage from "./components/PaymentPage/PaymentPage";
 import ControllerPrivateRoute from "./AdminPannel/components/ControllerPrivateRoute/ControllerPrivateRoute";
 import Article from "./components/Article/Article";
 import CallButton from "./components/CallButton/CallButton";
+import MessengerCustomerChat from "react-messenger-customer-chat";
 
 function App() {
   return (
@@ -44,7 +45,10 @@ function App() {
           <Routes>
             <Route path="/" element={<Home />}></Route>
             <Route path="/invoice/:id" element={<Invoice />}></Route>
-            <Route path="/dashboard/orders/invoice/:id" element={<Invoice />}></Route>
+            <Route
+              path="/dashboard/orders/invoice/:id"
+              element={<Invoice />}
+            ></Route>
             <Route path="/control" element={<Control />}></Route>
             {/* Admin subRoute start*/}
 
@@ -52,30 +56,39 @@ function App() {
             <Route path="/admin" element={<AdminLogin></AdminLogin>} />
             {/* // dashbaord and its nasted routes  */}
             <Route path="dashboard" element={<Dashboard></Dashboard>}>
-              <Route path="*" element={<ControllerPrivateRoute/>}>
-              <Route path="control" element={<Control></Control>} />
-              <Route path="orders" element={<MainContent></MainContent>} />
-              <Route path="blogDashboard" element={<BlogDashboard></BlogDashboard>} />
-              <Route path="orders/:orderId" element={<ViewOrder />}></Route>
-              <Route path="product" element={<Product></Product>} />
+              <Route path="*" element={<ControllerPrivateRoute />}>
+                <Route path="control" element={<Control></Control>} />
+                <Route path="orders" element={<MainContent></MainContent>} />
+                <Route
+                  path="blogDashboard"
+                  element={<BlogDashboard></BlogDashboard>}
+                />
+                <Route path="orders/:orderId" element={<ViewOrder />}></Route>
+                <Route path="product" element={<Product></Product>} />
               </Route>
             </Route>
             {/* </Route> */}
 
-            
             {/* Admin subRoute end */}
             <Route path="/adminLogin" element={<AdminLogin />}></Route>
             <Route path="/product" element={<Product />}></Route>
-            <Route path="/dashboard" element={<ControllerPrivateRoute><Dashboard /></ControllerPrivateRoute>}></Route>
+            <Route
+              path="/dashboard"
+              element={
+                <ControllerPrivateRoute>
+                  <Dashboard />
+                </ControllerPrivateRoute>
+              }
+            ></Route>
             {/* <Route path="/product" element={<Product/>} ></Route> */}
             {/* // user page  */}
 
             {/* // for user router  */}
-            <Route path="/" element={<PublicRoute/>}>
+            <Route path="/" element={<PublicRoute />}>
               <Route path="login" element={<Login />}></Route>
               <Route path="register" element={<Register />}></Route>
             </Route>
-            
+
             <Route path="/home" element={<Home />}></Route>
             <Route path="/payment" element={<PaymentPage />}></Route>
             <Route
@@ -90,15 +103,18 @@ function App() {
               element={<ProductDetails />}
             ></Route>
             <Route path="/mans" element={<Mans />}></Route>
-            <Route path="/mans/productDetails/:productId"
+            <Route
+              path="/mans/productDetails/:productId"
               element={<ProductDetails />}
             ></Route>
             <Route path="/sunglass" element={<Sunglass />}></Route>
-            <Route path="/sunglass/productDetails/:productId"
+            <Route
+              path="/sunglass/productDetails/:productId"
               element={<ProductDetails />}
             ></Route>
             <Route path="/women" element={<Woman />}></Route>
-            <Route path="/women/productDetails/:productId"
+            <Route
+              path="/women/productDetails/:productId"
               element={<ProductDetails />}
             ></Route>
             <Route path="/orderSuccess" element={<OrderSuccess />}></Route>
@@ -127,6 +143,12 @@ function App() {
           </Routes>
         </AuthProvider>
         <CallButton></CallButton>
+        <MessengerCustomerChat
+          pageId="129834346880440"
+          appId="801614908479217"
+          // htmlRef="<REF_STRING>"
+        />
+        ,
       </BrowserRouter>
     </div>
   );

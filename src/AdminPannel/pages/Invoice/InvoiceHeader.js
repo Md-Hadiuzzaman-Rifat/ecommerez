@@ -5,7 +5,7 @@ const InvoiceHeader = ({details}) => {
     <div className="invoiceHeader">
       <div className="invoice-top">
         <div>
-          <h1 className="invoice-logo">Shohag Eye Care</h1>
+          <h1 className="invoice-logo">The Spectacle 23</h1>
           <h4>Invoice: {details._id}</h4>
           <p>Date: {details.timestamp}</p>
         </div>
@@ -18,8 +18,9 @@ const InvoiceHeader = ({details}) => {
       <div className="invoice-billing">
         <div>
           <p>
-            Bill from: <strong>Shohag Eye care</strong>
+            Bill from: <strong>The Spectacle 23</strong>
           </p>
+          <hr />
           <p>Address: {details.address}</p>
           <p>Zip Code: {details.zip}</p>
           <p>Phone: {details.phone}</p>
