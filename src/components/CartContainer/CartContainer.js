@@ -23,7 +23,7 @@ const CartContainer = ({data}) => {
           <div>
             <Counter id={_id}></Counter>
           </div>
-          <h5>{price-discount}</h5>
+          <h5>Unit Price: {price-discount} <span>৳</span></h5>
         </div>
       </div>
     );

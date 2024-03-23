@@ -6,6 +6,12 @@
     @include md{
         margin-top: 50px;
     }
+    p{
+        color: gray;
+    }
+    .problem{
+        color: blueviolet;
+    }
     .container{
         max-width: 1330px;
         margin: 0 auto;
@@ -27,7 +33,7 @@
             background-color: white;
             .box-inline{
                 display: inline-block;
-                background-color: green;
+                background-color: blueviolet;
                 color: white;
                 padding: 10px 20px;
             }
