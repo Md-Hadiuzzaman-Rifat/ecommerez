@@ -8,9 +8,8 @@ const CallButton = () => {
       <div className="callAnimation">
       <div className="animate"></div>
       <div className="animate second"></div>
-
       <div className="animatePhone">
-        <a href="tel:+6494461709">
+        <a href="tel:+8801910803372">
           <FaPhoneAlt />
         </a>
       </div>

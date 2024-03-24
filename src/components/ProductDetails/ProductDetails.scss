@@ -8,6 +8,9 @@
     margin-top: 50px;
     padding: 0 20px;
   }
+  @include sm {
+    padding: 0 10px;
+  }
   .productDetails_container {
     max-width: 1300px;
     margin: 0 auto;

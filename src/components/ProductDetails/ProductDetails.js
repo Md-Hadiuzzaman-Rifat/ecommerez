@@ -89,7 +89,7 @@ const ProductDetails = () => {
                     <HiShoppingCart /> Checkout
                   </Button>
                 </Link>
-              </div>
+              </div> 
               <p>{description}</p>
               <div className="product_category_and_share">
                 <div>

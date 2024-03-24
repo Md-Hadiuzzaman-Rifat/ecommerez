@@ -1,11 +1,16 @@
 @import "../../css-config/mixins.scss";
 
+
 .discountSell{
     width: 100%;
     .container{
         padding: 40px;
         max-width: 1300px;
         margin: 0 auto;
+        @include sm{
+            padding: 10px;
+            margin-right:-20px ;
+        }
       
             h2::after {
                 content: "";
@@ -22,11 +27,17 @@
             flex-wrap: wrap;
             flex-direction: row;
             gap: 20px;
+            @include sm{
+                gap: 10px;
+            }
 
             .discount_product_item{
                 width: calc(25% - 40px);
                 @include md {
                     width: calc(50% - 20px);
+                  }
+                  @include sm{
+                    width: calc(25% - 10px);
                   }
             }
         }

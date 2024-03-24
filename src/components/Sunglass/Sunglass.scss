@@ -4,8 +4,11 @@
   .container {
     max-width: 1300px;
     margin: 0 auto;
-
     margin-top: 80px;
+    @include sm{
+      padding: 10px;
+      margin-right:-20px ;
+  }
     @include md{
       margin-top: 50px;
     }

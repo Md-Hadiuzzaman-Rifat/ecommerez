@@ -29,6 +29,10 @@
       .accessories_container{
         max-width: 1300px;
         margin: 0 auto;
+        @include sm{
+          padding: 10px;
+          margin-right:-20px ;
+      }
       }
     .discount_product{
         display: flex;
