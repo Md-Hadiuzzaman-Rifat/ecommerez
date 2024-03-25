@@ -8,6 +8,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { handleClose } from "../../features/cartHandler/cartHandler";
 import ErrorModal from "../ErrorModal/ErrorModal"
 import {errorModalOpen, errorModalClose} from "../../features/cartHandler/cartHandler"
+import { FaGoogle } from "react-icons/fa";
 
 const Login = () => {
   const [email, setEmail] = useState("");
@@ -81,7 +82,7 @@ const Login = () => {
               Login
             </button>
             <p className="or">--OR--</p>
-            <div onClick={googleSignIn} className="google">Google SignIn</div>
+            <div onClick={googleSignIn} className="google"><FaGoogle></FaGoogle> Google SignIn</div>
           </div>
         </form>
       </div>

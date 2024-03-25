@@ -12,6 +12,9 @@
     @include md{
       margin-top: 50px;
     }
+    @include sm{
+      margin-top: -10px;
+    }
     .discount_product{
       display: flex;
       flex-wrap: wrap;
@@ -27,10 +30,28 @@
   }
   }
   .sunglass_cover  {
+    height: 50vh;
     background-image: url("https://knockaround.com/cdn/shop/files/Oversized_collection-desktop-header.jpg?v=1614391968&width=1680");
-    height: 70vh;
-    width: 100%;
+    background-position: center;
     background-size: cover;
-    background-position: top;
+    max-width: 1330px;
+    margin: 0 auto;
+    margin-top: 80px;
+    @include md{
+      margin-top: 50px;
+    }
+    @include lg {
+      height: 70vh;
+    }
+    @include md {
+      height: 60vh;
+    }
+    @include sm {
+      height: 45vh;
+    }
+    @include xsm {
+      height: 30vh;
+    }
   }
+
 }

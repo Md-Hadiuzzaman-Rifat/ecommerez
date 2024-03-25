@@ -35,6 +35,8 @@ import ControllerPrivateRoute from "./AdminPannel/components/ControllerPrivateRo
 import Article from "./components/Article/Article";
 import CallButton from "./components/CallButton/CallButton";
 import MessengerCustomerChat from "react-messenger-customer-chat";
+import { FloatingWhatsApp } from "react-floating-whatsapp";
+import whatsappLogo from "./img/thespectacle23.jpg"
 
 function App() {
   return (
@@ -140,18 +142,32 @@ function App() {
             <Route path="/exp" element={<Exp />}></Route>
             <Route path={`/edit/:productId`} element={<EditProduct />}></Route>
             <Route path="/badge" element={<Badges></Badges>}></Route>
+            
           </Routes>
         </AuthProvider>
         <CallButton></CallButton>
-        <MessengerCustomerChat
+        {/* <MessengerCustomerChat
           pageId="129834346880440"
           appId="801614908479217"
           // htmlRef="<REF_STRING>"
-        />
+        /> */}
         ,
       </BrowserRouter>
+      <FloatingWhatsApp  
+        phoneNumber="+8801876273090"
+        avatar = {whatsappLogo}
+        accountName="The Spectacle 23"
+        statusMessage = "Typically replies within 5 minute"
+        chatMessage = "স্বাগত 🤝। পণ্য সম্পর্কে আপনার কোনো মতামত বা জিজ্ঞাসা থাকলে এখানে ইনবক্স করুন।"
+        placeholder = "Type a message.."
+        allowEsc={true}
+        notification={true}
+        notificationSound={true}
+      />
     </div>
   );
 }
 
 export default App;
+// The Misfit Whale
+// https://developers.facebook.com/community/threads/1005499880601235/

@@ -23,6 +23,7 @@ import {
   SideBySideMagnifier,
 } from "react-image-magnifiers";
 import Footer from "../Footer/Footer";
+import DetailsSkeleton from "../LoadingSkeleton/DetailsSkeleton/DetailsSkeleton";
 
 const ProductDetails = () => {
   const { productId } = useParams();
@@ -50,7 +51,7 @@ const ProductDetails = () => {
 
   return (
     <div className="productDetails">
-      {isLoading && "Loading..."}
+      {isLoading && <DetailsSkeleton/>}
       {!isLoading && (
         <div className="productDetails_container">
           {/* <Tags></Tags> */}

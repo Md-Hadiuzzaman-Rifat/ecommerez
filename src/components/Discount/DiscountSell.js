@@ -11,7 +11,7 @@ const DiscountSell = () => {
   }
   const limit=10
   const { data = [], isSuccess ,error: isError, isLoading } = useGetProductsQuery({page, limit});
-  console.log(data);
+  // console.log(data);
 
   return (
     <div className="discountSell">

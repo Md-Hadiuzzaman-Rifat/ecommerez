@@ -27,16 +27,16 @@
             &:nth-child(3){
                 cursor: pointer;
             }
-            @include sm{
-                font-size: 1.25rem;
-                width: 1.75rem;
-                height: 1.25rem;
-                // border: 1px solid rgba(0, 0, 0, 0.212);
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                padding-bottom: 8px;
-            }
+            // @include sm{
+            //     font-size: 1.25rem;
+            //     width: 1.75rem;
+            //     height: 1.25rem;
+            //     // border: 1px solid rgba(0, 0, 0, 0.212);
+            //     display: flex;
+            //     justify-content: center;
+            //     align-items: center;
+            //     padding-bottom: 8px;
+            // }
             
         }
     }

@@ -88,9 +88,13 @@
       flex-direction: column;
       left: 10px;
       bottom: 10px;
-      background-color: teal;
+      background-color: rgba(0, 128, 128, 0.658);
       width: calc(100% - 30px);
       color: white;
       padding: 5px;
+      .discount_price{
+        font-weight: 600;
+        font-size: 1rem;
+      }
     }
   }

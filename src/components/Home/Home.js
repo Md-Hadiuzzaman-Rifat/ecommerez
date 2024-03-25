@@ -37,7 +37,7 @@ const Home = () => {
 
   return (
     <div className="Home">
-      <Preloader></Preloader>
+      {/* <Preloader></Preloader> */}
       <Banner></Banner>
       <Showcase></Showcase>
        {/* for small screen  */}

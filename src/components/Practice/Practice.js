@@ -13,7 +13,7 @@ const Practice = ({product}) => {
     <div className="Practice">
     <Link to={`productDetails/${_id}`}>
         <div className="image">
-           <span>Winter Sale</span>
+           <span>Eid Discount</span>
           <img
             src={image1}
             alt="" 
