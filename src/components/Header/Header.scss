@@ -12,7 +12,7 @@
   }
 
   .header_content{
-    max-width: 2200px;
+    // max-width: 2200px;
     margin: 0 auto;
     // display: block;
     display: flex;
@@ -27,14 +27,14 @@
       padding-left: 0;      
     }
   }
-   
+
   .header_container {
     position: fixed;
     z-index: 99;
     width: 100%;
     background: #212121;
     background: white;
-    max-width: 1900px;
+    // max-width: 1900px;
     margin: 0 auto;
     padding: 0 40px;
     @include sm{

@@ -25,7 +25,6 @@ const Sunglass = () => {
 
   return (
     <div className="sunglass">
-      <div className="container">
       <div className="sunglass_cover"></div>
       <div className="container">
         {/* <ProductLayout></ProductLayout> */}
@@ -47,7 +46,7 @@ const Sunglass = () => {
         <div className="load-button">
           <button disabled={page*limit > data?.length} onClick={handleNextPage}>Load More...</button>
         </div>
-      </div>
+   
       <Footer></Footer>
       </div>
     </div>

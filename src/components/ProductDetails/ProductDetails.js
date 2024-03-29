@@ -95,7 +95,7 @@ const ProductDetails = () => {
               <div className="product_category_and_share">
                 <div>
                   <h4>Category: </h4>
-                  <p>Phone</p>
+                  <p>Eye Glass</p>
                 </div>
                 <div>
                   <h4>Share: </h4>
