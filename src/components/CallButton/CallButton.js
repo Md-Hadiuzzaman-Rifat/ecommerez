@@ -6,6 +6,7 @@ const CallButton = () => {
   const handleFacebook=()=>{
     window.open('https://www.facebook.com/thespectacle23', '_blank');
   }
+  
   return (
     <div className="CallButton">
       <div className="facebook" onClick={handleFacebook}>Facebook</div>
@@ -13,7 +14,7 @@ const CallButton = () => {
       <div className="animate"></div>
       <div className="animate second"></div>
       <div className="animatePhone">
-        <a href="tel:+8801910803372">
+        <a href="tel:+8801876273090">
         <BiSolidPhoneCall />
         </a>
       </div>

@@ -30,19 +30,19 @@ const Footer = () => {
             <span>
               <BiSolidNavigation />
             </span>
-            <span>Mirpur-12, Dhaka</span>
+            <span>Mirpur-11, Dhaka</span>
           </p>
           <p>
             <span>
               <GiSmartphone />
             </span>
-            <span>+880-1910803372</span>
+            <span>+880-1876273090</span>
           </p>
           <p>
             <span>
               <MdEmail />
             </span>
-            <span>hadirift100@gmail.com</span>
+            <span>admin@thespectacle23.com</span>
           </p>
         </div>
         </div>

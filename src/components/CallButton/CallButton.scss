@@ -1,8 +1,11 @@
+@import "../../css-config/mixins.scss";
+
 .CallButton {
   width: 100%;
   // height: 100vh;
   position: relative;
   .facebook{
+    z-index: 100;
     margin: 0;
     position: fixed;
     top: 50%;
@@ -15,6 +18,11 @@
     padding: 10px 30px;
     font-weight: 700;
     cursor: all-scroll;
+    @include sm{
+      padding: 5px 20px;
+      right: -40px;
+    }
+    
   }
   .callAnimation {
     height: 60px;

@@ -38,7 +38,8 @@ $bg-gray: rgba(0, 0, 0, 0.219);
             margin-right:-10px ;
         }
         .invoice-billing{
-            @include content-flex;
+            // @include content-flex;
+            margin: 0 20px;
             
         }
     }

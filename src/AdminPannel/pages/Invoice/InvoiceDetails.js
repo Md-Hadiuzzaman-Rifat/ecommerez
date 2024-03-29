@@ -17,7 +17,6 @@ const InvoiceDetails = ({details}) => {
           {
             details?.order?.map(item=><InvoiceItem key={item._id} item={item}></InvoiceItem>)
           }
-          
         </tbody>
       </table>
       {/* <hr /> */}
