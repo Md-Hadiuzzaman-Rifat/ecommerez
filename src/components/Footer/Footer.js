@@ -19,9 +19,7 @@ const Footer = () => {
         <div>
           <h3>About</h3>
           <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Eum sit
-            rerum odio. Consectetur magni at, fugiat minus adipisci reiciendis
-            aut.
+            ZEISS সহ বিভিন্ন অফিসিয়াল ব্র্যান্ডের প্রিমিয়াম লেন্স ও ফ্রেম পেতে আমাদের সাথে সরাসরি যোগাযোগ করেতে পারেন। এছাড়া আপনার পছন্দ মত পাইকারি দামে পন্য কিনতে আমাদের অফিসিয়াল ফেসবুক পেজে নক করতে পারেন। ক্রেতার হাতে সর্বোচ্চ মানের আসল পন্য পোঁছে দেয়া আমাদের মূল লক্ষ্য।
           </p>
         </div>
         <div>

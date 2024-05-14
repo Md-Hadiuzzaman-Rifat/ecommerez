@@ -18,6 +18,7 @@ const ProductForm = () => {
   const [image2, setImage2] = useState("");
   const [category, setCategory] = useState("sunglass");
   const [featured, setFeatured] = useState(false);
+  const [stockOut, setStockOut]= useState(false)
 
   const selector=useSelector(state=>state.cartHandler)
   const {modalCondition}= selector || {}
@@ -59,7 +60,6 @@ const ProductForm = () => {
       featured,
       image: [image1, image2],
     });
-    
   };
 
   return (

@@ -23,7 +23,7 @@ const ProductLayout = () => {
     <div className="productLayout">
       <div className="container">
         <div className="productLayout_heading">
-          <h2>Winter Sale</h2>
+          <h2>Summer Sale</h2>
         </div>
          {
           products?.length === 0 && "loading"

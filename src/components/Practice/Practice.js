@@ -13,7 +13,7 @@ const Practice = ({product}) => {
     <div className="Practice">
     <Link to={`productDetails/${_id}`}>
         <div className="image">
-           <span>Eid Discount</span>
+           <span>Most Selling</span>
           <img
             src={image1}
             alt="" 
@@ -28,7 +28,7 @@ const Practice = ({product}) => {
         <h3>{name}</h3>
         <div className="prices">
           <p className="original">Original Price: {price} Taka</p>
-          <p style={{color:"gray"}}>After Discount: {Math.floor((price-discount))} Taka</p>
+          <p style={{color:"gray", fontWeight:500}}>After Discount: {Math.floor((price-discount))} Taka</p>
         </div>
     </Link>
     </div>

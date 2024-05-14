@@ -4,10 +4,10 @@ import { Link } from "react-router-dom";
 import { FaCartArrowDown } from "react-icons/fa";
 
 
-
 const SingleProduct = ({item}) => {
-  let {name, price, image, _id}= item || {}
+  let {name, price, image, _id, discount}= item || {}
   const [image1]= image || []
+
 
   if (name?.length > 25) {
     name = name.substring(0, 22) + "...";
@@ -28,7 +28,9 @@ const SingleProduct = ({item}) => {
       </div>
       <div className="product_description">
         <h3 className="product_name">{name}</h3>
-        <p className="product_price">৳ {price} Taka</p>
+        <p className="product_regular">Regular Price: {price} ৳ </p>
+        
+        <p className="product_price"> <span>Offer Price : </span>  {Math.floor((price-discount))} Taka</p>
       </div>
       </Link>
       <div className="cartButton">
