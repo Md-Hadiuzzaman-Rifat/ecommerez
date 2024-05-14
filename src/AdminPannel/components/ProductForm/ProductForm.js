@@ -18,7 +18,7 @@ const ProductForm = () => {
   const [image2, setImage2] = useState("");
   const [category, setCategory] = useState("sunglass");
   const [featured, setFeatured] = useState(false);
-  const [stockOut, setStockOut]= useState(false)
+  const [stockOut, setStockOut]= useState(true)
 
   const selector=useSelector(state=>state.cartHandler)
   const {modalCondition}= selector || {}
@@ -78,6 +78,7 @@ const ProductForm = () => {
           value={name}
         />
         <div className="flex">
+          {/* // product category  */}
           <div>
             <label htmlFor="product-category">Product Category:</label>
             <select
@@ -103,6 +104,22 @@ const ProductForm = () => {
               id=""
               value={featured}
               onChange={(e) => setFeatured(e.target.value)}
+            >
+              <option value={true}>True</option>
+              <option value={false}>False</option>
+
+            </select>
+          </div>
+          {/* // Stock Out  */}
+          <div>
+            <label htmlFor="featured-product">Stock Available:</label>
+            <select
+            style={{background:"green", color:"white"}}
+              name="featured-product"
+              required
+              id=""
+              value={stockOut}
+              onChange={(e) => setStockOut(e.target.value)}
             >
               <option value={true}>True</option>
               <option value={false}>False</option>

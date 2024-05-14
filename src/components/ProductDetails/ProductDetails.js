@@ -80,9 +80,11 @@ const ProductDetails = () => {
               </div>
             </div>
             <div className="display_content">
+              <div className="display_content_top">
               <h2>{name}</h2>
-              <h3>Price: {price-discount} Tk</h3>
-
+              <span>REGULAR PRICE: {price} Taka</span>
+              <h3>Discount Price: {price-discount} Taka</h3>
+              </div>
               <div className="displayContent_action">
                 <Counter id={_id}></Counter>
                 <Link to="/checkout">
