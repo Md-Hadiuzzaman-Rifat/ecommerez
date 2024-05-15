@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import SingleProduct from "../SingleProduct/SingleProduct";
 import "./DiscountSell.scss";
 import { useGetProductsQuery } from "../../features/product/productApi";
+import ProductSkeleton from "../ProductSkeleton/ProductSkeleton"
 
 const DiscountSell = () => {
   
@@ -17,7 +18,7 @@ const DiscountSell = () => {
       <div className="container">
         <h2>Discount Product</h2>
         <div className="discount_product">
-          {isLoading && "Loading..."}
+          {isLoading && <ProductSkeleton></ProductSkeleton> }
           {!isLoading &&
             data?.length > 0 &&
             data

@@ -37,6 +37,7 @@ import CallButton from "./components/CallButton/CallButton";
 import MessengerCustomerChat from "react-messenger-customer-chat";
 import { FloatingWhatsApp } from "react-floating-whatsapp";
 import whatsappLogo from "./img/thespectacle23.jpg"
+import ProductSkeleton from "./components/ProductSkeleton/ProductSkeleton";
 
 function App() {
   return (
@@ -45,6 +46,7 @@ function App() {
         <AuthProvider>
           <Header></Header>
           <Routes>
+          <Route path="/skeleton" element={ <ProductSkeleton/> }></Route>
             <Route path="/" element={<Home />}></Route>
             <Route path="/invoice/:id" element={<Invoice />}></Route>
             <Route
@@ -65,6 +67,7 @@ function App() {
                   path="blogDashboard"
                   element={<BlogDashboard></BlogDashboard>}
                 />
+              
                 <Route path="orders/:orderId" element={<ViewOrder />}></Route>
                 <Route path="product" element={<Product></Product>} />
               </Route>

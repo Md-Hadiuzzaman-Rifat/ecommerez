@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import "./RelatedProduct.scss";
 import SingleProduct from "../SingleProduct/SingleProduct";
 import { useGetRelatedProductQuery } from "../../features/product/productApi";
+import ProductSkeleton from "../ProductSkeleton/ProductSkeleton";
 
 const RelatedProduct = ({ category }) => {
   const { data, isLoading, isError } = useGetRelatedProductQuery(category);
@@ -10,7 +11,7 @@ const RelatedProduct = ({ category }) => {
   return (
     <div className="relatedProduct">
       <div className="product_container">
-        {isLoading && "Loading..."}
+        {isLoading && <ProductSkeleton/>}
         {!isLoading && data?.length > 0 && data.map(item=><SingleProduct key={item._id} item={item}/>)}
         {!isLoading && data?.length === 0 && "No Product Found."}
       </div>
