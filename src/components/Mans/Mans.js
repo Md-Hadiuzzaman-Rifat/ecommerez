@@ -6,6 +6,7 @@ import { useDispatch } from "react-redux";
 import { useGetProductsQuery } from "../../features/product/productApi";
 import SingleProduct from "../SingleProduct/SingleProduct";
 import Footer from "../Footer/Footer"
+import ProductSkeleton from "../ProductSkeleton/ProductSkeleton";
 
 const Mans = () => {
   // const { data = [], error: isError, isLoading } = useGetProductsQuery();
@@ -20,7 +21,7 @@ const Mans = () => {
   const handleNextPage=()=>{
     setPage(page+1)
   }
-  const limit=10
+  const limit=100
   const { data = [], isSuccess ,error: isError, isLoading } = useGetProductsQuery({page, limit});
 
   return (
@@ -30,7 +31,7 @@ const Mans = () => {
         {/* <ProductLayout></ProductLayout> */}
         <h2>Mans Zone</h2>
         <div className="discount_product">
-          {isLoading && "Loading..."}
+          {isLoading && <ProductSkeleton/>}
           {!isLoading &&
             data?.length > 0 &&
             data

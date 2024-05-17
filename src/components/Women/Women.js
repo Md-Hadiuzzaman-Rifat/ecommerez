@@ -6,6 +6,7 @@ import { handleClose } from "../../features/cartHandler/cartHandler";
 import { useGetProductsQuery } from "../../features/product/productApi";
 import SingleProduct from "../SingleProduct/SingleProduct";
 import Footer from "../Footer/Footer";
+import ProductSkeleton from "../ProductSkeleton/ProductSkeleton";
 
 const Women = () => {
 
@@ -22,7 +23,6 @@ const Women = () => {
   const limit=100
   const { data = [], isSuccess ,error: isError, isLoading } = useGetProductsQuery({page, limit});
 
-
   return (
     <div className="women">
       <div className="women_banner"></div>
@@ -31,7 +31,7 @@ const Women = () => {
         {/* // keep here  */}
         <h2>Women Zone</h2>
         <div className="discount_product">
-          {isLoading && "Loading..."}
+          {isLoading && <ProductSkeleton/>}
           {!isLoading &&
             data?.length > 0 &&
             data
