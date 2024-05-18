@@ -9,6 +9,8 @@ const TableBody = ({data}) => {
   let {name, category, discount, rating, stockAvailable,  featured, price}= data?.description || {}
   const {_id, images}=data || {}
 
+  console.log(images);
+
   const [deleteProduct, {isLoading, isSuccess:deleteSuccess}]= useDeleteProductMutation()
 
   useEffect(()=>{
@@ -43,7 +45,7 @@ const TableBody = ({data}) => {
       <td>
         <img
           className="table-img"
-          src={`http://localhost:25000/images/${images[0].filename}`}
+          src={`http://localhost:25000/images/${images[0]?.filename}`}
           style={{marginRight:"5px"}}
           alt=""
         />
