@@ -26,7 +26,7 @@ const Mans = () => {
 
   return (
     <div className="mans">
-      <div className="mans_banner"></div>
+      <div className="mans_banner" style={{ backgroundImage: "url(/shohag/mans_cover.jpg)" }}></div>
       <div className="mans_container">
         {/* <ProductLayout></ProductLayout> */}
         <h2>Mans Zone</h2>

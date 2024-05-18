@@ -25,7 +25,7 @@ const Sunglass = () => {
 
   return (
     <div className="sunglass">
-      <div className="sunglass_cover"></div>
+      <div className="sunglass_cover"  style={{ backgroundImage: "url(/shohag/sunglass_cover.jpg)" }}></div>
       <div className="container">
         {/* <ProductLayout></ProductLayout> */}
         <h2>Sunglasses</h2>

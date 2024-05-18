@@ -12,7 +12,7 @@ const Showcase = () => {
               <h1>Women</h1>
             </div>
             <img
-              src="https://us.123rf.com/450wm/deagreez/deagreez1806/deagreez180600853/103449238-portrait-with-copy-space-empty-place-of-nice-cute-trendy-charming-pretty-thoughtful-concentrated.jpg?ver=6"
+              src="/shohag/weman_showcase.jpg"
               alt="Showcase Product"
             />
             </Link>
@@ -23,7 +23,7 @@ const Showcase = () => {
               <h1>Mans</h1>
             </div>
             <img
-              src="https://img.freepik.com/free-photo/portrait-happy-bearded-young-man-glasses-standing-outdoors_171337-14763.jpg"
+              src="/shohag/mans_showcase.jpg"
               alt="Showcase Product"
             />
             </Link>
@@ -34,7 +34,7 @@ const Showcase = () => {
               <h1>Sunglass</h1>
             </div>
             <img
-              src="https://thumbs.dreamstime.com/b/beautifully-crafted-sunglasses-friendship-relations-fashion-models-trendy-glasses-couple-love-couple-man-beautifully-129861494.jpg"
+              src="/shohag/sunglass_showcase.jpg"
               alt="Showcase Product"
             />
             </Link>
@@ -46,7 +46,7 @@ const Showcase = () => {
                 <h1>Accessories</h1>
               </div>
               <img
-                src="https://www.replacealens.com/v/images/Accessories/Eyeglasses-Accessories.jpg"
+                src="/shohag/accessories.jpg"
                 alt="Showcase Product"
               />
             </Link>

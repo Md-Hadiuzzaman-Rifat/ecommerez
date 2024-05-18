@@ -64,7 +64,6 @@ const Header = () => {
             <CgProfile />
               <span className="subMenu">
                 <li onClick={handleProfile}>Profile</li>
-                <li>Wishlist</li>
               </span>
             </div>
             <div className="shopping-cart" onClick={handleCart}>

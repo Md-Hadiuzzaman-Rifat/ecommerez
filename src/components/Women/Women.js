@@ -25,7 +25,7 @@ const Women = () => {
 
   return (
     <div className="women">
-      <div className="women_banner"></div>
+      <div className="women_banner" style={{ backgroundImage: "url(/shohag/weman_cover.jpg)" }}></div>
       <div className="women_container">
         {/* <ProductLayout></ProductLayout> */}
         {/* // keep here  */}

@@ -17,7 +17,7 @@ const ProductLayout = () => {
   // const [products, setProducts]= useState([])
 
   // useEffect(()=>{
-  //   fetch(`https://eye-care-back-end.vercel.app/featuredProduct`)
+  //   fetch(`http://localhost:25000/featuredProduct`)
   //     .then(res=>res.json())
   //     .then(data=>setProducts(data))
   // },[])

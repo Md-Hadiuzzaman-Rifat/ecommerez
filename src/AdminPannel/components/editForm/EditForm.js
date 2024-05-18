@@ -1,84 +1,127 @@
 import React, { useEffect } from "react";
 import { useState } from "react";
-// import "./ProductForm.scss";
-import { useEditProductMutation } from "../../../features/product/productApi";
-import { useParams } from "react-router-dom";
-import {useNavigate} from "react-router-dom"
-import { useDispatch } from "react-redux";
-import { modalOpen } from "../../../features/cartHandler/cartHandler";
-
-const EditForm = ({editData}) => {
-  const {name:editName, gender:editGender, category:editCategory, description:editDescription, discount:editDiscount, image:editImage, price:editPrice, tags:editTags, featured:editFeatured}=editData || {}
-  
-  const {productId}= useParams()
-  const [name, setName] = useState(editName);
-  const [gender, setGender] = useState(editGender);
-  const [description, setDescription] = useState(editDescription);
-  const [price, setPrice] = useState(editPrice);
-  const [discount, setDiscount] = useState(editDiscount);
-  const [tags, setTags] = useState(editTags);
-  const [newImage1, setNewImage1] = useState(editImage[0]);
-  const [newImage2, setNewImage2] = useState(editImage[1]);
-  const [category, setCategory] = useState(editCategory);
-  const [featured, setFeatured] = useState(Boolean(editFeatured));
+import { useAddProductMutation } from "../../../features/product/productApi";
+import { useDispatch, useSelector } from "react-redux";
+import { modalClose, modalOpen } from "../../../features/cartHandler/cartHandler";
+import Modal from "../../../components/Modal/Modal";
 
 
-  const [editProduct, {isSuccess}]=useEditProductMutation()
-  const navigate= useNavigate()
+const ProductForm = () => {
+  const [name, setName] = useState("");
+  const [gender, setGender] = useState("male");
+  const [description, setDescription] = useState("");
+  const [price, setPrice] = useState("");
+  const [discount, setDiscount] = useState("");
+  const [tags, setTags] = useState("");
+  const [rating, setRating]= useState("")
+  const [video, setVideo]= useState("")
+  const [category, setCategory] = useState("sunglass");
+  const [featured, setFeatured] = useState(false);
+  const [stockAvailable, setStockAvailable]= useState(true)
+  const [message, setMessage] = useState();
+  const [files, setFile] = useState([]);
+
+  const selector=useSelector(state=>state.cartHandler)
+  const {modalCondition}= selector || {}
+
   const dispatch= useDispatch()
 
-  useEffect(()=>{
-    if(isSuccess){
-      dispatch(modalOpen())
-        navigate('/dashboard/product')
-    }
-  },[isSuccess, navigate, dispatch])
+  const [addProduct, { data, isError, isLoading, isSuccess }] =
+    useAddProductMutation();
 
-  const productObj={
-    name,
-    category,
-    description,
-    tags,
-    price,
-    discount,
-    gender,
-    image:[newImage1, newImage2],
-    featured:JSON.parse(featured)
-  }
+    useEffect(()=>{
+      if(isSuccess){
+        dispatch(modalOpen())
+        clearInput();
+      }
+    },[isSuccess, dispatch])
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    editProduct({productId,productObj})
+  const clearInput = () => {
+    setName("");
+    setGender("male");
+    setDescription("");
+    setPrice("");
+    setDiscount("");
+    setTags("");
+    setVideo("");
+    setRating("");
+    setCategory("sunglass");
   };
+
+  const handleFile = (e) => {
+    setMessage("");
+    let file = e.target.files;
+    for (let i = 0; i < file.length; i++) {
+      const fileType = file[i]["type"];
+      const validImageTypes = ["image/gif", "image/jpeg", "image/png"];
+      if (validImageTypes.includes(fileType)) {
+        setFile([...files, file[i]]);
+      } else {
+        setMessage("only images accepted");
+      }
+    }
+  };
+
+  const removeImage = (i) => {
+    setFile(files.filter((x) => x.name !== i));
+  };
+
+  const handleUpload = async (e) => {
+    e.preventDefault();
+    const formData = new FormData();
+    for (let index = 0; index < files?.length; index++) {
+      const file = files[index];
+      formData.append("files", file);
+    }
+    formData.append("message", JSON.stringify(details));
+    addProduct(formData)
+  };
+
+  const details={
+        name,
+      category,
+      stockAvailable,
+      description,
+      tags,
+      price,
+      discount,
+      gender,
+      featured,
+      rating,
+      video
+  }
 
   return (
     <div className="productForm">
-      <form onSubmit={handleSubmit}>
+      {
+        modalCondition && <Modal></Modal>
+      }
+      <form onSubmit={handleUpload}>
         <label htmlFor="product-name">Product Name:</label>
         <input
           type="text"
           id="product-name"
           name="product-name"
-          value={name}
           onChange={(e) => setName(e.target.value)}
           required
+          value={name}
         />
-         {/* flex section  */}
-        <div className="flex">
+        <div className="product-flex">
+          {/* // product category  */}
           <div>
-          <label htmlFor="product-category">Product Category:</label>
-        <select
-          name="category"
-          required
-          id=""
-          value={category}
-          onChange={(e) => setCategory(e.target.value)}
-        >
-          <option value="sunglass">Sunglass</option>
-          <option value="frame">Frame</option>
-          <option value="lense">Glass</option>
-          <option value="all">All</option>
-        </select>
+            <label htmlFor="product-category">Product Category:</label>
+            <select
+              name="category"
+              required
+              id=""
+              value={category}
+              onChange={(e) => setCategory(e.target.value)}
+            >
+              <option value="sunglass">Sunglass</option>
+              <option value="frame">Frame</option>
+              <option value="lense">Glass</option>
+              <option value="all">All</option>
+            </select>
           </div>
           {/* // featured product  */}
           <div>
@@ -87,6 +130,7 @@ const EditForm = ({editData}) => {
             style={{background:"orange", color:"white"}}
               name="featured-product"
               required
+              id=""
               value={featured}
               onChange={(e) => setFeatured(e.target.value)}
             >
@@ -95,13 +139,30 @@ const EditForm = ({editData}) => {
 
             </select>
           </div>
+          {/* // Stock Available  */}
+          <div>
+            <label htmlFor="featured-product">Stock Available:</label>
+            <select
+            style={{background:"green", color:"white"}}
+              name="featured-product"
+              required
+              id=""
+              value={stockAvailable}
+              onChange={(e) => setStockAvailable(e.target.value)}
+            >
+              <option value={true}>True</option>
+              <option value={false}>False</option>
+
+            </select>
+          </div>
         </div>
+
         <label htmlFor="product-description">Product Description:</label>
         <textarea
-        value={description}
           onChange={(e) => setDescription(e.target.value)}
           id="product-description"
           name="product-description"
+          value={description}
           required
         ></textarea>
         <label htmlFor="Tags">
@@ -109,20 +170,21 @@ const EditForm = ({editData}) => {
         </label>
         <input
           onChange={(e) => setTags(e.target.value)}
-          value={tags}
           type="text"
           id="tags"
           name="tags"
+          value={tags}
           required
         />
         <label htmlFor="product-price">Product Price:</label>
         <input
-        value={price}
           onChange={(e) => setPrice(e.target.value)}
           type="number"
           id="product-price"
           name="product-price"
+          placeholder="প্রোডাক্টের আসল দাম"
           step="0.01"
+          value={price}
           required
         />
         <label htmlFor="product-price">
@@ -130,31 +192,96 @@ const EditForm = ({editData}) => {
         </label>
         <input
           onChange={(e) => setDiscount(e.target.value)}
-          value={discount}
           type="number"
           id="discount"
           name="discount"
+          placeholder="কত টাকা ডিসকাউন্ট দিতে চাচ্ছেন ?"
           step="0.01"
+          value={discount}
           required
         />
-        <label htmlFor="product-image">Product Image:</label>
+        <label htmlFor="product-image">Video URL</label>
         <input
-        value={newImage1}
-          onChange={(e) => setNewImage1(e.target.value)}
+          onChange={(e) => setVideo(e.target.value)}
           type="text"
           id="product-image"
           name="product-image"
+          style={{ marginBottom: "20px" }}
+          placeholder="ইউটিউব ভিডিও লিঙ্ক"
+          value={video}
           required
         />
+        <label htmlFor="product-image">Rating</label>
         <input
-        value={newImage2}
-          onChange={(e) => setNewImage2(e.target.value)}
+          onChange={(e) => setRating(e.target.value)}
           type="text"
           id="product-image"
           name="product-image"
-          style={{marginTop:"20px"}}
+          placeholder="রেটিং যত বেশি দিবেন ওয়েবসাইটে প্রোডাক্ট তত সামনে আসবে"
+          value={rating}
           required
         />
+        {/* // image upload  */}
+          {/* <ImageUpload selectedFiles={files} setSelectedFiles={setFile}></ImageUpload> */}
+
+          {/* // image upload  */}
+          <div className="imageUpload">
+          <div className="imageUpload__bg">
+            <div style={{margin:"1rem"}}>
+              <span className="flex justify-center items-center text-[12px] mb-1 text-red-500">
+                {message}
+              </span>
+
+                <label className="imageUpload__label">
+                  <div className="imageUpload__label__div">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      className="imageUpload__label__image"
+                      viewBox="0 0 20 20"
+                      fill="currentColor"
+                    >
+                      <path
+                        fillRule="evenodd"
+                        d="M4 3a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V5a2 2 0 00-2-2H4zm12 12H4l4-8 3 6 2-4 3 6z"
+                        clipRule="evenodd"
+                      />
+                    </svg>
+                    <p className="imageUpload__text">
+                      Select a photo
+                    </p>
+                  </div>
+                  <input
+                    type="file"
+                    onChange={handleFile}
+                    className="imageUpload_input"
+                    multiple="multiple"
+                    name="files[]"
+                  />
+                </label>
+      
+              <div className="imageUpload_container">
+                {files.map((file, key) => {
+                  return (
+                    <div key={key} className="overflow-hidden relative">
+                      <i
+                        onClick={() => {
+                          removeImage(file.name);
+                        }}
+                        
+                      ></i>
+                      <img
+                        className="image_size"
+                        src={URL.createObjectURL(file)}
+                        alt="img upload"
+                      />
+                    </div>
+                  );
+                })}
+              </div>
+            </div>
+          </div>
+        </div>
+          {/* image upload  */}
 
         <select
           className="gender"
@@ -175,4 +302,4 @@ const EditForm = ({editData}) => {
   );
 };
 
-export default EditForm;
+export default ProductForm;

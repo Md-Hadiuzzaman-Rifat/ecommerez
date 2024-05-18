@@ -22,7 +22,7 @@ const Accessories = () => {
 
   return (
     <div className="accessories">
-      <div className="accessories_banner"></div>
+      <div className="accessories_banner"  style={{ backgroundImage: "url(/shohag/accessories.jpg)" }}></div>
       <div className="accessories_container">
         <div className="accessories_body">
         <h2>Accessories</h2>
