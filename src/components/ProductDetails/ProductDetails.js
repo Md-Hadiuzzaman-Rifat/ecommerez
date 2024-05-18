@@ -28,16 +28,18 @@ import DetailsSkeleton from "../LoadingSkeleton/DetailsSkeleton/DetailsSkeleton"
 const ProductDetails = () => {
   const { productId } = useParams();
   const { data, isLoading } = useGetSingleProductQuery(productId);
-  const { name, image, description, price, _id, discount } = data || {};
-  const [image1, image2] = image || [];
+  const { name,  description, price, _id, discount } = data?.description || {};
+  
   const dispatch = useDispatch();
   const {category} = data || {}
 
-  const [mainImage, setMainImage] = useState(image1);
+
+  const [mainImage, setMainImage] = useState(data?.images[0]);
+
 
   useEffect(() => {
-    setMainImage(image1);
-  }, [image1]);
+    setMainImage(data?.images[0]);
+  }, [data?.images[0]]);
 
   useEffect(() => {
     dispatch(handleClose());
@@ -59,7 +61,7 @@ const ProductDetails = () => {
             <div className="image_container">
               <div className="display_image">
                 <div className="side-image">
-                  <img
+                  {/* <img
                     src={image1}
                     alt=""
                     onClick={() => setMainImage(image1)}
@@ -68,7 +70,7 @@ const ProductDetails = () => {
                     src={image2}
                     alt=""
                     onClick={() => setMainImage(image2)}
-                  />
+                  /> */}
                 </div>
                 <div className="main-image">
                   {/* <img src={mainImage} alt="" /> */}
@@ -93,7 +95,10 @@ const ProductDetails = () => {
                   </Button>
                 </Link>
               </div> 
-              <p>{description}</p>
+              <div
+        className=" details_description"
+        dangerouslySetInnerHTML={{ __html: description }}
+      ></div>
               <div className="product_category_and_share">
                 <div>
                   <h4>Category: </h4>

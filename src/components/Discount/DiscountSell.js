@@ -5,13 +5,13 @@ import { useGetProductsQuery } from "../../features/product/productApi";
 import ProductSkeleton from "../ProductSkeleton/ProductSkeleton"
 
 const DiscountSell = () => {
-  
   const [page, setPage]= useState(1)
   const handleNextPage=()=>{
     setPage(page+1)
   }
   const limit=20
   const { data = [], isSuccess ,error: isError, isLoading } = useGetProductsQuery({page, limit});
+
 
   return (
     <div className="discountSell">
@@ -22,7 +22,7 @@ const DiscountSell = () => {
           {!isLoading &&
             data?.length > 0 &&
             data
-              // .filter((item) => !item.featured)
+           
               .map((item) => (
                 <SingleProduct
                   className="discount_product_item"

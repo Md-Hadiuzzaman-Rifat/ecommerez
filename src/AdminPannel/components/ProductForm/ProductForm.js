@@ -5,6 +5,7 @@ import { useAddProductMutation } from "../../../features/product/productApi";
 import { useDispatch, useSelector } from "react-redux";
 import { modalClose, modalOpen } from "../../../features/cartHandler/cartHandler";
 import Modal from "../../../components/Modal/Modal";
+import TextArea from "../TextArea/TextArea";
 
 
 const ProductForm = () => {
@@ -159,13 +160,8 @@ const ProductForm = () => {
         </div>
 
         <label htmlFor="product-description">Product Description:</label>
-        <textarea
-          onChange={(e) => setDescription(e.target.value)}
-          id="product-description"
-          name="product-description"
-          value={description}
-          required
-        ></textarea>
+
+        <TextArea description={description} setDescription={setDescription}></TextArea>
         <label htmlFor="Tags">
           Tags: <span>(Write Tag Name Using Space)</span>
         </label>

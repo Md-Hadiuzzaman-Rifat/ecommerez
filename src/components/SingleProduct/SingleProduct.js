@@ -5,9 +5,10 @@ import { FaCartArrowDown } from "react-icons/fa";
 
 
 const SingleProduct = ({item}) => {
-  let {name, price, image, _id, discount}= item || {}
-  const [image1]= image || []
-
+  
+  let {name, price, discount}= item?.description || {}
+  const {images, _id}=item || {}
+  
 
   if (name?.length > 25) {
     name = name.substring(0, 22) + "...";
@@ -21,10 +22,13 @@ const SingleProduct = ({item}) => {
     <div className="product_view">
       <Link to={`../productDetails/${_id}`} onClick={handleClick}>
       <div className="product_img">
-        <img
+        {/* <img
           src={image1}
           alt="product"
-        />
+        /> */}
+        <img 
+        src={`http://localhost:25000/Images/${images[0]?.filename}`}
+        alt="" />
       </div>
       <div className="product_description">
         <h3 className="product_name">{name}</h3>
