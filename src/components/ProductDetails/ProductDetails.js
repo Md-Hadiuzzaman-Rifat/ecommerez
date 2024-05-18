@@ -28,11 +28,12 @@ import DetailsSkeleton from "../LoadingSkeleton/DetailsSkeleton/DetailsSkeleton"
 const ProductDetails = () => {
   const { productId } = useParams();
   const { data, isLoading } = useGetSingleProductQuery(productId);
-  const { name,  description, price, _id, discount } = data?.description || {};
+  const { name,  description, price, discount } = data?.description || {};
+  const {_id}= data || {}
+
   
   const dispatch = useDispatch();
   const {category} = data || {}
-
 
   const [mainImage, setMainImage] = useState(data?.images[0]);
 

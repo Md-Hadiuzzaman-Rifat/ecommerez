@@ -5,16 +5,15 @@ import { removeOrder } from "../../features/orderProduct/orderProductSlice";
 import { useDispatch } from "react-redux";
 
 const CartItem = ({data}) => {
-  const {image}= data || {}
-  const [image1]=image
+  const {description, images}= data || {}
 
   const dispatch= useDispatch()
 
   const nameFunction=()=>{
-    if(data?.name?.length>12){
-      return data.name.substring(0, 10)+"..."
+    if(description?.name?.length>12){
+      return description.name.substring(0, 10)+"..."
     }else{
-      return data?.name
+      return description?.name
     }
   }
 
@@ -31,11 +30,11 @@ const CartItem = ({data}) => {
     <div className="cartItem">
       <div className="container">
         <img
-          src={image1}
+          src={`http://localhost:25000/images/${images[0]?.filename}`}
           alt=""
         />
         <h3>{nameFunction()}</h3>
-        <p>{data.price - data.discount}</p>
+        <p>{description?.price - description?.discount}</p>
         <h3>{count(data?._id)}</h3>
         {/* <button onClick={()=>handleRemove(data?._id)} className="removeBtn">Remove</button> */}
       </div>

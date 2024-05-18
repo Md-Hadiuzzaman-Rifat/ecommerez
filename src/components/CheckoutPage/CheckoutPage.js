@@ -12,6 +12,7 @@ const CheckoutPage = () => {
   const findProducts = getStoredCart() || {};
   const keys = Object.keys(findProducts);
 
+
   // get multiple product
   const [getSelectedProduct, { data, isLoading, isError, isSuccess }] =
     useGetSelectedProductMutation();

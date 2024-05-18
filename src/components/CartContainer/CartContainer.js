@@ -3,8 +3,10 @@ import Counter from '../Counter/Counter';
 import "./CartContainer.scss"
 
 const CartContainer = ({data}) => {
-    let {name, image, price, _id, discount}= data
-    const [image1]= image ||[]
+  console.log(data);
+    let {name, price, discount}= data?.description || {}
+    let {_id, images}= data 
+    
 
     if(name.length>12){
         name= name.substring(0,12)
@@ -14,7 +16,7 @@ const CartContainer = ({data}) => {
         <div className="cart_container">
         <div className="cart_product_image">
           <img
-            src={image1}
+            src={`http://localhost:25000/Images/${images[0]?.filename}`}
             alt=""
           />
         </div>

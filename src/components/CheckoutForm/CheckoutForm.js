@@ -71,7 +71,7 @@ const CheckoutForm = ({data, products ,keys}) => {
       ).values()
     ]
   }
-  console.log(uniqueByListening(ordered, res=>res._id));
+  // console.log(uniqueByListening(ordered, res=>res._id));
 
   let total=0
   let payableTotal=(arr)=>{
