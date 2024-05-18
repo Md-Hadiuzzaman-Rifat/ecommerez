@@ -33,7 +33,6 @@ const Cart = () => {
     getSelectedProduct(keys)
   },[getSelectedProduct])
  
-  
   return (
     <div className="cart"> 
       <div className="container">

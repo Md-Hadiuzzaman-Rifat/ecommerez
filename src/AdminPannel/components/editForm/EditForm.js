@@ -8,7 +8,8 @@ import { modalOpen } from "../../../features/cartHandler/cartHandler";
 import TextArea from "../TextArea/TextArea";
 
 const EditForm = ({editData}) => {
-  const {name:editName, gender:editGender, category:editCategory, description:editDescription, discount:editDiscount, image:editImage, price:editPrice, tags:editTags, featured:editFeatured}=editData || {}
+  console.log(editData);
+  const {name:editName, gender:editGender, category:editCategory, description:editDescription, discount:editDiscount,  price:editPrice, tags:editTags, featured:editFeatured}=editData?.description || {}
   
   const {productId}= useParams()
   const [name, setName] = useState(editName);
@@ -17,8 +18,7 @@ const EditForm = ({editData}) => {
   const [price, setPrice] = useState(editPrice);
   const [discount, setDiscount] = useState(editDiscount);
   const [tags, setTags] = useState(editTags);
-  const [newImage1, setNewImage1] = useState(editImage[0]);
-  const [newImage2, setNewImage2] = useState(editImage[1]);
+
   const [category, setCategory] = useState(editCategory);
   const [featured, setFeatured] = useState(Boolean(editFeatured));
 
@@ -42,7 +42,7 @@ const EditForm = ({editData}) => {
     price,
     discount,
     gender,
-    image:[newImage1, newImage2],
+
     featured:JSON.parse(featured)
   }
 
@@ -131,25 +131,6 @@ const EditForm = ({editData}) => {
           step="0.01"
           required
         />
-        <label htmlFor="product-image">Product Image:</label>
-        <input
-        value={newImage1}
-          onChange={(e) => setNewImage1(e.target.value)}
-          type="text"
-          id="product-image"
-          name="product-image"
-          required
-        />
-        <input
-        value={newImage2}
-          onChange={(e) => setNewImage2(e.target.value)}
-          type="text"
-          id="product-image"
-          name="product-image"
-          style={{marginTop:"20px"}}
-          required
-        />
-
         <select
           className="gender"
           name="gender"

@@ -6,11 +6,8 @@ import { Link } from "react-router-dom";
 import { useDeleteProductMutation } from "../../../features/product/productApi";
 
 const TableBody = ({data}) => {
-  let {name, category, discount,_id, featured, image, price}= data || {}
-
-  const dis=Math.floor((discount/price)*100)
-
-  const [image1, image2]= image || []
+  let {name, category, discount, rating, stockAvailable,  featured, price}= data?.description || {}
+  const {_id, images}=data || {}
 
   const [deleteProduct, {isLoading, isSuccess:deleteSuccess}]= useDeleteProductMutation()
 
@@ -39,18 +36,15 @@ const TableBody = ({data}) => {
     }} className="tableBody">
       <td>{name}</td>
       <td>{category}</td>
-      <td>{price}</td>
-      <td>{dis}%</td>
+      <td>{price} Tk</td>
+      <td>{discount} Tk</td>
+      <td>{rating} Tk</td>
+      <td>{stockAvailable} Tk</td>
       <td>
         <img
           className="table-img"
-          src={image1}
+          src={`http://localhost:25000/images/${images[0].filename}`}
           style={{marginRight:"5px"}}
-          alt=""
-        />
-        <img
-          className="table-img"
-          src={image2}
           alt=""
         />
       </td>
