@@ -7,7 +7,6 @@ import {useAuth} from "../../context/AuthContext"
 
 const CheckoutForm = ({data, products ,keys}) => {
   const {currentUser}=useAuth()
-  console.log(currentUser.email);
 
   const [firstName, setFirstName]=useState("")
   const [lastName, setLastName]=useState("")
@@ -32,8 +31,6 @@ const CheckoutForm = ({data, products ,keys}) => {
     setCountry("");
   }
 
-
-
   // traverse the function
   let orderedProduct=Object.entries(products)
   // console.log(orderedProduct, data);
@@ -42,6 +39,7 @@ const CheckoutForm = ({data, products ,keys}) => {
     let newArray = [];
     for (let i = 0; i < orders.length; i++) {
       for (let j = 0; j < products.length; j++) {
+        
         if (orders[i][0] === products[i]._id) {
           newArray.push({
             ...products[i],
@@ -61,7 +59,6 @@ const CheckoutForm = ({data, products ,keys}) => {
   }
   // console.log(getData(orderedProduct, data));
   let  ordered=getData(orderedProduct, data)
-  
 
 // find unique order cz upper function return duplicate values
   function uniqueByListening(data, key){
@@ -76,12 +73,13 @@ const CheckoutForm = ({data, products ,keys}) => {
   let total=0
   let payableTotal=(arr)=>{
     for(let i=0; i<arr.length; i++){
-      total= total+(arr[i].amount*arr[i].price - arr[i].amount*arr[i].discount)
+      total= total+(arr[i].amount*arr[i].description.price - arr[i].amount*arr[i].description.discount)
     }
     return total
   }
 
   let payable= payableTotal(uniqueByListening(ordered, res=>res._id))
+  console.log(payable);
 
   const handleSubmit=(e)=>{
     e.preventDefault() 
@@ -101,8 +99,6 @@ const CheckoutForm = ({data, products ,keys}) => {
     }
     navigate('/payment',{state:{product}})
 
-    //  order(product)
-    //  clearTheCart()
   }
 
   return (
