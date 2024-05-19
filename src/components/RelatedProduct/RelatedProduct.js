@@ -8,7 +8,6 @@ import {
 import ProductSkeleton from "../ProductSkeleton/ProductSkeleton";
 
 const RelatedProduct = ({ category }) => {
-
   const {
     data,
     isSuccess,
@@ -18,14 +17,16 @@ const RelatedProduct = ({ category }) => {
 
   return (
     <div className="relatedProduct">
-      <div className="product_container">
-        {isLoading && <ProductSkeleton />}
-        {!isLoading &&
-          data?.length > 0 &&
-          data
-            .filter((item) => item?.description?.category === category)
-            .map((item) => <SingleProduct key={item._id} item={item} />)}
-        {!isLoading && data?.length === 0 && "No Product Found."}
+      <div className="relatedProduct__content">
+        <div className="product_container">
+          {isLoading && <ProductSkeleton />}
+          {!isLoading &&
+            data?.length > 0 &&
+            data
+              .filter((item) => item?.description?.category === category)
+              .map((item) => <SingleProduct key={item._id} item={item} />)}
+          {!isLoading && data?.length === 0 && "No Product Found."}
+        </div>
       </div>
     </div>
   );

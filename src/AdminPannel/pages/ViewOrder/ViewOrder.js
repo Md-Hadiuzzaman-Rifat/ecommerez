@@ -19,7 +19,8 @@ const ViewOrder = () => {
     order,
     phone,
   } = data || [];
-  console.log(order);
+  // console.log(order);
+
   return (
     <div className="viewOrder">
       {isLoading && "Loading..."}
@@ -44,16 +45,18 @@ const ViewOrder = () => {
         </div>
       )}
       <h2>Your Orders</h2>
+      <hr />
       {!isLoading && order?.length>0 && (
         order.map(item=> <div key={item._id}>
           <div>
-            <p>Order id:{item._id}</p>
+            <p>Order id: <span>{item._id}</span></p>
             {/* <img src={item.image[0]} alt="" /> */}
-            <img style={{width:"80px"}} src={item.image[0]} alt="" />
-            <p>Name: {item.name}</p>
-            <p>Unit Price: {item.price - item.discount}</p>
-            <p>Amount: {item.amount}</p>
+            {/* <img style={{width:"80px"}} src={item.image[0]} alt="" /> */}
+            <p>Name: <span>{item?.description?.name}</span></p>
+            <p>Unit Price: <span>{item?.description?.price - item?.description?.discount}</span></p>
+            <p>Amount: <span>{item.amount}</span></p>
           </div>
+          <hr />
         </div> )
       )}
     </div>

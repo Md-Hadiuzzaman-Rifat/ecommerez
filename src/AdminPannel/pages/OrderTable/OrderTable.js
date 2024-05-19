@@ -5,7 +5,7 @@ import { useGetAllOrderedQuery } from "../../../features/confirmOrder/confirmOrd
 
 const OrderTable = () => {
   const { data, isLoading, isError } = useGetAllOrderedQuery();
-  console.log(data);
+  // console.log(data);
   return (
     <div className="orderTable">
       <table>

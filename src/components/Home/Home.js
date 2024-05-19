@@ -15,6 +15,7 @@ import Slider from "../ImageSlider/Slider";
 import Preloader from "../PreLoader/PreLoader"
 import { handleClose, searchClose } from "../../features/cartHandler/cartHandler";
 import { useDispatch } from "react-redux";
+import BrandName from "../BrandName/BrandName";
 
 const override = {
   display: "block",
@@ -49,6 +50,7 @@ const Home = () => {
         window.innerWidth > 500 && <ProductLayout></ProductLayout>
       }
       <DiscountSell></DiscountSell>
+      <BrandName></BrandName>
       <Blogs></Blogs>
       <Newsletter></Newsletter>
       <div className="payment-banner">

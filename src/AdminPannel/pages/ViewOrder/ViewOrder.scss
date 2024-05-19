@@ -1,8 +1,15 @@
 .viewOrder{
     padding: 50px;
+    font-family: "Rajdhani", sans-serif;
     .viewOrder_flex{
         display: flex;
         width: 100%;
         justify-content: space-between;
+        
+    }
+    p{
+        span{
+            font-weight: bold;
+        }
     }
 }

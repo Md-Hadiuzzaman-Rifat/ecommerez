@@ -11,7 +11,7 @@ const OrderTableBody = ({item}) => {
   const {_id, timestamp, status, payable, advancePaid, transactionId}= item
   const [orderStatus, setOrderStatus]=useState(status)
 
-  console.log(item);
+  // console.log(item);
   
   const [editOrder,{isLoading, isError}]=useEditOrderMutation()
 

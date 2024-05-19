@@ -18,12 +18,11 @@ const OrderedItem = ({ item }) => {
     timestamp,
   } = item || {};
 
-  // console.log(order);
 
   let total = 0;
   function orderTotal(order) {
     for (let i = 0; i < order.length; i++) {
-      total = total + order[i].amount * (order[i].price - order[i].discount);
+      total = total + order[i].amount * (order[i]?.description?.price - order[i]?.description?.discount);
     }
   }
 
@@ -61,10 +60,10 @@ const OrderedItem = ({ item }) => {
             <th>Amount</th>
           </tr>
         </thead>
-
         <tbody>
-          {item.order
-            .filter((item) => item.amount !== 0)
+          
+          {item?.order?.
+          filter((item) => item.amount !== 0)
             .map((item) => (
               <ProfileOrderTable key={item._id} item={item} />
             ))}

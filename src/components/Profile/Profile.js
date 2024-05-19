@@ -25,7 +25,7 @@ const Profile = () => {
             <div className="container">
             <p className='heading'>Your Orders</p>
             {
-              data && data?.length > 0 && data.map(item=><OrderedItem key={item._id} item={item}/>)
+              data && data?.length > 0 && data?.map(item=><OrderedItem key={item._id} item={item}/>)
             }
             </div>
         </div>
