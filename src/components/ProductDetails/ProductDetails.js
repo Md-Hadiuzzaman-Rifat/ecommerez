@@ -19,28 +19,24 @@ import {
   handleClose,
   searchClose,
 } from "../../features/cartHandler/cartHandler";
-import {
-  SideBySideMagnifier,
-} from "react-image-magnifiers";
+import { SideBySideMagnifier } from "react-image-magnifiers";
 import Footer from "../Footer/Footer";
 import DetailsSkeleton from "../LoadingSkeleton/DetailsSkeleton/DetailsSkeleton";
 
 const ProductDetails = () => {
   const { productId } = useParams();
-  const { data, isLoading } = useGetSingleProductQuery(productId);
-  const { name,  description, price, discount } = data?.description || {};
-  const {_id}= data || {}
+  const { data, isLoading, isSuccess } = useGetSingleProductQuery(productId);
+  const { name, description, price, discount, category, video } =
+    data?.description || {};
+  const { _id, images } = data || {};
 
-  
   const dispatch = useDispatch();
-  const {category} = data || {}
 
-  const [mainImage, setMainImage] = useState(data?.images[0]);
-
+  const [mainImage, setMainImage] = useState(images?.[0]);
 
   useEffect(() => {
-    setMainImage(data?.images[0]);
-  }, [data?.images[0]]);
+    setMainImage(images?.[0]);
+  }, [images]);
 
   useEffect(() => {
     dispatch(handleClose());
@@ -54,7 +50,7 @@ const ProductDetails = () => {
 
   return (
     <div className="productDetails">
-      {isLoading && <DetailsSkeleton/>}
+      {isLoading && <DetailsSkeleton />}
       {!isLoading && (
         <div className="productDetails_container">
           {/* <Tags></Tags> */}
@@ -62,31 +58,32 @@ const ProductDetails = () => {
             <div className="image_container">
               <div className="display_image">
                 <div className="side-image">
-                  {/* <img
-                    src={image1}
-                    alt=""
-                    onClick={() => setMainImage(image1)}
-                  />
-                  <img
-                    src={image2}
-                    alt=""
-                    onClick={() => setMainImage(image2)}
-                  /> */}
+                  {isSuccess &&
+                    images?.length > 0 &&
+                    images?.map((item, index) => (
+                      <img
+                        key={index}
+                        src={`http://localhost:25000/images/${item.filename}`}
+                        onClick={() => setMainImage(item)}
+                        alt=""
+                      />
+                    ))}
                 </div>
                 <div className="main-image">
                   {/* <img src={mainImage} alt="" /> */}
                   <SideBySideMagnifier
                     alwaysInPlace={true}
-                  imageSrc={mainImage} imageAlt="Example" />
-              
+                    imageSrc={`http://localhost:25000/images/${mainImage?.filename}`}
+                    imageAlt="Example"
+                  />
                 </div>
               </div>
             </div>
             <div className="display_content">
               <div className="display_content_top">
-              <h2>{name}</h2>
-              <span>REGULAR PRICE: {price} Taka</span>
-              <h3>Discount Price: {price-discount} Taka</h3>
+                <h2>{name}</h2>
+                <span>REGULAR PRICE: {price} Taka</span>
+                <h3>Discount Price: {price - discount} Taka</h3>
               </div>
               <div className="displayContent_action">
                 <Counter id={_id}></Counter>
@@ -95,11 +92,11 @@ const ProductDetails = () => {
                     <HiShoppingCart /> Checkout
                   </Button>
                 </Link>
-              </div> 
+              </div>
               <div
-        className=" details_description"
-        dangerouslySetInnerHTML={{ __html: description }}
-      ></div>
+                className=" details_description"
+                dangerouslySetInnerHTML={{ __html: description }}
+              ></div>
               <div className="product_category_and_share">
                 <div>
                   <h4>Category: </h4>
@@ -115,9 +112,12 @@ const ProductDetails = () => {
               </div>
             </div>
           </div>
+          <div className="video-responsive" dangerouslySetInnerHTML={{ __html: video }}>
+          </div>
           <div className="product_heading">
             <h2>Related Product:</h2>
           </div>
+
           <RelatedProduct category={category}></RelatedProduct>
           <Footer></Footer>
         </div>

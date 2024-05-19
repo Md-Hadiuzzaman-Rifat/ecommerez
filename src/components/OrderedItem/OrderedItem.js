@@ -24,8 +24,6 @@ const OrderedItem = ({ item }) => {
   function orderTotal(order) {
     for (let i = 0; i < order.length; i++) {
       total = total + order[i].amount * (order[i].price - order[i].discount);
-      // console.log(order[i]);
-      // console.log(order[i].amount * order[i].price);
     }
   }
 

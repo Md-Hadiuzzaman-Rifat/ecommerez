@@ -23,6 +23,7 @@ const ProductLayout = () => {
   // },[])
 
   // console.log(products);
+  
 
   return (
     <div className="productLayout">
@@ -34,10 +35,10 @@ const ProductLayout = () => {
           isError && "Error occurred."
         }
         {isLoading && <ProductSkeleton />}
-        {products?.length > 0 && (
+        {isSuccess && products?.length > 0 && (
           <div className="productLayout_product">
             {products
-              .filter((item) => item.featured)
+              .filter((item) => item?.description?.featured)
               .map((item) => (
                 <Practice key={item._id} product={item} />
               ))}

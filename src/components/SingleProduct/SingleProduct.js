@@ -10,8 +10,8 @@ const SingleProduct = ({item}) => {
   const {images, _id}=item || {}
   
 
-  if (name?.length > 25) {
-    name = name.substring(0, 22) + "...";
+  if (name?.length > 17) {
+    name = name.substring(0, 14) + "...";
   }
 
   const handleClick=()=>{

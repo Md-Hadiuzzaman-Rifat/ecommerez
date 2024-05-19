@@ -104,26 +104,6 @@ const CheckoutForm = ({data, products ,keys}) => {
     //  order(product)
     //  clearTheCart()
   }
-  // const handleSubmit=(e)=>{
-  //   e.preventDefault() 
-  //   navigate('/')
-  //   let product={
-  //     firstName,
-  //     lastName,
-  //     email,
-  //     phone,
-  //     address,
-  //     city,
-  //     zip,
-  //     country,
-  //     status:"pending",
-  //     timestamp: new Date().toLocaleString(),
-  //     order:uniqueByListening(ordered, res=>res._id),
-  //     payable
-  //   }
-  //    order(product)
-  //    clearTheCart()
-  // }
 
   return (
     <div className="checkoutForm">
@@ -141,7 +121,7 @@ const CheckoutForm = ({data, products ,keys}) => {
         </div>
         <div className="input-row">
           <label htmlFor="email">Email</label>
-          <input type="email" id="email" value={email}  name="email" required />
+          <input type="email" id="email" defaultValue={email}  name="email" required />
         </div>
         <div className="input-row">
           <label htmlFor="Phone">Phone</label>

@@ -3,24 +3,30 @@ import ".//Practice.scss";
 import { Link } from "react-router-dom";
 
 const Practice = ({product}) => {
-  let {image, name, price, discount, _id}= product || {}
-  const [image1, image2]= image || []
+  
+  let {name, price, discount}= product?.description || {}
+  const {images, _id}= product || {}
+ 
 
   if (name?.length > 15) {
     name = name.substring(0, 12) + "...";
   }
+  const firstImage= `http://localhost:25000/images/${images[0]?.filename}`
+
+  const secondImage= images?.length > 0 ? `http://localhost:25000/images/${images[1]?.filename}`: `http://localhost:25000/images/${images[0]?.filename}`
+
   return (
     <div className="Practice">
     <Link to={`productDetails/${_id}`}>
         <div className="image">
            <span>Most Selling</span>
           <img
-            src={image1}
+            src={firstImage}
             alt="" 
             className="mainImg"
           />
           <img
-            src={image2}
+            rc={secondImage}
             alt=""
             className="secondImg"
           />

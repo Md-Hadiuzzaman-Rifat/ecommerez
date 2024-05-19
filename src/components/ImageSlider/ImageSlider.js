@@ -5,6 +5,7 @@ import "./ImageSlider.scss";
 const ImageSlider = ({ slides }) => {
   const navigate = useNavigate();
 
+
   const [currentIndex, setCurrentIndex] = useState(0);
   const goToPrevious = () => {
     const isFirstSlide = currentIndex === 0;
@@ -21,7 +22,7 @@ const ImageSlider = ({ slides }) => {
   };
 
   const slideStylesWidthBackground = {
-    backgroundImage: `url(${slides[currentIndex]?.image[0]})`,
+    backgroundImage: `url(http://localhost:25000/Images/${slides[0]?.images[0].filename})`,
   };
 
   const handleControl = (id) => {
@@ -31,7 +32,7 @@ const ImageSlider = ({ slides }) => {
   let discountPrice;
   if (slides[currentIndex]) {
     discountPrice =
-      slides[currentIndex]?.price - slides[currentIndex]?.discount;
+      slides[currentIndex]?.description?.price - slides[currentIndex]?.description?.discount;
   } else {
     return "Lading";
   }
@@ -46,7 +47,7 @@ const ImageSlider = ({ slides }) => {
           ❱
         </div>
       </div>
-      <div className="slider-container">Winter Sale</div>
+      <div className="slider-container">Top Selling</div>
       <div className="slider-discount">Upto 50% Off</div>
 
       <div
@@ -57,8 +58,8 @@ const ImageSlider = ({ slides }) => {
         {/* // slider description  */}
         <div className="slider-description">
           <div className="slider-content">
-            <div className="discount_price">{slides[currentIndex]?.name.substring(0, 22)}</div>
-            <div>Regular Price: {slides[currentIndex]?.price} Taka</div>
+            <div className="discount_price">{slides[currentIndex]?.description?.name.substring(0, 22)}</div>
+            <div>Regular Price: {slides[currentIndex]?.description?.price} Taka</div>
             <div>Offer Price: <span className="discount_price">{discountPrice} Taka</span></div>
           </div>
         </div>

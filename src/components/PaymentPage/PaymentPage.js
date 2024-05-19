@@ -13,9 +13,8 @@ const PaymentPage = () => {
   const [tranId, setTranId]=useState("")
   const [paid, setPaid]=useState()
   let {product}=location?.state || {}
-  
-  
 
+  
   const [order, {isSuccess, isError, isLoading}]=usePurchaseOrderMutation()
 
   const dispatch= useDispatch()
