@@ -38,6 +38,8 @@ import MessengerCustomerChat from "react-messenger-customer-chat";
 import { FloatingWhatsApp } from "react-floating-whatsapp";
 import whatsappLogo from "./img/thespectacle23.jpg"
 import ProductSkeleton from "./components/ProductSkeleton/ProductSkeleton";
+import ProductList from "./components/ProductList/ProductList";
+import Garbage from "./components/Garbage/Garbage";
 
 function App() {
   return (
@@ -62,7 +64,9 @@ function App() {
             <Route path="dashboard" element={<Dashboard></Dashboard>}>
               <Route path="*" element={<ControllerPrivateRoute />}>
                 <Route path="control" element={<Control></Control>} />
+                <Route path="garbage" element={<Garbage></Garbage>} />
                 <Route path="orders" element={<MainContent></MainContent>} />
+                <Route path="productList" element={<ProductList></ProductList>} />
                 <Route
                   path="blogDashboard"
                   element={<BlogDashboard></BlogDashboard>}

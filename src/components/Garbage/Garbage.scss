@@ -1,0 +1,28 @@
+.garbage{
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    gap: 1rem;
+    .garbage__image{
+        position: relative;
+        img{
+            width: 200px;
+            height: 200px;
+            object-fit: cover;
+        }
+        button{
+            position: absolute;
+            z-index: 10;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: red;
+            color: white;
+            padding: 0.5rem;
+            border: none;
+            font-weight: 600;
+            cursor: pointer;
+        }
+    }
+}

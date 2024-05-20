@@ -9,24 +9,46 @@ const TableBody = ({data}) => {
   let {name, category, discount, rating, stockAvailable,  featured, price}= data?.description || {}
   const {_id, images}=data || {}
 
-  console.log(images);
+  // const [deleteProduct, {isLoading, isSuccess:deleteSuccess}]= useDeleteProductMutation()
 
-  const [deleteProduct, {isLoading, isSuccess:deleteSuccess}]= useDeleteProductMutation()
+  // useEffect(()=>{
+  //   if(deleteSuccess){
+  //     alert("Product Deleted Successfully")
+  //   }
+  // },[deleteSuccess])
 
-  useEffect(()=>{
-    if(deleteSuccess){
-      alert("Product Deleted Successfully")
-    }
-  },[deleteSuccess])
+    
+  // const handleDelete=(id)=>{
+  //   console.log(id);
+  //   deleteProduct(id)
+  // } 
+
+  const editGarbage=async(id)=>{
+    console.log(id)
+    fetch(`http://localhost:25000/garbageTrash`,{
+      method: "PUT",
+      headers:{
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({id, images}),
+    })
+  }
+
+  const deleteGarbage=async(id)=>{
+    fetch(`http://localhost:25000/garbage/${id}`,{
+      method: "DELETE",
+    })
+  }
+
+  const handleDelete = async(id) => {
+    Promise.all([editGarbage(id), deleteGarbage(id)])
+    .then(res=>console.log(res))
+  };
 
   if(name?.length>50){
     name= name.substring(0, 80)+"..."
   }
-  
-  const handleDelete=(id)=>{
-    console.log(id);
-    deleteProduct(id)
-  } 
+
 
   const style={
     background:"orange"

@@ -1,39 +1,46 @@
-import React from "react";
-import Slider from "react-slick";
+import React from 'react';
+import Marquee from 'react-fast-marquee';
+import img1 from '../../images/parada-removebg-preview.png';
+import img2 from '../../images/polaroid-removebg-preview.png';
+import img3 from '../../images/rayban-removebg-preview.png';
+import img4 from '../../images/rode-removebg-preview_s.png';
+import img6 from '../../images/varilux-removebg-preview_s.png';
+import img7 from '../../images/Zeiss-Logo-removebg-preview (1).png';
+import img8 from '../../images/pngwing.com.png';
+import "./BrandName.scss"
 
 function BrandName() {
-  const settings = {
-    dots: true,
-    infinite: true,
-    slidesToShow: 3,
-    slidesToScroll: 1,
-    autoplay: true,
-    speed: 2000,
-    autoplaySpeed: 2000,
-    cssEase: "linear"
-  };
   return (
-    <div className="slider-container">
-      <Slider {...settings}>
-        <div>
-          <h3>1</h3>
-        </div>
-        <div>
-          <h3>2</h3>
-        </div>
-        <div>
-          <h3>3</h3>
-        </div>
-        <div>
-          <h3>4</h3>
-        </div>
-        <div>
-          <h3>5</h3>
-        </div>
-        <div>
-          <h3>6</h3>
-        </div>
-      </Slider>
+    <div className="Brand">
+      <div className="title">
+        <h1 style={{color:"gray", fontWeight:"400"}}>OUR OFFICIAL PARTNER</h1>
+      </div>
+      <div className='bg-gray'>
+        <Marquee direction="right" speed={100} delay={1}>
+          <div className="image_wrapper">
+            <img src={img1} alt="" />
+          </div>
+          <div className="image_wrapper">
+            <img src={img2} alt="" />
+          </div>
+          <div className="image_wrapper">
+            <img src={img3} alt="" />
+          </div>
+          <div className="image_wrapper">
+            <img src={img4} alt="" />
+          </div>
+
+          <div className="image_wrapper">
+            <img src={img6} alt="" />
+          </div>
+          <div className="image_wrapper">
+            <img src={img7} alt="" />
+          </div>
+          <div className="image_wrapper">
+            <img src={img8} alt="" />
+          </div>
+        </Marquee>
+      </div>
     </div>
   );
 }
