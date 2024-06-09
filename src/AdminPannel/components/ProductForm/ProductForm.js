@@ -171,7 +171,7 @@ const ProductForm = () => {
           id="tags"
           name="tags"
           value={tags}
-          required
+          // required
         />
         <label htmlFor="product-price">Product Price:</label>
         <input
@@ -206,7 +206,7 @@ const ProductForm = () => {
           style={{ marginBottom: "20px" }}
           placeholder="ইউটিউব ভিডিও লিঙ্ক"
           value={video}
-          required
+          // required
         />
         <label htmlFor="product-image">Rating</label>
         <input
@@ -215,7 +215,7 @@ const ProductForm = () => {
           id="product-image"
           name="product-image"
           placeholder="রেটিং যত বেশি দিবেন ওয়েবসাইটে প্রোডাক্ট তত সামনে আসবে"
-          value={rating}
+          // value={rating}
           required
         />
         {/* // image upload  */}

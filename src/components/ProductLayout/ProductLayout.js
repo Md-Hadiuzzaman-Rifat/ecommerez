@@ -1,6 +1,5 @@
 import "./ProductLayout.scss";
 import Product from "../Product/Product";
-// import { useGetProductsQuery } from "../../features/product/productApi";
 import { useState, useEffect } from "react";
 import Practice from "../Practice/Practice";
 import { useGetProductsQuery } from "../../features/product/productApi";
@@ -13,17 +12,6 @@ const ProductLayout = () => {
     error: isError,
     isLoading,
   } = useGetProductsQuery({ page: 1, limit: 100 });
-
-  // const [products, setProducts]= useState([])
-
-  // useEffect(()=>{
-  //   fetch(`http://localhost:25000/featuredProduct`)
-  //     .then(res=>res.json())
-  //     .then(data=>setProducts(data))
-  // },[])
-
-  // console.log(products);
-  
 
   return (
     <div className="productLayout">

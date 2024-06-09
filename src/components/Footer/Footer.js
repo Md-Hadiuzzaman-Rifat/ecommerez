@@ -58,6 +58,7 @@ const Footer = () => {
         </div>
         </div>
       </div>
+      <p className="footer_brand">This Web Application is created and maintained by <span>PIPRA SOFT</span></p>
     </div>
   );
 };

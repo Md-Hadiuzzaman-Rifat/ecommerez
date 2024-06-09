@@ -50,5 +50,17 @@
             }
         }
     }
+    .footer_brand{
+        text-align: center;
+        margin-top: 50px;
+        margin-bottom: -50px;
+        font-weight: 500;
+        font-size: 1.25rem;
+        span{
+            color: orangered;
+            font-weight: bold;
+            font-size: 1.5rem;
+        }
+    }
 
 } 

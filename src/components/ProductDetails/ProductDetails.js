@@ -10,7 +10,6 @@ import {
   BsInstagram,
   BsPinterest,
 } from "react-icons/bs";
-import Tags from "../Tags/Tags";
 import { useGetSingleProductQuery } from "../../features/product/productApi";
 import { Link, useParams } from "react-router-dom";
 import { addToDb } from "../../utilities/localStorage";
@@ -26,8 +25,15 @@ import DetailsSkeleton from "../LoadingSkeleton/DetailsSkeleton/DetailsSkeleton"
 const ProductDetails = () => {
   const { productId } = useParams();
   const { data, isLoading, isSuccess } = useGetSingleProductQuery(productId);
-  const { name, description, price, discount, category, video } =
-    data?.description || {};
+  const {
+    name,
+    description,
+    price,
+    discount,
+    category,
+    stockAvailable,
+    video,
+  } = data?.description || {};
   const { _id, images } = data || {};
 
   const dispatch = useDispatch();
@@ -82,17 +88,23 @@ const ProductDetails = () => {
             <div className="display_content">
               <div className="display_content_top">
                 <h2>{name}</h2>
-                <span>REGULAR PRICE: {price} Taka</span>
+                <span >REGULAR PRICE: {price} Taka</span>
                 <h3>Discount Price: {price - discount} Taka</h3>
               </div>
-              <div className="displayContent_action">
-                <Counter id={_id}></Counter>
-                <Link to="/checkout">
-                  <Button>
-                    <HiShoppingCart /> Checkout
-                  </Button>
-                </Link>
-              </div>
+              {stockAvailable && (
+                <div className="displayContent_action">
+                  <Counter id={_id}></Counter>
+                  <Link to="/checkout">
+                    <Button>
+                      <HiShoppingCart /> Checkout
+                    </Button>
+                  </Link>
+                </div>
+              )}
+              {
+                !stockAvailable && <div className="productDetails_stockOut">STOCK OUT</div>
+              }
+
               <div
                 className=" details_description"
                 dangerouslySetInnerHTML={{ __html: description }}
@@ -112,8 +124,13 @@ const ProductDetails = () => {
               </div>
             </div>
           </div>
-          <div className="video-responsive" dangerouslySetInnerHTML={{ __html: video }}>
-          </div>
+          
+          {
+            video && <div
+            className="video-responsive"
+            dangerouslySetInnerHTML={{ __html: video }}
+          ></div>
+          }
           <div className="product_heading">
             <h2>Related Product:</h2>
           </div>

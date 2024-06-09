@@ -21,7 +21,7 @@ const Accessories = () => {
   const { data = [], isSuccess ,error: isError, isLoading } = useGetProductsQuery({page, limit});
 
   return (
-    <div className="accessories">
+    <div className="accessories">z
       <div className="accessories_banner"  style={{ backgroundImage: "url(/shohag/accessories.jpg)" }}></div>
       <div className="accessories_container">
         <div className="accessories_body">
@@ -31,7 +31,7 @@ const Accessories = () => {
           {!isLoading &&
             data?.length > 0 &&
             data
-              .filter((item) => item.gender !== "female")
+              .filter((item) => item.category === "all")
               .map((item) => (
                 <SingleProduct
                   className="discount_product_item"

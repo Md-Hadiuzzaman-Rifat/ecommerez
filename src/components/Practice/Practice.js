@@ -1,5 +1,5 @@
 import React from "react";
-import ".//Practice.scss";
+import "./Practice.scss";
 import { Link } from "react-router-dom";
 
 const Practice = ({product}) => {
