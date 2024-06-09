@@ -18,8 +18,8 @@ const ProductForm = () => {
   const [rating, setRating]= useState("")
   const [video, setVideo]= useState("")
   const [category, setCategory] = useState("sunglass");
-  const [featured, setFeatured] = useState(false);
-  const [stockAvailable, setStockAvailable]= useState(true)
+  const [featured, setFeatured] = useState("false");
+  const [stockAvailable, setStockAvailable]= useState("true")
   const [message, setMessage] = useState();
   const [files, setFile] = useState([]);
 
@@ -136,8 +136,8 @@ const ProductForm = () => {
               value={featured}
               onChange={(e) => setFeatured(e.target.value)}
             >
-              <option value={true}>True</option>
-              <option value={false}>False</option>
+              <option value="true">True</option>
+              <option value="false">False</option>
 
             </select>
           </div>
@@ -146,14 +146,14 @@ const ProductForm = () => {
             <label htmlFor="featured-product">Stock Available:</label>
             <select
             style={{background:"green", color:"white"}}
-              name="featured-product"
+              name="stock"
               required
               id=""
               value={stockAvailable}
               onChange={(e) => setStockAvailable(e.target.value)}
             >
-              <option value={true}>True</option>
-              <option value={false}>False</option>
+              <option value="true">True</option>
+              <option value="false">False</option>
 
             </select>
           </div>
@@ -215,8 +215,8 @@ const ProductForm = () => {
           id="product-image"
           name="product-image"
           placeholder="রেটিং যত বেশি দিবেন ওয়েবসাইটে প্রোডাক্ট তত সামনে আসবে"
-          // value={rating}
-          required
+          value={rating}
+          // required
         />
         {/* // image upload  */}
           {/* <ImageUpload selectedFiles={files} setSelectedFiles={setFile}></ImageUpload> */}

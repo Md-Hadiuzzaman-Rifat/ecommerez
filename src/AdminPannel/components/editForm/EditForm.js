@@ -7,7 +7,7 @@ import { useDispatch } from "react-redux";
 import { modalOpen } from "../../../features/cartHandler/cartHandler";
 import TextArea from "../TextArea/TextArea";
 
-const EditForm = ({ editData }) => {
+const EditForm = ({ data }) => {
   const {
     name: editName,
     gender: editGender,
@@ -20,9 +20,10 @@ const EditForm = ({ editData }) => {
     stockAvailable: editStockAvailable,
     video: editVideo,
     rating: editRating,
-  } = editData?.description || {};
+  } = data?.description || {};
 
-  const { productId } = useParams();
+
+  const { productId:id } = useParams();
   const [name, setName] = useState(editName);
   const [gender, setGender] = useState(editGender);
   const [description, setDescription] = useState(editDescription);
@@ -31,13 +32,14 @@ const EditForm = ({ editData }) => {
   const [tags, setTags] = useState(editTags);
   const [video, setVideo] = useState(editVideo);
   const [rating, setRating] = useState(editRating);
-  const [stockAvailable, setStockAvailable] = useState(editStockAvailable);
   const [category, setCategory] = useState(editCategory);
-  const [featured, setFeatured] = useState(Boolean(editFeatured));
+  const [featured, setFeatured] = useState(editFeatured);
+  const [stockAvailable, setStockAvailable] = useState(editStockAvailable);
 
   const [editProduct, { isSuccess }] = useEditProductMutation();
   const navigate = useNavigate();
   const dispatch = useDispatch();
+  
 
   useEffect(() => {
     if (isSuccess) {
@@ -51,26 +53,33 @@ const EditForm = ({ editData }) => {
     category,
     description,
     tags,
+    featured,
     price,
     discount,
     gender,
     rating,
     stockAvailable,
-    featured: JSON.parse(featured),
-  };
-  const productObj = {
-    _id: editData?._id,
-    description: returnedObj,
-    images: editData?.images,
-  };
+  };  
+  // const productObj = {
+  //   _id: editData?._id,
+  //   description: returnedObj,
+  //   images: editData?.images,
+  // };
+
+  // const handleSubmit = async (e) => {
+  //   e.preventDefault();
+  //   console.log(productObj);
+  //   editProduct({productId,productObj})
+  // };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    editProduct({productId,productObj})
+    editProduct({productId:id, productObj:{description: returnedObj, images:data?.images}})
   };
 
   return (
     <div className="productForm">
+
       <form onSubmit={handleSubmit}>
         <label htmlFor="product-name">Product Name:</label>
         <input
@@ -111,8 +120,8 @@ const EditForm = ({ editData }) => {
               value={featured}
               onChange={(e) => setFeatured(e.target.value)}
             >
-              <option value={true}>True</option>
-              <option value={false}>False</option>
+              <option value="true">True</option>
+              <option value="false">False</option>
             </select>
           </div>
           {/* // Stock Available  */}
@@ -126,8 +135,8 @@ const EditForm = ({ editData }) => {
               value={stockAvailable}
               onChange={(e) => setStockAvailable(e.target.value)}
             >
-              <option value={true}>True</option>
-              <option value={false}>False</option>
+              <option value="true">True</option>
+              <option value="false">False</option>
             </select>
           </div>
         </div>

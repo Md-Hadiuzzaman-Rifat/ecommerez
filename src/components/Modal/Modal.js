@@ -7,7 +7,7 @@ import { modalClose } from '../../features/cartHandler/cartHandler';
 const Modal = () => {
     const {cartHandler}= useSelector(state=>state.cartHandler) ||{}
     const dispatch= useDispatch()
-    console.log(cartHandler);
+    // console.log(cartHandler);
 
     const handleClose=()=>{
         dispatch(modalClose())

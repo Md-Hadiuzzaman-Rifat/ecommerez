@@ -22,9 +22,8 @@ const SingleProduct = ({item}) => {
       <Link to={`../productDetails/${_id}`} onClick={handleClick}>
       <div className="product_img">
         {
-          !stockAvailable &&  <div className="product_stock">STOCK OUT</div>
+          stockAvailable === "false" &&  <div className="product_stock">STOCK OUT</div>
         }
-        {/* <div className="product_stock">STOCK OUT</div> */}
         <img 
         src={`http://localhost:25000/Images/${images[0]?.filename}`}
         alt="" />

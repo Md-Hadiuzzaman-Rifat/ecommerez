@@ -34,7 +34,6 @@ const Home = () => {
     dispatch(searchClose());
   }, [dispatch]);
 
-
   return (
     <div className="Home">
       {/* <Preloader></Preloader> */}

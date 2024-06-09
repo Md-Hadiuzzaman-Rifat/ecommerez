@@ -10,7 +10,7 @@ const Slider = () => {
           .then(res=>res.json())
           .then(data=>setProducts(data))
       },[])
-      let filtered = products.filter(item=>item?.description?.featured)
+      let filtered = products.filter(item=>item?.description?.featured === "true")
     
   return (
     <div className="slider-content">

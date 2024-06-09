@@ -21,7 +21,7 @@ const EditProduct = () => {
             {
                 !isLoading && (<div>
                     <h1>Edit Product</h1>
-                    <EditForm editData={data}></EditForm>
+                    <EditForm data={data}></EditForm>
                     </div>)
             }
         </div>

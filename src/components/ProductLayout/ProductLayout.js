@@ -26,7 +26,7 @@ const ProductLayout = () => {
         {isSuccess && products?.length > 0 && (
           <div className="productLayout_product">
             {products
-              .filter((item) => item?.description?.featured)
+              .filter((item) => item?.description?.featured === "true")
               .map((item) => (
                 <Practice key={item._id} product={item} />
               ))}
