@@ -91,7 +91,7 @@ const ProductDetails = () => {
                 <span >REGULAR PRICE: {price} Taka</span>
                 <h3>Discount Price: {price - discount} Taka</h3>
               </div>
-              {stockAvailable && (
+              {stockAvailable === "true" && (
                 <div className="displayContent_action">
                   <Counter id={_id}></Counter>
                   <Link to="/checkout">
@@ -102,7 +102,7 @@ const ProductDetails = () => {
                 </div>
               )}
               {
-                !stockAvailable && <div className="productDetails_stockOut">STOCK OUT</div>
+                stockAvailable ==="false" && <div className="productDetails_stockOut">STOCK OUT</div>
               }
 
               <div
