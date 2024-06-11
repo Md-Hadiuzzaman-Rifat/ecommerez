@@ -7,13 +7,13 @@ const Garbage = () => {
     const [trash, setTrash]= useState([])
 
     useEffect(()=>{
-        fetch(`http://localhost:5000/getGarbage`)
+        fetch(`https://backend.thespectacle23.com/getGarbage`)
         .then(res=>res.json())
         .then(data=>setTrash(data))
     },[])
 
     const handleDelete=(id)=>{
-        fetch(`http://localhost:5000/deleteGarbage/${id}`,{
+        fetch(`https://backend.thespectacle23.com/deleteGarbage/${id}`,{
             method:'DELETE'
         })
         .then(()=>alert('Alert For your User!') ? "" : location.reload()  )
@@ -25,7 +25,7 @@ const Garbage = () => {
                 trash && trash?.length === 0 && <p>No Product Found</p>
             }{
                 trash?.length > 0 && trash?.map((item, index)=> <div key={index} className='garbage__image' >
-                    <img src={`http://localhost:5000/images/${item?.filename}`} alt="" />
+                    <img src={`https://backend.thespectacle23.com/images/${item?.filename}`} alt="" />
                     <button onClick={()=>handleDelete(item._id)}>Delete</button>
                 </div> )
             }

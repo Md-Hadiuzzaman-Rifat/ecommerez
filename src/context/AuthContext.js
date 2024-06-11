@@ -75,7 +75,7 @@ async function googleSignIn(){
   }
 
   const saveUser=(user)=>{
-    fetch("http://localhost:5000/addUser",{
+    fetch("https://backend.thespectacle23.com/addUser",{
       method:"POST",
       headers:{
         "content-type":"application/json"

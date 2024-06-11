@@ -6,33 +6,50 @@
     @include md{
         margin-top: 50px;
     }
-    p{
-        color: gray;
-    }
-    .problem{
-        color: blueviolet;
-    }
     .container{
         max-width: 1330px;
         margin: 0 auto;
-        // background: linear-gradient(153deg, rgba(228,227,238,0.5746673669467788) 22%, rgba(175,0,255,0.28335084033613445) 100%);
         display: flex;
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        span{
-            font-weight: bold;
-            font-size: 1.2rem;
-            color: blueviolet;
+        .payment_bkash{
+            width: 100px;
+            margin-top: 2rem;            
         }
+        .content{
+            background-color: #e2638b;
+            padding: 1rem;
+            color: white;
+            font-size: .9rem;
+            line-height: 1.5rem;
+            max-width: 400px;
+            border-radius: 10px;
+            span{
+                color: rgb(255, 238, 0);
+                font-weight: 600;
+            }
+            p::after{
+                content:"";
+                display:block;
+                width: 100%;
+                height: 1px;
+                margin-top: 5px;
+                background-color: #c2305e;
+            }
+        }
+        
         .box{
-            padding: 2rem;
+            // padding: 2rem;
             min-height: 70vh;
             width: 90%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
             background-color: white;
             .box-inline{
                 display: inline-block;
-                background-color: blueviolet;
+                background-color: rgb(226, 43, 128);
                 color: white;
                 padding: 10px 20px;
             }
@@ -42,12 +59,30 @@
                 gap:1rem;
                 input{
                     border: none;
-                    font-size: 1.15rem;
+                    font-size: .9rem;
                     padding: 10px;
                     min-width: 70%;
                     box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
                 }
             }
+            .box-content{
+                display: flex;
+                align-items: center;
+                gap: 1rem;
+            
+                justify-content: space-between;
+                img{
+                    max-height: 3rem;
+                }
+            }
         }
+    }
+    .payment-button{
+        background: #ffa2c083;
+        border: 1px solid white;
+        padding: 0.5rem;
+        color: white;
+        font-size: 1.25rem;
+        cursor: pointer;
     }
 }

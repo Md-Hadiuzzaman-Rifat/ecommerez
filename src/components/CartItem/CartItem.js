@@ -30,7 +30,7 @@ const CartItem = ({data}) => {
     <div className="cartItem">
       <div className="container">
         <img
-          src={`http://localhost:5000/images/${images[0]?.filename}`}
+          src={`https://backend.thespectacle23.com/images/${images[0]?.filename}`}
           alt=""
         />
         <h3>{nameFunction()}</h3>

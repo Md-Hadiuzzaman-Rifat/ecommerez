@@ -16,7 +16,7 @@ const CartContainer = ({data}) => {
         <div className="cart_container">
         <div className="cart_product_image">
           <img
-            src={`http://localhost:5000/Images/${images[0]?.filename}`}
+            src={`https://backend.thespectacle23.com/images/${images[0]?.filename}`}
             alt=""
           />
         </div>

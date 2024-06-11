@@ -5,9 +5,9 @@ import { Navigate, Outlet } from 'react-router-dom';
 
 const ControllerPrivateRoute = () => {
     const {currentUser}= useAuth() || {}
-    
     const {data, isLoading}= useGetUsersQuery()
     let person= data?.find(e=>e.email===currentUser?.email)
+
     if (!isLoading){
         return person?.role === "admin" || person?.role === "moderator" && currentUser ? <Outlet></Outlet> : <Navigate to="/admin"/>
     }

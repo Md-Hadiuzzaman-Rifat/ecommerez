@@ -18,7 +18,6 @@ const ProductTable = () => {
               <th>Category</th>
               <th>Price</th>
               <th>Discount</th>
-        
               <th>Available</th>
               <th>Image</th>
               <th>Action</th>

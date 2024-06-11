@@ -4,6 +4,6 @@ import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 // initialize an empty api service that we'll inject endpoints into later as needed
 export const apiSlice = createApi({
   reducerPath: "api",
-  baseQuery: fetchBaseQuery({ baseUrl: "http://localhost:5000/" }),
+  baseQuery: fetchBaseQuery({ baseUrl: "https://backend.thespectacle23.com/" }),
   endpoints: () => ({}),
 });

@@ -6,11 +6,13 @@ const Slider = () => {
 
     const [products, setProducts]= useState([])
     useEffect(()=>{
-        fetch(`http://localhost:5000/featuredProduct`)
+        fetch(`https://backend.thespectacle23.com/featuredProduct`)
           .then(res=>res.json())
           .then(data=>setProducts(data))
       },[])
+    
       let filtered = products.filter(item=>item?.description?.featured === "true")
+      
     
   return (
     <div className="slider-content">

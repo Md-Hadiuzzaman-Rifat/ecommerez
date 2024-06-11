@@ -69,7 +69,7 @@ const ProductDetails = () => {
                     images?.map((item, index) => (
                       <img
                         key={index}
-                        src={`http://localhost:5000/images/${item.filename}`}
+                        src={`https://backend.thespectacle23.com/images/${item.filename}`}
                         onClick={() => setMainImage(item)}
                         alt=""
                       />
@@ -79,7 +79,7 @@ const ProductDetails = () => {
                   {/* <img src={mainImage} alt="" /> */}
                   <SideBySideMagnifier
                     alwaysInPlace={true}
-                    imageSrc={`http://localhost:5000/images/${mainImage?.filename}`}
+                    imageSrc={`https://backend.thespectacle23.com/images/${mainImage?.filename}`}
                     imageAlt="Example"
                   />
                 </div>

@@ -1,10 +1,9 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "./ImageSlider.scss";
 
 const ImageSlider = ({ slides }) => {
   const navigate = useNavigate();
-
 
   const [currentIndex, setCurrentIndex] = useState(0);
   const goToPrevious = () => {
@@ -21,8 +20,9 @@ const ImageSlider = ({ slides }) => {
     setCurrentIndex(slideIndex);
   };
 
+
   const slideStylesWidthBackground = {
-    backgroundImage: `url(http://localhost:5000/Images/${slides[0]?.images[0].filename})`,
+    backgroundImage: `url(https://backend.thespectacle23.com/images/${slides[currentIndex]?.images[0]?.filename})`,
   };
 
   const handleControl = (id) => {

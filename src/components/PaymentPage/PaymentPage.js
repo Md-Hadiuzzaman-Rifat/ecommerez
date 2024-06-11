@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import "./PaymentPage.scss";
 import { useLocation, useNavigate } from "react-router-dom";
-import Button from "../Button/Button"
+import Button from "../Button/Button";
 import { usePurchaseOrderMutation } from "../../features/confirmOrder/confirmOrder";
 import { clearTheCart } from "../../utilities/localStorage";
 import { useDispatch } from "react-redux";
@@ -10,81 +10,80 @@ import { resetOrder } from "../../features/orderProduct/orderProductSlice";
 const PaymentPage = () => {
   const location = useLocation();
   const { payable } = location?.state?.product || {};
-  const [tranId, setTranId]=useState("")
-  const [paid, setPaid]=useState()
-  let {product}=location?.state || {}
+  const [tranId, setTranId] = useState("");
+  const [paid, setPaid] = useState("");
+  let { product } = location?.state || {};
 
-  
-  const [order, {isSuccess, isError, isLoading}]=usePurchaseOrderMutation()
+  const [order, { isSuccess, isError, isLoading }] = usePurchaseOrderMutation();
 
-  const dispatch= useDispatch()
-  const navigate= useNavigate()
-  
-  useEffect(()=>{
-    if(isSuccess){
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    if (isSuccess) {
       // reset()
-      clearTheCart()
-      dispatch(resetOrder())
-      alert("Order Confirmed")
-      navigate('/orderSuccess')
+      clearTheCart();
+      dispatch(resetOrder());
+      alert("Order Confirmed");
+      navigate("/orderSuccess");
     }
-  },[isSuccess, dispatch])
+  }, [isSuccess, dispatch]);
 
-  const handleSubmit=(e)=>{
-    e.preventDefault()
-    
-     order({
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    order({
       ...product,
-      advancePaid:paid,
-      transactionId:tranId
-     })
-     clearTheCart()
-  }
+      advancePaid: paid,
+      transactionId: tranId,
+    });
+    clearTheCart();
+  };
 
   return (
     <div className="payment">
       {!location?.state?.product && "Loading..."}
       {location?.state?.product && (
         <div className="container">
+          <img className="payment_bkash" src="/shohag/bkash.svg" alt="" />
           <div className="box">
+            <div className="box-content">
+            <img src="/shohag/thespectacle.png" alt="" />
             <h3 className="box-inline">Price Total: {payable}</h3>
+            
+            </div>
             <div className="content">
-              <h3>
-              টাকা পরিশোধ করতে বিকাশের Send Money অপশনে ক্লিক করে <span>01876273090</span> এই
-                নম্বরে আপনার প্রয়োজন মত এমাউন্ট বসিয়ে সেন্ড করুন।
-              </h3>
               <p>
-
-                Cash On Delivery মাধ্যমে পণ্য পেতে হলে আপনাকে শুধু মাত্র কুরিয়ার ফি পরিশোধ করতে হবে। বাকি টাকা পণ্য হাতে পাবার পর পরিশোধ করা লাগবে। ঢাকর মধ্যে কুরিয়ার ফি ৬০ টাকা ও ঢাকার বাইরে কুরিয়ার ফি ১১০ টাকা।
+                ১. <span>*247#</span> ডায়েল করে আপনার Bkash মোবাইল মেনু তে যান অথবা BKASH App
+                এ যান।
               </p>
+              
+              <p>২. <span>Send Money</span> এ ক্লিক করুন।</p>
 
+              <p>৩. প্রাপক নম্বর হিসেবে লিখুন <span>01876273090</span></p>
+
+              <p>৪. ডেলিভারি চার্জ পরিশোধ করে অর্ডার কনফর্ম করুন। ( ডেলিভারি চার্জঃ <span>ঢাকার ভিতর ৬০ টাকা</span> ও <span>ঢাকার বাইরে ১০০ টাকা</span> )</p>
               <p>
-                টাকা পরিশোধের পর আপনি যে বিকাশ নম্বর থেকে টাকা প্রদান করেছেন সে নম্বরটি
-                  এবং কত টাকা পেমেন্ট করেছেন তা নিচের
-                ইনপুট বক্সে লিখুন।{" "}
+                ৫. সব কিছু ঠিক থাকলে BKASH থেকে একটি বার্তা পাবেন।
               </p>
-
               <p>
-                আপনার লেনদেনটি সম্পূর্ণ হলে এক ঘন্টার মধ্যে আপনাকে মেসেজ অথবা কল
-                করে
-                 জানানো হবে।
-              </p>
-              <p className="problem">
-                আপনার যে কোনো সমস্যার জন্য ফেসবুক পেজে মেসেজ করতে পারেন অথবা আমাদের সাথে সরাসরি যোগাযোগ করতে পারেন +8801876273090 এই নম্বরে। 
+                ৬। আপনার <span>বিকাশ নম্বর</span> ও <span>Transaction ID</span> দিয়ে নিচের ফর্ম পুরন করুন।
               </p>
 
               <form className="input-box" onSubmit={handleSubmit}>
                 <input
                   type="text"
-                  onChange={e=>setTranId(e.target.value)}
-                  placeholder="বিকাশ নম্বর অথবা ট্রানজেকশন আই ডি "
+                  onChange={(e) => setTranId(e.target.value)}
+                  placeholder="Bkash নম্বর"
                   required
                 />
-                <input type="number"
-                onChange={e=>setPaid(e.target.value)} placeholder="প্রদানকৃত অর্থের পরিমান" />
-                <Button type="submit">Submit</Button>
+                <input
+                  type="text"
+                  onChange={(e) => setPaid(e.target.value)}
+                  placeholder="Transaction ID / প্রদানকৃত অর্থের পরিমান"
+                />
+                <Button className="payment-button" type="submit">Submit</Button>
               </form>
-              
             </div>
           </div>
         </div>

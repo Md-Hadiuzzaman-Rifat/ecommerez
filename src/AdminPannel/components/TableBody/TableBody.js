@@ -10,24 +10,9 @@ const TableBody = ({data}) => {
   let {name, category, discount, rating, stockAvailable,  featured, price}= data?.description || {}
   const {_id, images}=data || {}
 
-
-  // const [deleteProduct, {isLoading, isSuccess:deleteSuccess}]= useDeleteProductMutation()
-
-  // useEffect(()=>{
-  //   if(deleteSuccess){
-  //     alert("Product Deleted Successfully")
-  //   }
-  // },[deleteSuccess])
-
-    
-  // const handleDelete=(id)=>{
-  //   console.log(id);
-  //   deleteProduct(id)
-  // } 
-
   const editGarbage=async(id)=>{
     console.log(id)
-    fetch(`http://localhost:5000/garbageTrash`,{
+    fetch(`https://backend.thespectacle23.com/garbageTrash`,{
       method: "PUT",
       headers:{
         "Content-Type": "application/json",
@@ -37,7 +22,7 @@ const TableBody = ({data}) => {
   }
 
   const deleteGarbage=async(id)=>{
-    fetch(`http://localhost:5000/garbage/${id}`,{
+    fetch(`https://backend.thespectacle23.com/garbage/${id}`,{
       method: "DELETE",
     })
   }
@@ -59,7 +44,7 @@ const TableBody = ({data}) => {
 
   return (
     <tr style={{
-      background: featured ? '#dfd8ff' : ''
+      background: featured==="true" ? '#dfd8ff' : ''
     }} className="tableBody">
 
       <td>{name}</td>
@@ -71,7 +56,7 @@ const TableBody = ({data}) => {
       <td>
         <img
           className="table-img"
-          src={`http://localhost:5000/images/${images[0]?.filename}`}
+          src={`https://backend.thespectacle23.com/images/${images[0]?.filename}`}
           style={{marginRight:"5px"}}
           alt=""
         />

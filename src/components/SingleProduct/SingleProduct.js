@@ -9,8 +9,8 @@ const SingleProduct = ({item}) => {
   let {name, price, discount, stockAvailable, featured}= item?.description || {}
   const {images, _id}=item || {}
     
-  if (name?.length > 17) {
-    name = name.substring(0, 14) + "...";
+  if (name?.length > 13) {
+    name = name.substring(0, 12) + "...";
   }
 
   const handleClick=()=>{
@@ -25,7 +25,7 @@ const SingleProduct = ({item}) => {
           stockAvailable === "false" &&  <div className="product_stock">STOCK OUT</div>
         }
         <img 
-        src={`http://localhost:5000/Images/${images[0]?.filename}`}
+        src={`https://backend.thespectacle23.com/images/${images[0]?.filename}`}
         alt="" />
         </div>
       
@@ -33,7 +33,7 @@ const SingleProduct = ({item}) => {
         <h3 className="product_name">{name}</h3>
         <p className="product_regular" style={{textDecoration:"line-through"}}>Regular Price: {price} ৳ </p>
         
-        <p className="product_price"> <span>Offer Price : </span>  {Math.floor((price-discount))} Taka</p>
+        <p className="product_price"> <span>Offer Price :  </span>  {Math.floor((price-discount))} Taka</p>
       </div>
       </Link>
       <div className="cartButton">

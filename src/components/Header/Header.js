@@ -42,7 +42,7 @@ const Header = () => {
         <div className="header_content">
           <div className="header_name">
             <div className="header_image">
-              <Link to="home"><img src="https://i.ibb.co/56LNHPk/image.png" alt="" /></Link>
+              <Link to="home"><img src="/shohag/image.png" alt="" /></Link>
             </div>
           </div>
           <div className="header_shopping">

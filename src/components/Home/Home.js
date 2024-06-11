@@ -47,6 +47,7 @@ const Home = () => {
       {
         window.innerWidth > 500 && <ProductLayout></ProductLayout>
       }
+      
       <DiscountSell></DiscountSell>
       <BrandName></BrandName>
       <Blogs></Blogs>
