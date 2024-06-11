@@ -69,7 +69,7 @@ const ProductDetails = () => {
                     images?.map((item, index) => (
                       <img
                         key={index}
-                        src={`http://localhost:25000/images/${item.filename}`}
+                        src={`http://localhost:5000/images/${item.filename}`}
                         onClick={() => setMainImage(item)}
                         alt=""
                       />
@@ -79,7 +79,7 @@ const ProductDetails = () => {
                   {/* <img src={mainImage} alt="" /> */}
                   <SideBySideMagnifier
                     alwaysInPlace={true}
-                    imageSrc={`http://localhost:25000/images/${mainImage?.filename}`}
+                    imageSrc={`http://localhost:5000/images/${mainImage?.filename}`}
                     imageAlt="Example"
                   />
                 </div>
@@ -92,7 +92,9 @@ const ProductDetails = () => {
                 <h3>Discount Price: {price - discount} Taka</h3>
               </div>
               {stockAvailable === "true" && (
+                
                 <div className="displayContent_action">
+                  
                   <Counter id={_id}></Counter>
                   <Link to="/checkout">
                     <Button>

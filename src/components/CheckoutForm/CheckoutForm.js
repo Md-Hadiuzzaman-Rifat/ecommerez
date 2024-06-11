@@ -33,19 +33,20 @@ const CheckoutForm = ({data, products ,keys}) => {
 
   // traverse the function
   let orderedProduct=Object.entries(products)
-  // console.log(orderedProduct, data);
+ 
 
   function getData(orders, products) {
+    
     let newArray = [];
-    for (let i = 0; i < orders.length; i++) {
-      for (let j = 0; j < products.length; j++) {
+    for (let i = 0; i < orders?.length; i++) {
+      for (let j = 0; j < products?.length; j++) {
         
-        if (orders[i][0] === products[i]._id) {
+        if (orders[i][0] === products[i]?._id) {
           newArray.push({
             ...products[i],
             amount: orders[i][1],
           });
-        } else if (orders[i][0] === products[j]._id) {
+        } else if (orders[i][0] === products[j]?._id) {
           newArray.push({
             ...products[j],
             amount: orders[i][1],
@@ -73,7 +74,7 @@ const CheckoutForm = ({data, products ,keys}) => {
   let total=0
   let payableTotal=(arr)=>{
     for(let i=0; i<arr.length; i++){
-      total= total+(arr[i].amount*arr[i].description.price - arr[i].amount*arr[i].description.discount)
+      total= total+(arr[i]?.amount*arr[i]?.description?.price - arr[i]?.amount*arr[i]?.description?.discount)
     }
     return total
   }
@@ -98,7 +99,6 @@ const CheckoutForm = ({data, products ,keys}) => {
       payable
     }
     navigate('/payment',{state:{product}})
-
   }
 
   return (

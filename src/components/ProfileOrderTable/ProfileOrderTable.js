@@ -26,7 +26,7 @@ const ProfileOrderTable = ({ item, total }) => {
       <td>{name}</td>
       <td>{_id}</td>
       <td>
-        <img src={`http://localhost:25000/images/${images?.[0]?.filename}`} alt="" />
+        <img src={`http://localhost:5000/images/${images?.[0]?.filename}`} alt="" />
       </td>
       <td>{price-discount}</td>
       <td>{item?.amount}</td>

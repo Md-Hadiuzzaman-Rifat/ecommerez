@@ -9,7 +9,7 @@ const Profile = () => {
     const [data, setData]= useState([])
 
     useEffect(()=>{
-      fetch(`http://localhost:25000/myOrders?email=${email}`,{
+      fetch(`http://localhost:5000/myOrders?email=${email}`,{
         headers:{
           "authorization":`Bearer ${localStorage.getItem('idToken')}`
         }

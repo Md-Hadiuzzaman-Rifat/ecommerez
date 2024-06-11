@@ -38,7 +38,7 @@ const CheckoutPage = () => {
         </div>
         }
         {isLoading && "Loading..."}
-        {!isLoading && (
+        {!isLoading && data && (
               <div>
                 <CheckoutItem data={data}></CheckoutItem>
               </div>

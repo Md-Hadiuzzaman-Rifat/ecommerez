@@ -11,9 +11,9 @@ const Practice = ({product}) => {
   if (name?.length > 15) {
     name = name.substring(0, 12) + "...";
   }
-  const firstImage= `http://localhost:25000/images/${images[0]?.filename}`
+  const firstImage= `http://localhost:5000/images/${images[0]?.filename}`
 
-  const secondImage= images?.length > 0 ? `http://localhost:25000/images/${images[1]?.filename}`: `http://localhost:25000/images/${images[0]?.filename}`
+  const secondImage= images?.length > 0 ? `http://localhost:5000/images/${images[1]?.filename}`: `http://localhost:5000/images/${images[0]?.filename}`
 
   return (
     <div className="Practice">

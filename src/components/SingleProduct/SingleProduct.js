@@ -25,7 +25,7 @@ const SingleProduct = ({item}) => {
           stockAvailable === "false" &&  <div className="product_stock">STOCK OUT</div>
         }
         <img 
-        src={`http://localhost:25000/Images/${images[0]?.filename}`}
+        src={`http://localhost:5000/Images/${images[0]?.filename}`}
         alt="" />
         </div>
       

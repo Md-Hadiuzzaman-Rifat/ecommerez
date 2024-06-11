@@ -22,7 +22,7 @@ const ImageSlider = ({ slides }) => {
   };
 
   const slideStylesWidthBackground = {
-    backgroundImage: `url(http://localhost:25000/Images/${slides[0]?.images[0].filename})`,
+    backgroundImage: `url(http://localhost:5000/Images/${slides[0]?.images[0].filename})`,
   };
 
   const handleControl = (id) => {

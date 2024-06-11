@@ -6,7 +6,7 @@ const Slider = () => {
 
     const [products, setProducts]= useState([])
     useEffect(()=>{
-        fetch(`http://localhost:25000/featuredProduct`)
+        fetch(`http://localhost:5000/featuredProduct`)
           .then(res=>res.json())
           .then(data=>setProducts(data))
       },[])

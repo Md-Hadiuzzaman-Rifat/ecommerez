@@ -75,7 +75,7 @@ async function googleSignIn(){
   }
 
   const saveUser=(user)=>{
-    fetch("http://localhost:25000/addUser",{
+    fetch("http://localhost:5000/addUser",{
       method:"POST",
       headers:{
         "content-type":"application/json"
