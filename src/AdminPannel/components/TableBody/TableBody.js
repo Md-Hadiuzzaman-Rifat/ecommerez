@@ -66,8 +66,8 @@ const TableBody = ({data}) => {
       <td>{category}</td>
       <td>{price} Tk</td>
       <td>{discount} Tk</td>
-      <td>{rating} Tk</td>
-      <td>{stockAvailable} Tk</td>
+      {/* <td>{rating} Tk</td> */}
+      <td>{stockAvailable}</td>
       <td>
         <img
           className="table-img"
