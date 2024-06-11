@@ -1,4 +1,5 @@
-import React, { useEffect } from "react";
+/* eslint-disable no-restricted-globals */
+import React, { useEffect, useState } from "react";
 import { ImBin } from "react-icons/im";
 import { FiEdit } from "react-icons/fi";
 import "./TableBody.scss"
@@ -8,6 +9,7 @@ import { useDeleteProductMutation } from "../../../features/product/productApi";
 const TableBody = ({data}) => {
   let {name, category, discount, rating, stockAvailable,  featured, price}= data?.description || {}
   const {_id, images}=data || {}
+
 
   // const [deleteProduct, {isLoading, isSuccess:deleteSuccess}]= useDeleteProductMutation()
 
@@ -43,6 +45,7 @@ const TableBody = ({data}) => {
   const handleDelete = async(id) => {
     Promise.all([editGarbage(id), deleteGarbage(id)])
     .then(res=>console.log(res))
+    .then(()=>alert('Alert For your User!') ? "" : location.reload()  )
   };
 
   if(name?.length>50){
@@ -58,6 +61,7 @@ const TableBody = ({data}) => {
     <tr style={{
       background: featured ? '#dfd8ff' : ''
     }} className="tableBody">
+
       <td>{name}</td>
       <td>{category}</td>
       <td>{price} Tk</td>

@@ -1,3 +1,4 @@
+/* eslint-disable no-restricted-globals */
 import React, { useEffect, useState } from 'react';
 import "./Garbage.scss"
 
@@ -15,6 +16,7 @@ const Garbage = () => {
         fetch(`http://localhost:5000/deleteGarbage/${id}`,{
             method:'DELETE'
         })
+        .then(()=>alert('Alert For your User!') ? "" : location.reload()  )
     }
 
     return (

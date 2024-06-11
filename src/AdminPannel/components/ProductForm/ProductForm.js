@@ -175,7 +175,7 @@ const ProductForm = () => {
         />
         <label htmlFor="product-price">Product Price:</label>
         <input
-          onChange={(e) => setPrice(e.target.value)}
+          onChange={(e) => setPrice(Math.round(e.target.value))}
           type="number"
           id="product-price"
           name="product-price"
@@ -188,7 +188,7 @@ const ProductForm = () => {
           Discount: <span>(Discount Price in Taka... Not In Percent)</span>{" "}
         </label>
         <input
-          onChange={(e) => setDiscount(e.target.value)}
+          onChange={(e) => setDiscount(Math.round(e.target.value))}
           type="number"
           id="discount"
           name="discount"
