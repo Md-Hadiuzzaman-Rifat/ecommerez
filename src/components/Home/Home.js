@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from "react";
+import React, { useEffect,  } from "react";
 import Banner from "../Banner/Banner";
 import Footer from "../Footer/Footer";
 import Showcase from "../Showcase/Showcase";
@@ -8,7 +8,7 @@ import HotSales from "../HotSales/HotSales";
 import DiscountSell from "../Discount/DiscountSell";
 import ProductLayout from "../ProductLayout/ProductLayout";
 import { useAuth } from "../../context/AuthContext";
-import { useState, CSSProperties } from "react";
+import { useState } from "react";
 import "./Home.scss";
 import Blogs from "../Blogs/Blogs";
 import Slider from "../ImageSlider/Slider";

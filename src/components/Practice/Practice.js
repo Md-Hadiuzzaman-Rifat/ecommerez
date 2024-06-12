@@ -13,7 +13,8 @@ const Practice = ({product}) => {
   }
   const firstImage= `https://backend.thespectacle23.com/images/${images[0]?.filename}`
 
-  const secondImage= images?.length > 0 ? `https://backend.thespectacle23.com/images/${images[1]?.filename}`: `https://backend.thespectacle23.com/images/${images[0]?.filename}`
+  const secondImage= images?.length > 1 ? `https://backend.thespectacle23.com/images/${images[1]?.filename}`: `https://backend.thespectacle23.com/images/${images[0]?.filename}`
+
 
   return (
     <div className="Practice">

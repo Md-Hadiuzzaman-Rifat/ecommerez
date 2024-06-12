@@ -13,7 +13,7 @@ function BrandName() {
   return (
     <div className="Brand">
       <div className="title">
-        <h2 style={{color:"gray", fontWeight:"400"}}>OUR OFFICIAL PARTNER</h2>
+        <h2 style={{color:"gray", fontWeight:"700"}}>OUR OFFICIAL PARTNER</h2>
       </div>
       <div className='bg-gray'>
         <Marquee direction="right" speed={100} delay={1}>

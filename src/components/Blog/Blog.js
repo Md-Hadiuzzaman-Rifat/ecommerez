@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 
 const Blog = ({item}) => {
     const {image, paragraph, heading, _id}= item
-    console.log(image);
+  
     return (
         <div className='Blog'>
             <div className='blog-image'>
