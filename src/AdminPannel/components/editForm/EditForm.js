@@ -55,6 +55,7 @@ const EditForm = ({ data }) => {
     tags,
     featured,
     price,
+    video,
     discount,
     gender,
     rating,
