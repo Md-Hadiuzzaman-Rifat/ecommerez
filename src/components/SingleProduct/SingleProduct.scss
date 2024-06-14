@@ -47,12 +47,20 @@
     margin-top: -15px;
     margin-bottom: -15px;
     font-weight: 500;
+    text-decoration: line-through;
+    font-size: 17px;
+    @include md{
+      font-size: 14px;
+    }
   }
   .product_description {
     padding: 0 10px;
     .product_name{
       font-weight: 700;
       margin: 15px 0;
+      @include md {
+        font-size: 1.16rem;
+      }
     }
     h3 {
       color: gray;
@@ -74,6 +82,11 @@
       border: none;
       padding: 8px 15px;
       font-size: 1rem;
+      @include md {
+        padding: 6px 16px;
+        border-radius: 3px;
+        font-size: 0.9rem;
+      }
     }
   }
   .product_price {
@@ -81,6 +94,10 @@
     font-style: italic;
     font-weight: 600;
     font-size: 1rem;
+    @include md{
+      font-size: 0.8rem;
+      margin-top: 1rem;
+ }
     span{
       color: gray;
       font-family: "Rajdhani", sans-serif;

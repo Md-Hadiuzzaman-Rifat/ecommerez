@@ -31,7 +31,7 @@ const SingleProduct = ({item}) => {
       
       <div className="product_description">
         <h3 className="product_name">{name}</h3>
-        <p className="product_regular" style={{textDecoration:"line-through"}}>Regular Price: {price} ৳ </p>
+        <p className="product_regular">Regular Price: {price} ৳ </p>
         
         <p className="product_price"> <span>Offer Price :  </span>  {Math.floor((price-discount))} Taka</p>
       </div>

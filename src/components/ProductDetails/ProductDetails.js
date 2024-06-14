@@ -88,7 +88,7 @@ const ProductDetails = () => {
             <div className="display_content">
               <div className="display_content_top">
                 <h2>{name}</h2>
-                <span >REGULAR PRICE: {price} Taka</span>
+                <span>REGULAR PRICE: {price} Taka</span>
                 <h3>Discount Price: {price - discount} Taka</h3>
               </div>
               {stockAvailable === "true" && (
