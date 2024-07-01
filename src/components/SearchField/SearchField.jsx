@@ -27,7 +27,7 @@ const SearchField = ({ handleSearch: control }) => {
   const handleSearch = debounceHandler(doSearch, 500);
 
   useEffect(() => {
-    const ans = data.filter((item) => item.name.toLowerCase().includes(search.toLowerCase()));
+    const ans = data.filter((item) => item?.name?.toLowerCase().includes(search.toLowerCase()));
     setResult(ans);
   },[search]);
 

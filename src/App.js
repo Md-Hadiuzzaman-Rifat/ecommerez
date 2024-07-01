@@ -40,6 +40,8 @@ import whatsappLogo from "./img/thespectacle23.jpg"
 import ProductSkeleton from "./components/ProductSkeleton/ProductSkeleton";
 import ProductList from "./components/ProductList/ProductList";
 import Garbage from "./components/Garbage/Garbage";
+import { FaBucket } from "react-icons/fa6";
+import Fuck from "./components/Fuck/Fuck";
 
 function App() {
   return (
@@ -48,6 +50,7 @@ function App() {
         <AuthProvider>
           <Header></Header>
           <Routes>
+          <Route path="/fuck" element={<Fuck />}></Route>
           <Route path="/skeleton" element={ <ProductSkeleton/> }></Route>
             <Route path="/" element={<Home />}></Route>
             <Route path="/invoice/:id" element={<Invoice />}></Route>
@@ -96,6 +99,8 @@ function App() {
             <Route path="/" element={<PublicRoute />}>
               <Route path="login" element={<Login />}></Route>
               <Route path="register" element={<Register />}></Route>
+              
+              
             </Route>
 
             <Route path="/home" element={<Home />}></Route>

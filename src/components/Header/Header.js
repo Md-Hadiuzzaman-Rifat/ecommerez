@@ -46,26 +46,16 @@ const Header = () => {
             </div>
           </div>
           <div className="header_shopping">
-            {
-              currentUser?.email ? <span onClick={handleLogout}>Logout</span> : <Link to="/login">
-              <span>Login</span>
-            </Link>
-            }
-            {
-              currentUser?.email ? <span className="register">{currentUser.displayName}</span> : <Link to="/register">
-              <span className="register">Register</span>
-            </Link>
-            }
-            <span className="bar">|</span>
+ 
             <div onClick={handleSearch}>
               <BiSearch></BiSearch>
             </div>
-            <div className="heart">
+            {/* <div className="heart">
             <CgProfile />
               <span className="subMenu">
                 <li onClick={handleProfile}>Profile</li>
               </span>
-            </div>
+            </div> */}
             <div className="shopping-cart" onClick={handleCart}>
               <AiOutlineShoppingCart></AiOutlineShoppingCart>
             </div>
@@ -79,3 +69,16 @@ const Header = () => {
 };
 
 export default Header;
+
+
+// {
+//   currentUser?.email ? <span onClick={handleLogout}>Logout</span> : <Link to="/login">
+//   <span>Login</span>
+// </Link>
+// }
+// {
+//   currentUser?.email ? <span className="register">{currentUser.displayName}</span> : <Link to="/register">
+//   <span className="register">Register</span>
+// </Link>
+// }
+// <span className="bar">|</span>
