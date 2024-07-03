@@ -103,46 +103,41 @@ const CheckoutForm = ({data, products ,keys}) => {
 
   return (
     <div className="checkoutForm">
-
-      {
-        currentUser?.email && (
           <form className="container" onSubmit={handleSubmit}>
         <div className="input-row">
-          <label htmlFor="fname">First Name</label>
+          <label htmlFor="fname">First Name <span style={{color:"red"}}>*</span> </label>
           <input type="text" id="fname" onChange={e=>setFirstName(e.target.value)} name="fname" required />
         </div>
         <div className="input-row">
           <label htmlFor="lname">Last Name</label>
-          <input type="text" id="lname" onChange={e=>setLastName(e.target.value)} name="lname" required />
+          <input type="text" id="lname" onChange={e=>setLastName(e.target.value)} name="lname" />
         </div>
         <div className="input-row">
           <label htmlFor="email">Email</label>
-          <input type="email" id="email" defaultValue={email}  name="email" required />
+          <input type="email" id="email" defaultValue={email}  name="email" />
         </div>
         <div className="input-row">
-          <label htmlFor="Phone">Phone</label>
-          <input type="text" id="phone" onChange={e=>setPhone(e.target.value)} name="phone" required />
+          <label htmlFor="Phone">Phone <span style={{color:"red"}}>*</span> </label>
+          <input required type="text" id="phone" onChange={e=>setPhone(e.target.value)} name="phone" />
         </div>
         <div className="input-row">
-          <label htmlFor="address">Address</label>
+          <label htmlFor="address">Address <span style={{color:"red"}}>* </span> </label>
           <input type="text" id="address" onChange={e=>setAddress(e.target.value)} name="address" required />
         </div>
         <div className="input-row">
           <label htmlFor="city">City</label>
-          <input type="text" id="city" name="city" onChange={e=>setCity(e.target.value)} required />
+          <input type="text" id="city" name="city" onChange={e=>setCity(e.target.value)}  />
         </div>
         <div className="input-row">
           <label htmlFor="zip">Zip Code</label>
-          <input type="text" id="zip" name="zip" onChange={e=>setZip(e.target.value)} required />
+          <input type="text" id="zip" name="zip" onChange={e=>setZip(e.target.value)}  />
         </div>
         <div className="input-row">
           <label htmlFor="country">Country</label>
-          <input type="text" id="country" name="country" onChange={e=>setCountry(e.target.value)} required />
+          <input type="text" id="country" name="country" onChange={e=>setCountry(e.target.value)}  />
         </div>
         <button type="submit">Confirm Order</button>
       </form>
-        )
-      }
     </div>
   );
 };

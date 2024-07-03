@@ -66,6 +66,10 @@
     .header_shopping {
       display: flex;
       flex-direction: row;
+      margin-right: 40px;
+      @include md{
+        margin: 0;
+      }
       span{
         color: black;
         font-weight: bold;

@@ -33,7 +33,7 @@ const CheckoutPage = () => {
           <div className="container">
         {
           !isLoading && <div className="checkoutCart">
-          <h1>Checkout</h1>
+          <h1>Checkout <span style={{color:"red", fontWeight:"500", fontSize:"12px"}} >(*) ষ্টার দেয়া অংশ গুলো অবশ্যই পুরোন করা লাগবে </span></h1> 
           <CheckoutForm keys={keys} products={findProducts} data={data}></CheckoutForm>
         </div>
         }

@@ -76,7 +76,6 @@ const ProductDetails = () => {
                     ))}
                 </div>
                 <div className="main-image">
-                  {/* <img src={mainImage} alt="" /> */}
                   <SideBySideMagnifier
                     alwaysInPlace={true}
                     imageSrc={`https://backend.thespectacle23.com/images/${mainImage?.filename}`}

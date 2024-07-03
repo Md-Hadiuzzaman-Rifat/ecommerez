@@ -136,9 +136,7 @@ function App() {
             <Route
               path="/checkout"
               element={
-                <PrivateRoute>
                   <CheckoutPage />
-                </PrivateRoute>
               }
             ></Route>
             <Route

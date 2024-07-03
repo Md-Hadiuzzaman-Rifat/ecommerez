@@ -43,7 +43,7 @@ const Cart = () => {
               <div className="cart_close"> 
                 <div onClick={handleCart}>
                   <RxCross1 />
-                  <p>close</p>
+                  <p>CLOSE</p>
                 </div>
               </div>
             </div>
